@@ -12,8 +12,12 @@ Public Class CrearUsuarios
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         'valida solo numeros 
-        If (Regex.IsMatch(Me.txtTelefono.Text, "^[0-9]+$")) Then
+        If (Not IsNumeric(Me.txtTelefono.Text)) Then
             MsgBox("El telefono contiene letras", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+        If (Me.txtTelefono.Text.Length <> 10) Then
+            MsgBox("EL numero de telefono tiene mas o menos de 10 dígitos", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
         End If
         If (Me.txtPassword.Text <> Me.txtConfPass.Text) Then
