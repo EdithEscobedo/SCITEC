@@ -1,4 +1,6 @@
-﻿Public Class CrearUsuarios
+﻿Imports System.Text.RegularExpressions
+
+Public Class CrearUsuarios
     Private tipo_usuario As TipoUsuario = New TipoUsuario()
     Private usuario As Usuario = New Usuario()
 
@@ -9,6 +11,11 @@
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        'valida solo numeros 
+        If (Regex.IsMatch(Me.txtTelefono.Text, "^[0-9]+$")) Then
+            MsgBox("El telefono contiene letras", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
         If (Me.txtPassword.Text <> Me.txtConfPass.Text) Then
             MsgBox("No coinciden las contraseñas", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
