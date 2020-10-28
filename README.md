@@ -1,2 +1,2 @@
 # SCITEC
-##Miembros del equipo
+## Miembros del equipo
