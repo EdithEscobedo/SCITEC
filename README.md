@@ -1,5 +1,5 @@
 # SCITEC
 ## Miembros del equipo
-- Edith Escobedo
+- Edith Escobedo Aguirre
 - Miguel Angel Marin
 
