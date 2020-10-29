@@ -2,5 +2,5 @@
 ## Miembros del equipo
 - Edith Escobedo Aguirre
 - Miguel Angel Marin Encina
-- Héctor Melélendez
+- Héctor Meléndez
 - Juan  Manuel
