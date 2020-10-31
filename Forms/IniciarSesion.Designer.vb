@@ -38,7 +38,7 @@ Partial Class IniciarSesion
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(162, 28)
+        Me.Label1.Location = New System.Drawing.Point(175, 30)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(259, 39)
         Me.Label1.TabIndex = 100
@@ -48,7 +48,7 @@ Partial Class IniciarSesion
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(238, 96)
+        Me.Label2.Location = New System.Drawing.Point(241, 93)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(102, 25)
         Me.Label2.TabIndex = 101
@@ -56,7 +56,7 @@ Partial Class IniciarSesion
         '
         'txtUser
         '
-        Me.txtUser.Location = New System.Drawing.Point(169, 142)
+        Me.txtUser.Location = New System.Drawing.Point(172, 139)
         Me.txtUser.Multiline = True
         Me.txtUser.Name = "txtUser"
         Me.txtUser.Size = New System.Drawing.Size(252, 34)
@@ -66,7 +66,7 @@ Partial Class IniciarSesion
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(238, 204)
+        Me.Label3.Location = New System.Drawing.Point(241, 201)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(98, 25)
         Me.Label3.TabIndex = 102
@@ -74,7 +74,7 @@ Partial Class IniciarSesion
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(169, 253)
+        Me.txtPassword.Location = New System.Drawing.Point(172, 250)
         Me.txtPassword.Multiline = True
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(252, 34)
@@ -93,7 +93,7 @@ Partial Class IniciarSesion
         '
         Me.imgPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.imgPassword.Image = Global.SCITEC.My.Resources.Resources.Password
-        Me.imgPassword.Location = New System.Drawing.Point(90, 233)
+        Me.imgPassword.Location = New System.Drawing.Point(93, 230)
         Me.imgPassword.Name = "imgPassword"
         Me.imgPassword.Size = New System.Drawing.Size(64, 68)
         Me.imgPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -103,7 +103,7 @@ Partial Class IniciarSesion
         'imgUser
         '
         Me.imgUser.Image = Global.SCITEC.My.Resources.Resources.User
-        Me.imgUser.Location = New System.Drawing.Point(90, 123)
+        Me.imgUser.Location = New System.Drawing.Point(93, 120)
         Me.imgUser.Name = "imgUser"
         Me.imgUser.Size = New System.Drawing.Size(64, 68)
         Me.imgUser.TabIndex = 5
