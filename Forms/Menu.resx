@@ -117,41 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Password" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\agregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Usuario1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Proveedores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Proveedores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Productos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Productos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Compras" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Compras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="agregarUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\agregarUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Producto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Usuario2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Button5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        xl9DQ/8ApY5E7VKkEb0AAAAASUVORK5CYII=
+</value>
   </data>
 </root>
