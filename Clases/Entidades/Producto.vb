@@ -111,4 +111,11 @@
 
         Return database.Buscar({Tabla}, columnas, {})
     End Function
+    Public Function BuscarProductosByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
+        Dim database As BaseDatos = New BaseDatos()
+        Dim columnas As String() = {Tabla & ".idProductos", Tabla & ".nombreProducto", Tabla & ".cantidadProducto", Tabla & ".id_catP",
+                                    Tabla & ".id_unidM"}
+
+        Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
+    End Function
 End Class

@@ -22,7 +22,6 @@ Partial Class Productos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -36,28 +35,15 @@ Partial Class Productos
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.DataProductos = New System.Windows.Forms.DataGridView()
+        CType(Me.DataProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 5
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.71345!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.28655!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81.0!))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(28, 30)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.777778!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.22222!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(662, 450)
-        Me.TableLayoutPanel1.TabIndex = 0
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(711, 105)
+        Me.Label1.Location = New System.Drawing.Point(723, 129)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 1
@@ -65,8 +51,9 @@ Partial Class Productos
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(711, 53)
+        Me.Label2.Location = New System.Drawing.Point(723, 77)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 13)
         Me.Label2.TabIndex = 1
@@ -74,8 +61,9 @@ Partial Class Productos
         '
         'Label3
         '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(711, 156)
+        Me.Label3.Location = New System.Drawing.Point(723, 180)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 1
@@ -83,8 +71,9 @@ Partial Class Productos
         '
         'Label4
         '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(711, 201)
+        Me.Label4.Location = New System.Drawing.Point(723, 225)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 13)
         Me.Label4.TabIndex = 1
@@ -92,8 +81,9 @@ Partial Class Productos
         '
         'Label5
         '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(711, 250)
+        Me.Label5.Location = New System.Drawing.Point(723, 274)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(24, 13)
         Me.Label5.TabIndex = 1
@@ -101,42 +91,48 @@ Partial Class Productos
         '
         'txtId
         '
-        Me.txtId.Location = New System.Drawing.Point(782, 53)
+        Me.txtId.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.txtId.Location = New System.Drawing.Point(794, 77)
         Me.txtId.Name = "txtId"
         Me.txtId.Size = New System.Drawing.Size(100, 20)
         Me.txtId.TabIndex = 2
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(782, 102)
+        Me.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.txtNombre.Location = New System.Drawing.Point(794, 126)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(100, 20)
         Me.txtNombre.TabIndex = 2
         '
         'txtCateg
         '
-        Me.txtCateg.Location = New System.Drawing.Point(782, 153)
+        Me.txtCateg.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.txtCateg.Location = New System.Drawing.Point(794, 177)
         Me.txtCateg.Name = "txtCateg"
         Me.txtCateg.Size = New System.Drawing.Size(100, 20)
         Me.txtCateg.TabIndex = 2
         '
         'txtCant
         '
-        Me.txtCant.Location = New System.Drawing.Point(782, 198)
+        Me.txtCant.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.txtCant.Location = New System.Drawing.Point(794, 222)
         Me.txtCant.Name = "txtCant"
         Me.txtCant.Size = New System.Drawing.Size(100, 20)
         Me.txtCant.TabIndex = 2
         '
         'txtUM
         '
-        Me.txtUM.Location = New System.Drawing.Point(782, 247)
+        Me.txtUM.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.txtUM.Location = New System.Drawing.Point(794, 271)
         Me.txtUM.Name = "txtUM"
         Me.txtUM.Size = New System.Drawing.Size(100, 20)
         Me.txtUM.TabIndex = 2
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(819, 338)
+        Me.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnAgregar.Location = New System.Drawing.Point(819, 354)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
         Me.btnAgregar.TabIndex = 3
@@ -145,7 +141,8 @@ Partial Class Productos
         '
         'btnEditar
         '
-        Me.btnEditar.Location = New System.Drawing.Point(711, 338)
+        Me.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnEditar.Location = New System.Drawing.Point(714, 354)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(75, 23)
         Me.btnEditar.TabIndex = 3
@@ -154,18 +151,31 @@ Partial Class Productos
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(711, 414)
+        Me.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnEliminar.Location = New System.Drawing.Point(764, 424)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
+        'DataProductos
+        '
+        Me.DataProductos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataProductos.Location = New System.Drawing.Point(22, 39)
+        Me.DataProductos.Name = "DataProductos"
+        Me.DataProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataProductos.Size = New System.Drawing.Size(674, 429)
+        Me.DataProductos.TabIndex = 4
+        '
         'Productos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(920, 506)
+        Me.Controls.Add(Me.DataProductos)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.btnAgregar)
@@ -179,15 +189,13 @@ Partial Class Productos
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "Productos"
         Me.Text = "Productos"
+        CType(Me.DataProductos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -201,4 +209,5 @@ Partial Class Productos
     Friend WithEvents btnAgregar As Button
     Friend WithEvents btnEditar As Button
     Friend WithEvents btnEliminar As Button
+    Friend WithEvents DataProductos As DataGridView
 End Class
