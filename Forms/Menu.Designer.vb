@@ -96,6 +96,7 @@ Partial Class Menu
         '
         'Button3
         '
+        Me.Button3.Image = Global.SCITEC.My.Resources.Resources.Compras
         Me.Button3.Location = New System.Drawing.Point(713, 62)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(160, 160)
@@ -104,14 +105,17 @@ Partial Class Menu
         '
         'Button4
         '
+        Me.Button4.BackColor = System.Drawing.SystemColors.Control
+        Me.Button4.Image = Global.SCITEC.My.Resources.Resources.Proveedores
         Me.Button4.Location = New System.Drawing.Point(255, 276)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(160, 160)
         Me.Button4.TabIndex = 0
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button2
         '
+        Me.Button2.Image = Global.SCITEC.My.Resources.Resources.Reportes
         Me.Button2.Location = New System.Drawing.Point(407, 62)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(160, 160)
@@ -120,6 +124,7 @@ Partial Class Menu
         '
         'Button1
         '
+        Me.Button1.Image = Global.SCITEC.My.Resources.Resources.Producto
         Me.Button1.Location = New System.Drawing.Point(102, 62)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(160, 160)
