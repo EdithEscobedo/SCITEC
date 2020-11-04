@@ -58,7 +58,7 @@
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idProductos", "nombreProducto", "cantidadProducto", "id_catP", "id_unidM"}
         Dim valores As String() = {"'" & Me.idProductos & "'", "'" & Me.nombreProducto & "'", "'" & Me.cantidadProducto & "'",
-                                   "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'", "'"}
+                                   "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
@@ -66,7 +66,7 @@
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idProductos", "nombreProducto", "cantidadProducto", "id_catP", "id_unidM"}
         Dim valores As String() = {"'" & Me.idProductos & "'", "'" & Me.nombreProducto & "'", "'" & Me.cantidadProducto & "'",
-                                   "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'", "'"}
+                                   "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'"}
         Dim condiciones As String() = {"idProductos=" & "'" & Me.idProductos & "'"}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
@@ -117,5 +117,18 @@
                                     Tabla & ".id_unidM"}
 
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
+    End Function
+    Public Function BuscarUltimoId() As Integer
+        Dim database As BaseDatos = New BaseDatos()
+        Dim columnas As String() = {"Max(idProductos) AS idProductos"}
+
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, {})
+        If result.Rows.Count = 1 And Not IsDBNull(result.Rows(0)("idProductos")) Then
+            Return CInt(result.Rows(0)("idProductos"))
+        Else
+            Return 0
+        End If
     End Function
 End Class

@@ -78,7 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\BaseDatos.vb" />
+    <Compile Include="Clases\Entidades\CategoriaProducto.vb" />
     <Compile Include="Clases\Entidades\TipoUsuario.vb" />
+    <Compile Include="Clases\Entidades\UnidadMedida.vb" />
     <Compile Include="Clases\Entidades\Usuario.vb" />
     <Compile Include="Clases\Entidades\Producto.vb" />
     <Compile Include="Forms\CrearUsuarios.vb">
