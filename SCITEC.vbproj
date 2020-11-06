@@ -90,6 +90,12 @@
       <DependentUpon>CrearUsuarios.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Compras.Designer.vb">
+      <DependentUpon>Compras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Menu.Designer.vb">
       <DependentUpon>Menu.vb</DependentUpon>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\Compras.resx">
+      <DependentUpon>Compras.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CrearUsuarios.resx">
       <DependentUpon>CrearUsuarios.vb</DependentUpon>
     </EmbeddedResource>
