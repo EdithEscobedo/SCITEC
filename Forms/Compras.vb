@@ -1,5 +1,5 @@
 ﻿Public Class Compras
-    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
+    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs)
 
     End Sub
 End Class

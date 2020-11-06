@@ -28,12 +28,10 @@ Partial Class Compras
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.cbProducto = New System.Windows.Forms.ComboBox()
+        Me.txtFolio = New System.Windows.Forms.TextBox()
+        Me.txtNomUsuario = New System.Windows.Forms.TextBox()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -41,6 +39,8 @@ Partial Class Compras
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.dateFechaCompra = New System.Windows.Forms.DateTimePicker()
+        Me.cbProveedor = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,7 +56,7 @@ Partial Class Compras
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(32, 68)
+        Me.Label2.Location = New System.Drawing.Point(18, 71)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(99, 13)
         Me.Label2.TabIndex = 1
@@ -65,7 +65,7 @@ Partial Class Compras
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(32, 111)
+        Me.Label3.Location = New System.Drawing.Point(64, 116)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
@@ -74,7 +74,7 @@ Partial Class Compras
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(343, 30)
+        Me.Label4.Location = New System.Drawing.Point(383, 34)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 13)
         Me.Label4.TabIndex = 3
@@ -83,7 +83,7 @@ Partial Class Compras
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(343, 68)
+        Me.Label5.Location = New System.Drawing.Point(417, 75)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 4
@@ -92,54 +92,40 @@ Partial Class Compras
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(343, 111)
+        Me.Label6.Location = New System.Drawing.Point(424, 118)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Cantidad:"
         '
-        'ComboBox1
+        'cbProducto
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(103, 108)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(166, 21)
-        Me.ComboBox1.TabIndex = 6
+        Me.cbProducto.FormattingEnabled = True
+        Me.cbProducto.Location = New System.Drawing.Point(144, 108)
+        Me.cbProducto.Name = "cbProducto"
+        Me.cbProducto.Size = New System.Drawing.Size(166, 21)
+        Me.cbProducto.TabIndex = 6
         '
-        'TextBox1
+        'txtFolio
         '
-        Me.TextBox1.Location = New System.Drawing.Point(124, 27)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(145, 20)
-        Me.TextBox1.TabIndex = 7
+        Me.txtFolio.Location = New System.Drawing.Point(144, 27)
+        Me.txtFolio.Name = "txtFolio"
+        Me.txtFolio.Size = New System.Drawing.Size(166, 20)
+        Me.txtFolio.TabIndex = 7
         '
-        'TextBox2
+        'txtNomUsuario
         '
-        Me.TextBox2.Location = New System.Drawing.Point(137, 65)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(161, 20)
-        Me.TextBox2.TabIndex = 8
+        Me.txtNomUsuario.Location = New System.Drawing.Point(144, 65)
+        Me.txtNomUsuario.Name = "txtNomUsuario"
+        Me.txtNomUsuario.Size = New System.Drawing.Size(166, 20)
+        Me.txtNomUsuario.TabIndex = 8
         '
-        'TextBox3
+        'txtCantidad
         '
-        Me.TextBox3.Location = New System.Drawing.Point(442, 27)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(198, 20)
-        Me.TextBox3.TabIndex = 9
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(408, 65)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(198, 20)
-        Me.TextBox4.TabIndex = 10
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(401, 104)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(198, 20)
-        Me.TextBox5.TabIndex = 11
+        Me.txtCantidad.Location = New System.Drawing.Point(500, 111)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(198, 20)
+        Me.txtCantidad.TabIndex = 11
         '
         'Button1
         '
@@ -203,11 +189,28 @@ Partial Class Compras
         Me.Button6.Text = "Eliminar"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'dateFechaCompra
+        '
+        Me.dateFechaCompra.Location = New System.Drawing.Point(500, 28)
+        Me.dateFechaCompra.Name = "dateFechaCompra"
+        Me.dateFechaCompra.Size = New System.Drawing.Size(198, 20)
+        Me.dateFechaCompra.TabIndex = 19
+        '
+        'cbProveedor
+        '
+        Me.cbProveedor.FormattingEnabled = True
+        Me.cbProveedor.Location = New System.Drawing.Point(500, 68)
+        Me.cbProveedor.Name = "cbProveedor"
+        Me.cbProveedor.Size = New System.Drawing.Size(198, 21)
+        Me.cbProveedor.TabIndex = 20
+        '
         'Compras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.cbProveedor)
+        Me.Controls.Add(Me.dateFechaCompra)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -215,12 +218,10 @@ Partial Class Compras
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.txtCantidad)
+        Me.Controls.Add(Me.txtNomUsuario)
+        Me.Controls.Add(Me.txtFolio)
+        Me.Controls.Add(Me.cbProducto)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -241,12 +242,10 @@ Partial Class Compras
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents cbProducto As ComboBox
+    Friend WithEvents txtFolio As TextBox
+    Friend WithEvents txtNomUsuario As TextBox
+    Friend WithEvents txtCantidad As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
@@ -254,4 +253,6 @@ Partial Class Compras
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
+    Friend WithEvents dateFechaCompra As DateTimePicker
+    Friend WithEvents cbProveedor As ComboBox
 End Class

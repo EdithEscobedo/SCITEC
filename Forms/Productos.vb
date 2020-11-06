@@ -1,4 +1,6 @@
-﻿Public Class Productos
+﻿Imports System.ComponentModel
+
+Public Class Productos
     Private producto As Producto = New Producto()
     Private categoria As CategoriaProducto = New CategoriaProducto()
     Private unidadMedida As UnidadMedida = New UnidadMedida()
@@ -34,6 +36,7 @@
         'Remover columnas
         Me.DataProductos.Columns.Remove("id_catP")
         Me.DataProductos.Columns.Remove("id_unidM")
+        Me.DataProductos.Sort(Me.DataProductos.Columns("idProductos"), ListSortDirection.Ascending)
         'Ajustar tamaño de celdas
         If Me.DataProductos.Rows.Count > 0 Then
             Dim noColumnas = DataProductos.Columns.Count
@@ -87,5 +90,50 @@
         Me.cbCategoria.Text = ""
         Me.txtCantidad.Text = ""
         Me.cbUnidadM.Text = ""
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Me.producto.SetIdProductos(CInt(Me.txtIdProducto.Text))
+        Me.producto.SetNombreProducto(Me.txtNombre.Text)
+        Me.producto.SetIdCategoriaProducto(Me.cbCategoria.SelectedValue)
+        Me.producto.SetCantidadProducto(CInt(Me.txtCantidad.Text))
+        Me.producto.SetIdUnidadMedida(Me.cbUnidadM.SelectedValue)
+
+        If (Not Me.producto.AgregarProducto()) Then
+            MsgBox("Error al agregar producto", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+        MsgBox("Producto agregado", MsgBoxStyle.Information, "EXITO")
+
+        BuscarProductos()
+    End Sub
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Me.producto.SetIdProductos(CInt(Me.txtIdProducto.Text))
+        Me.producto.SetNombreProducto(Me.txtNombre.Text)
+        Me.producto.SetIdCategoriaProducto(Me.cbCategoria.SelectedValue)
+        Me.producto.SetCantidadProducto(CInt(Me.txtCantidad.Text))
+        Me.producto.SetIdUnidadMedida(Me.cbUnidadM.SelectedValue)
+
+        Dim confirmacion As MsgBoxResult = MsgBox(
+            "El siguiente producto se va a eliminar: " & vbNewLine &
+            "ID: " & Me.producto.GetIdProductos() & vbNewLine &
+            "Nombre: " & Me.producto.GetNombreProducto() & vbNewLine &
+            "Categoria: " & Me.cbCategoria.Text & vbNewLine &
+            "Cantidad: " & Me.producto.GetCantidadProducto() & vbNewLine &
+            "Unidad Medida: " & Me.cbUnidadM.Text & vbNewLine &
+            "Desea continuar?",
+            MsgBoxStyle.OkCancel, "ELIMINAR!")
+        If confirmacion = MsgBoxResult.Cancel Then
+            Exit Sub
+        End If
+
+        If (Not Me.producto.EliminarProducto()) Then
+            MsgBox("Error al Eliminar producto", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+        MsgBox("Producto Eliminado", MsgBoxStyle.Information, "EXITO")
+
+        BuscarProductos()
     End Sub
 End Class
