@@ -2,4 +2,16 @@
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
+        Dim form As Form = New Productos()
+        form.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub btnUsuarios_Click(sender As Object, e As EventArgs) Handles btnUsuarios.Click
+        Dim form As Form = New CrearUsuarios()
+        form.Show()
+        Me.Close()
+    End Sub
 End Class

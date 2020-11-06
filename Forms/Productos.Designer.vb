@@ -210,6 +210,7 @@ Partial Class Productos
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Productos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Productos"
         CType(Me.DataProductos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

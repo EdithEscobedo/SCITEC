@@ -52,4 +52,9 @@ Public Class CrearUsuarios
         Me.txtConfPass.Text = ""
         Me.tipo_usuario.PoblarComboTipoUsuario(Me.cbTipoUsuario)
     End Sub
+
+    Private Sub CrearUsuarios_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim form As Form = New Menu()
+        form.Show()
+    End Sub
 End Class

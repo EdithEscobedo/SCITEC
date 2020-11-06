@@ -245,7 +245,7 @@ Partial Class CrearUsuarios
         Me.Controls.Add(Me.NumeroUsuario)
         Me.Controls.Add(Me.txtNumUsuario)
         Me.Font = New System.Drawing.Font("Microsoft New Tai Lue", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "CrearUsuarios"
         Me.RightToLeftLayout = True

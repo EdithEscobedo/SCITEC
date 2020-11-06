@@ -136,4 +136,8 @@ Public Class Productos
 
         BuscarProductos()
     End Sub
+    Private Sub Productos_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim form As Form = New Menu()
+        form.Show()
+    End Sub
 End Class

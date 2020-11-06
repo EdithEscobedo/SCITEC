@@ -23,144 +23,160 @@ Partial Class Menu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menu))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.productos = New System.Windows.Forms.Label()
+        Me.reportes = New System.Windows.Forms.Label()
+        Me.compras = New System.Windows.Forms.Label()
+        Me.proveedores = New System.Windows.Forms.Label()
+        Me.usuarios = New System.Windows.Forms.Label()
+        Me.btnUsuarios = New System.Windows.Forms.Button()
+        Me.btnCompras = New System.Windows.Forms.Button()
+        Me.btnProveedores = New System.Windows.Forms.Button()
+        Me.btnReportes = New System.Windows.Forms.Button()
+        Me.btnProductos = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Label1
+        'productos
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(136, 236)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(81, 20)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Productos"
+        Me.productos.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.productos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.productos.Location = New System.Drawing.Point(136, 236)
+        Me.productos.Name = "productos"
+        Me.productos.Size = New System.Drawing.Size(81, 20)
+        Me.productos.TabIndex = 500
+        Me.productos.Text = "Productos"
         '
-        'Label2
+        'reportes
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(442, 245)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 20)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Reportes"
+        Me.reportes.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.reportes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.reportes.Location = New System.Drawing.Point(442, 245)
+        Me.reportes.Name = "reportes"
+        Me.reportes.Size = New System.Drawing.Size(75, 20)
+        Me.reportes.TabIndex = 501
+        Me.reportes.Text = "Reportes"
         '
-        'Label3
+        'compras
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(756, 245)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(73, 20)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Compras"
+        Me.compras.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.compras.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.compras.Location = New System.Drawing.Point(756, 245)
+        Me.compras.Name = "compras"
+        Me.compras.Size = New System.Drawing.Size(73, 20)
+        Me.compras.TabIndex = 502
+        Me.compras.Text = "Compras"
         '
-        'Label4
+        'proveedores
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(291, 460)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(98, 20)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "Proveedores"
+        Me.proveedores.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.proveedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.proveedores.Location = New System.Drawing.Point(291, 460)
+        Me.proveedores.Name = "proveedores"
+        Me.proveedores.Size = New System.Drawing.Size(98, 20)
+        Me.proveedores.TabIndex = 503
+        Me.proveedores.Text = "Proveedores"
         '
-        'Label5
+        'usuarios
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(592, 460)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(72, 20)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Usuarios"
+        Me.usuarios.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.usuarios.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.usuarios.Location = New System.Drawing.Point(607, 460)
+        Me.usuarios.Name = "usuarios"
+        Me.usuarios.Size = New System.Drawing.Size(72, 20)
+        Me.usuarios.TabIndex = 504
+        Me.usuarios.Text = "Usuarios"
         '
-        'Button5
+        'btnUsuarios
         '
-        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
-        Me.Button5.Location = New System.Drawing.Point(558, 276)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(160, 160)
-        Me.Button5.TabIndex = 0
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnUsuarios.Image = CType(resources.GetObject("btnUsuarios.Image"), System.Drawing.Image)
+        Me.btnUsuarios.Location = New System.Drawing.Point(558, 276)
+        Me.btnUsuarios.Name = "btnUsuarios"
+        Me.btnUsuarios.Size = New System.Drawing.Size(160, 160)
+        Me.btnUsuarios.TabIndex = 4
+        Me.btnUsuarios.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnCompras
         '
-        Me.Button3.Image = Global.SCITEC.My.Resources.Resources.Compras
-        Me.Button3.Location = New System.Drawing.Point(713, 62)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(160, 160)
-        Me.Button3.TabIndex = 0
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnCompras.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCompras.Image = Global.SCITEC.My.Resources.Resources.Compras
+        Me.btnCompras.Location = New System.Drawing.Point(713, 62)
+        Me.btnCompras.Name = "btnCompras"
+        Me.btnCompras.Size = New System.Drawing.Size(160, 160)
+        Me.btnCompras.TabIndex = 2
+        Me.btnCompras.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnProveedores
         '
-        Me.Button4.BackColor = System.Drawing.SystemColors.Control
-        Me.Button4.Image = Global.SCITEC.My.Resources.Resources.Proveedores
-        Me.Button4.Location = New System.Drawing.Point(255, 276)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(160, 160)
-        Me.Button4.TabIndex = 0
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.btnProveedores.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnProveedores.BackColor = System.Drawing.SystemColors.Control
+        Me.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnProveedores.Image = Global.SCITEC.My.Resources.Resources.Proveedores
+        Me.btnProveedores.Location = New System.Drawing.Point(255, 276)
+        Me.btnProveedores.Name = "btnProveedores"
+        Me.btnProveedores.Size = New System.Drawing.Size(160, 160)
+        Me.btnProveedores.TabIndex = 3
+        Me.btnProveedores.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnReportes
         '
-        Me.Button2.Image = Global.SCITEC.My.Resources.Resources.Reportes
-        Me.Button2.Location = New System.Drawing.Point(407, 62)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(160, 160)
-        Me.Button2.TabIndex = 0
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnReportes.Image = Global.SCITEC.My.Resources.Resources.Reportes
+        Me.btnReportes.Location = New System.Drawing.Point(407, 62)
+        Me.btnReportes.Name = "btnReportes"
+        Me.btnReportes.Size = New System.Drawing.Size(160, 160)
+        Me.btnReportes.TabIndex = 1
+        Me.btnReportes.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnProductos
         '
-        Me.Button1.Image = Global.SCITEC.My.Resources.Resources.Producto
-        Me.Button1.Location = New System.Drawing.Point(102, 62)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(160, 160)
-        Me.Button1.TabIndex = 0
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnProductos.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnProductos.BackgroundImage = Global.SCITEC.My.Resources.Resources.Producto
+        Me.btnProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.btnProductos.FlatAppearance.BorderSize = 5
+        Me.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnProductos.Location = New System.Drawing.Point(102, 62)
+        Me.btnProductos.Name = "btnProductos"
+        Me.btnProductos.Size = New System.Drawing.Size(160, 160)
+        Me.btnProductos.TabIndex = 0
+        Me.btnProductos.UseVisualStyleBackColor = True
         '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(990, 507)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.proveedores)
+        Me.Controls.Add(Me.usuarios)
+        Me.Controls.Add(Me.compras)
+        Me.Controls.Add(Me.reportes)
+        Me.Controls.Add(Me.productos)
+        Me.Controls.Add(Me.btnUsuarios)
+        Me.Controls.Add(Me.btnCompras)
+        Me.Controls.Add(Me.btnProveedores)
+        Me.Controls.Add(Me.btnReportes)
+        Me.Controls.Add(Me.btnProductos)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Name = "Menu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents btnProductos As Button
+    Friend WithEvents btnReportes As Button
+    Friend WithEvents btnCompras As Button
+    Friend WithEvents btnProveedores As Button
+    Friend WithEvents btnUsuarios As Button
+    Friend WithEvents productos As Label
+    Friend WithEvents reportes As Label
+    Friend WithEvents compras As Label
+    Friend WithEvents proveedores As Label
+    Friend WithEvents usuarios As Label
 End Class
