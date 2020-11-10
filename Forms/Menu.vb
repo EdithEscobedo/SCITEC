@@ -10,7 +10,7 @@
     End Sub
 
     Private Sub btnUsuarios_Click(sender As Object, e As EventArgs) Handles btnUsuarios.Click
-        Dim form As Form = New CrearUsuarios()
+        Dim form As Form = New Usuarios()
         form.Show()
         Me.Close()
     End Sub
