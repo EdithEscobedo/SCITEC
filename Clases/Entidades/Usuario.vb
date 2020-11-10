@@ -120,7 +120,7 @@
                Not IsDBNull(result.Rows(0)("username")) And
                Not IsDBNull(result.Rows(0)("password")) And
                Not IsDBNull(result.Rows(0)("idTipoU")) Then
-                SetIdTipoUsuario(CInt(result.Rows(0)("idusuario")))
+                SetIdUsuario(CInt(result.Rows(0)("idusuario")))
                 SetNombreUsuario(CStr(result.Rows(0)("nom_usuario")))
                 SetTelefonoUsuario(CStr(result.Rows(0)("tel_usuario")))
                 SetUsername(CStr(result.Rows(0)("username")))
@@ -153,4 +153,12 @@
             Return 0
         End If
     End Function
+    Public Function BuscarUsuariosByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
+        Dim database As BaseDatos = New BaseDatos()
+        Dim columnas As String() = {Tabla & ".idusuario", Tabla & ".nom_usuario", Tabla & ".tel_usuario", Tabla & ".username",
+                                    Tabla & ".password", Tabla & ".idTipoU"}
+
+        Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
+    End Function
+
 End Class
