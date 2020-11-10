@@ -14,4 +14,10 @@
         form.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnCompras_Click(sender As Object, e As EventArgs) Handles btnCompras.Click
+        Dim form As Form = New Compras()
+        form.Show()
+        Me.Close()
+    End Sub
 End Class
