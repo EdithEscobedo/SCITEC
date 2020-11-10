@@ -23,14 +23,12 @@ Partial Class Compras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cbProducto = New System.Windows.Forms.ComboBox()
         Me.txtFolio = New System.Windows.Forms.TextBox()
-        Me.txtNomUsuario = New System.Windows.Forms.TextBox()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -53,19 +51,10 @@ Partial Class Compras
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Folio de compra:"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(18, 71)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(99, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Nombre de usuario:"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(64, 116)
+        Me.Label3.Location = New System.Drawing.Point(64, 113)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
@@ -74,7 +63,7 @@ Partial Class Compras
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(383, 34)
+        Me.Label4.Location = New System.Drawing.Point(383, 52)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 13)
         Me.Label4.TabIndex = 3
@@ -83,7 +72,7 @@ Partial Class Compras
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(417, 75)
+        Me.Label5.Location = New System.Drawing.Point(58, 73)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 4
@@ -92,7 +81,7 @@ Partial Class Compras
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(424, 118)
+        Me.Label6.Location = New System.Drawing.Point(424, 99)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 5
@@ -101,7 +90,7 @@ Partial Class Compras
         'cbProducto
         '
         Me.cbProducto.FormattingEnabled = True
-        Me.cbProducto.Location = New System.Drawing.Point(144, 108)
+        Me.cbProducto.Location = New System.Drawing.Point(144, 110)
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.Size = New System.Drawing.Size(166, 21)
         Me.cbProducto.TabIndex = 6
@@ -113,23 +102,16 @@ Partial Class Compras
         Me.txtFolio.Size = New System.Drawing.Size(166, 20)
         Me.txtFolio.TabIndex = 7
         '
-        'txtNomUsuario
-        '
-        Me.txtNomUsuario.Location = New System.Drawing.Point(144, 65)
-        Me.txtNomUsuario.Name = "txtNomUsuario"
-        Me.txtNomUsuario.Size = New System.Drawing.Size(166, 20)
-        Me.txtNomUsuario.TabIndex = 8
-        '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(500, 111)
+        Me.txtCantidad.Location = New System.Drawing.Point(500, 96)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(198, 20)
         Me.txtCantidad.TabIndex = 11
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(103, 157)
+        Me.Button1.Location = New System.Drawing.Point(67, 157)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(166, 23)
         Me.Button1.TabIndex = 12
@@ -138,7 +120,7 @@ Partial Class Compras
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(290, 157)
+        Me.Button2.Location = New System.Drawing.Point(270, 157)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(170, 23)
         Me.Button2.TabIndex = 13
@@ -147,7 +129,7 @@ Partial Class Compras
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(486, 157)
+        Me.Button3.Location = New System.Drawing.Point(478, 157)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(154, 23)
         Me.Button3.TabIndex = 14
@@ -157,14 +139,14 @@ Partial Class Compras
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(103, 203)
+        Me.DataGridView1.Location = New System.Drawing.Point(67, 202)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(442, 201)
+        Me.DataGridView1.Size = New System.Drawing.Size(565, 225)
         Me.DataGridView1.TabIndex = 15
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(606, 234)
+        Me.Button4.Location = New System.Drawing.Point(643, 251)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(92, 23)
         Me.Button4.TabIndex = 16
@@ -173,7 +155,7 @@ Partial Class Compras
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(606, 285)
+        Me.Button5.Location = New System.Drawing.Point(643, 302)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(92, 23)
         Me.Button5.TabIndex = 17
@@ -182,7 +164,7 @@ Partial Class Compras
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(606, 332)
+        Me.Button6.Location = New System.Drawing.Point(643, 349)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(92, 23)
         Me.Button6.TabIndex = 18
@@ -191,7 +173,7 @@ Partial Class Compras
         '
         'dateFechaCompra
         '
-        Me.dateFechaCompra.Location = New System.Drawing.Point(500, 28)
+        Me.dateFechaCompra.Location = New System.Drawing.Point(500, 46)
         Me.dateFechaCompra.Name = "dateFechaCompra"
         Me.dateFechaCompra.Size = New System.Drawing.Size(198, 20)
         Me.dateFechaCompra.TabIndex = 19
@@ -199,9 +181,9 @@ Partial Class Compras
         'cbProveedor
         '
         Me.cbProveedor.FormattingEnabled = True
-        Me.cbProveedor.Location = New System.Drawing.Point(500, 68)
+        Me.cbProveedor.Location = New System.Drawing.Point(144, 70)
         Me.cbProveedor.Name = "cbProveedor"
-        Me.cbProveedor.Size = New System.Drawing.Size(198, 21)
+        Me.cbProveedor.Size = New System.Drawing.Size(166, 21)
         Me.cbProveedor.TabIndex = 20
         '
         'Compras
@@ -219,14 +201,12 @@ Partial Class Compras
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtCantidad)
-        Me.Controls.Add(Me.txtNomUsuario)
         Me.Controls.Add(Me.txtFolio)
         Me.Controls.Add(Me.cbProducto)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Compras"
         Me.Text = "Compras"
@@ -237,14 +217,12 @@ Partial Class Compras
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents cbProducto As ComboBox
     Friend WithEvents txtFolio As TextBox
-    Friend WithEvents txtNomUsuario As TextBox
     Friend WithEvents txtCantidad As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button

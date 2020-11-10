@@ -37,6 +37,8 @@ Partial Class Productos
         Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.cbUnidadM = New System.Windows.Forms.ComboBox()
+        Me.cbProveedor = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -44,7 +46,7 @@ Partial Class Productos
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(723, 132)
+        Me.Label1.Location = New System.Drawing.Point(716, 91)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 501
@@ -54,7 +56,7 @@ Partial Class Productos
         '
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(723, 80)
+        Me.Label2.Location = New System.Drawing.Point(711, 42)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 13)
         Me.Label2.TabIndex = 500
@@ -64,7 +66,7 @@ Partial Class Productos
         '
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(723, 183)
+        Me.Label3.Location = New System.Drawing.Point(711, 137)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 502
@@ -74,7 +76,7 @@ Partial Class Productos
         '
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(723, 228)
+        Me.Label4.Location = New System.Drawing.Point(711, 183)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 13)
         Me.Label4.TabIndex = 503
@@ -84,7 +86,7 @@ Partial Class Productos
         '
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(711, 277)
+        Me.Label5.Location = New System.Drawing.Point(697, 231)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(79, 13)
         Me.Label5.TabIndex = 504
@@ -94,7 +96,7 @@ Partial Class Productos
         '
         Me.txtIdProducto.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtIdProducto.Enabled = False
-        Me.txtIdProducto.Location = New System.Drawing.Point(794, 80)
+        Me.txtIdProducto.Location = New System.Drawing.Point(782, 39)
         Me.txtIdProducto.Name = "txtIdProducto"
         Me.txtIdProducto.Size = New System.Drawing.Size(114, 20)
         Me.txtIdProducto.TabIndex = 0
@@ -102,7 +104,7 @@ Partial Class Productos
         'txtNombre
         '
         Me.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.txtNombre.Location = New System.Drawing.Point(794, 129)
+        Me.txtNombre.Location = New System.Drawing.Point(782, 88)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(114, 20)
         Me.txtNombre.TabIndex = 1
@@ -110,7 +112,8 @@ Partial Class Productos
         'txtCantidad
         '
         Me.txtCantidad.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.txtCantidad.Location = New System.Drawing.Point(794, 221)
+        Me.txtCantidad.Enabled = False
+        Me.txtCantidad.Location = New System.Drawing.Point(782, 180)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(114, 20)
         Me.txtCantidad.TabIndex = 3
@@ -121,7 +124,7 @@ Partial Class Productos
         Me.btnAgregar.Location = New System.Drawing.Point(819, 354)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
-        Me.btnAgregar.TabIndex = 6
+        Me.btnAgregar.TabIndex = 7
         Me.btnAgregar.Text = "Agregar"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
@@ -131,7 +134,7 @@ Partial Class Productos
         Me.btnEditar.Location = New System.Drawing.Point(714, 354)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(75, 23)
-        Me.btnEditar.TabIndex = 5
+        Me.btnEditar.TabIndex = 6
         Me.btnEditar.Text = "Actualizar"
         Me.btnEditar.UseVisualStyleBackColor = True
         '
@@ -141,7 +144,7 @@ Partial Class Productos
         Me.btnEliminar.Location = New System.Drawing.Point(819, 445)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
-        Me.btnEliminar.TabIndex = 8
+        Me.btnEliminar.TabIndex = 9
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
@@ -165,7 +168,7 @@ Partial Class Productos
         '
         Me.cbCategoria.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(794, 175)
+        Me.cbCategoria.Location = New System.Drawing.Point(782, 134)
         Me.cbCategoria.Name = "cbCategoria"
         Me.cbCategoria.Size = New System.Drawing.Size(114, 21)
         Me.cbCategoria.TabIndex = 2
@@ -176,7 +179,7 @@ Partial Class Productos
         Me.btnNuevo.Location = New System.Drawing.Point(714, 445)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
-        Me.btnNuevo.TabIndex = 7
+        Me.btnNuevo.TabIndex = 8
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
@@ -184,16 +187,37 @@ Partial Class Productos
         '
         Me.cbUnidadM.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.cbUnidadM.FormattingEnabled = True
-        Me.cbUnidadM.Location = New System.Drawing.Point(794, 269)
+        Me.cbUnidadM.Location = New System.Drawing.Point(782, 228)
         Me.cbUnidadM.Name = "cbUnidadM"
         Me.cbUnidadM.Size = New System.Drawing.Size(114, 21)
         Me.cbUnidadM.TabIndex = 4
+        '
+        'cbProveedor
+        '
+        Me.cbProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.cbProveedor.FormattingEnabled = True
+        Me.cbProveedor.Location = New System.Drawing.Point(782, 276)
+        Me.cbProveedor.Name = "cbProveedor"
+        Me.cbProveedor.Size = New System.Drawing.Size(114, 21)
+        Me.cbProveedor.TabIndex = 5
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(711, 279)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(56, 13)
+        Me.Label6.TabIndex = 507
+        Me.Label6.Text = "Proveedor"
         '
         'Productos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(920, 506)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.cbProveedor)
         Me.Controls.Add(Me.cbUnidadM)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.cbCategoria)
@@ -232,4 +256,6 @@ Partial Class Productos
     Friend WithEvents cbCategoria As ComboBox
     Friend WithEvents btnNuevo As Button
     Friend WithEvents cbUnidadM As ComboBox
+    Friend WithEvents cbProveedor As ComboBox
+    Friend WithEvents Label6 As Label
 End Class
