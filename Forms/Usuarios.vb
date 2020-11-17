@@ -77,4 +77,8 @@ Public Class Usuarios
         Dim form As Form = New CrearUsuarios(Me.usuario.GetIdUsuario)
         form.Show()
     End Sub
+
+    Private Sub DataUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataUsuarios.CellContentClick
+
+    End Sub
 End Class

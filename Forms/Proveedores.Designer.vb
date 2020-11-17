@@ -154,7 +154,7 @@ Partial Class Proveedores
         Me.TextBox5.Size = New System.Drawing.Size(159, 20)
         Me.TextBox5.TabIndex = 13
         '
-        'Form1
+        'Proveedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -173,8 +173,8 @@ Partial Class Proveedores
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "Proveedores"
+        Me.Text = "Proveedores"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

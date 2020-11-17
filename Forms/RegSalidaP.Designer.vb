@@ -215,7 +215,7 @@ Partial Class RegSalidaP
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "RegSalidaP"
-        Me.Text = "Form1"
+        Me.Text = "Registro salida del producto"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
