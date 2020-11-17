@@ -100,4 +100,8 @@ Public Class Usuarios
             Next
         End If
     End Sub
+
+    Private Sub DataUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataUsuarios.CellContentClick
+
+    End Sub
 End Class
