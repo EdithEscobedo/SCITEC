@@ -3,13 +3,15 @@
 Public Class Usuarios
     Private usuario As Usuario = New Usuario()
 
+    Private crearUsuario As Boolean = False
+
     Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BuscarUsuarios()
     End Sub
 
     Private Sub BuscarUsuarios()
         ' Condiciones de consulta para mostrar tipo de usuario del usuario.
-        Dim columnas As String() = {"tipousuario.idtipousuario"}
+        Dim columnas As String() = {"tipousuario.nom_tipoU"}
         Dim joins As String() = {"INNER JOIN tipousuario ON usuario.idTipoU = tipousuario.idtipousuario"}
         Dim condiciones As String() = {}
 
@@ -24,11 +26,13 @@ Public Class Usuarios
         Me.DataUsuarios.Columns("tel_usuario").HeaderText = "Telefono"
         Me.DataUsuarios.Columns("username").DisplayIndex = 3
         Me.DataUsuarios.Columns("username").HeaderText = "Username"
-        Me.DataUsuarios.Columns("idTipoU").DisplayIndex = 4
-        Me.DataUsuarios.Columns("idTipoU").HeaderText = "Tipo Usuario"
+        Me.DataUsuarios.Columns("nom_tipoU").DisplayIndex = 4
+        Me.DataUsuarios.Columns("nom_tipoU").HeaderText = "Tipo Usuario"
 
         'Remover columnas
         Me.DataUsuarios.Columns.Remove("password")
+        Me.DataUsuarios.Columns.Remove("idTipoU")
+
         Me.DataUsuarios.Sort(Me.DataUsuarios.Columns("idUsuario"), ListSortDirection.Ascending)
         'Ajustar tamaño de celdas
         If Me.DataUsuarios.Rows.Count > 0 Then
@@ -37,12 +41,6 @@ Public Class Usuarios
                 Me.DataUsuarios.Columns(index).Width = CInt(Me.DataUsuarios.Width / noColumnas)
             Next
         End If
-    End Sub
-
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Dim form As Form = New CrearUsuarios()
-        form.Show()
-        Me.Close()
     End Sub
 
     Private Sub DataUsuarios_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataUsuarios.CellClick
@@ -55,10 +53,10 @@ Public Class Usuarios
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Dim confirmacion As MsgBoxResult = MsgBox(
                "El siguiente producto se va a eliminar: " & vbNewLine &
-              "ID: " & Me.usuario.GetIdUsuario() & vbNewLine &
-             "Nombre: " & Me.usuario.GetNombreUsuario() & vbNewLine &
-           "Username: " & Me.usuario.GetUsername() & vbNewLine &
-          "Desea continuar?",
+               "ID: " & Me.usuario.GetIdUsuario() & vbNewLine &
+               "Nombre: " & Me.usuario.GetNombreUsuario() & vbNewLine &
+               "Username: " & Me.usuario.GetUsername() & vbNewLine &
+               "Desea continuar?",
           MsgBoxStyle.OkCancel, "ELIMINAR!")
         If confirmacion = MsgBoxResult.Cancel Then
             Exit Sub
@@ -72,9 +70,34 @@ Public Class Usuarios
 
         BuscarUsuarios()
     End Sub
+    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        Dim form As Form = New CrearUsuarios()
+        form.Show()
+        Me.crearUsuario = True
+        Me.Close()
+    End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
         Dim form As Form = New CrearUsuarios(Me.usuario.GetIdUsuario)
         form.Show()
+        Me.crearUsuario = True
+        Me.Close()
+    End Sub
+
+    Private Sub Usuarios_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If Not Me.crearUsuario Then
+            Dim form As Form = New Menu()
+            form.Show()
+        End If
+    End Sub
+
+    Private Sub Usuarios_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        'Ajustar tamaño de celdas
+        If Me.DataUsuarios.Rows.Count > 0 Then
+            Dim noColumnas = DataUsuarios.Columns.Count
+            For index = 0 To noColumnas - 1
+                Me.DataUsuarios.Columns(index).Width = CInt(Me.DataUsuarios.Width / noColumnas)
+            Next
+        End If
     End Sub
 End Class

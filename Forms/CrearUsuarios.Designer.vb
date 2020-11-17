@@ -40,6 +40,8 @@ Partial Class CrearUsuarios
         Me.cbTipoUsuario = New System.Windows.Forms.ComboBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.imageUser = New System.Windows.Forms.PictureBox()
+        Me.lblNivelPassword = New System.Windows.Forms.Label()
+        Me.lblCoincidenciaPassword = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imageUser, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,7 +49,7 @@ Partial Class CrearUsuarios
         'txtNumUsuario
         '
         Me.txtNumUsuario.Enabled = False
-        Me.txtNumUsuario.Location = New System.Drawing.Point(232, 139)
+        Me.txtNumUsuario.Location = New System.Drawing.Point(232, 125)
         Me.txtNumUsuario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNumUsuario.Name = "txtNumUsuario"
         Me.txtNumUsuario.Size = New System.Drawing.Size(200, 21)
@@ -58,7 +60,7 @@ Partial Class CrearUsuarios
         '
         Me.NumeroUsuario.AutoSize = True
         Me.NumeroUsuario.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumeroUsuario.Location = New System.Drawing.Point(99, 139)
+        Me.NumeroUsuario.Location = New System.Drawing.Point(99, 125)
         Me.NumeroUsuario.Name = "NumeroUsuario"
         Me.NumeroUsuario.Size = New System.Drawing.Size(113, 17)
         Me.NumeroUsuario.TabIndex = 100
@@ -68,7 +70,7 @@ Partial Class CrearUsuarios
         '
         Me.NombreUsuario.AutoSize = True
         Me.NombreUsuario.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NombreUsuario.Location = New System.Drawing.Point(99, 196)
+        Me.NombreUsuario.Location = New System.Drawing.Point(99, 182)
         Me.NombreUsuario.Name = "NombreUsuario"
         Me.NombreUsuario.Size = New System.Drawing.Size(113, 17)
         Me.NombreUsuario.TabIndex = 101
@@ -78,7 +80,7 @@ Partial Class CrearUsuarios
         '
         Me.Telefono.AutoSize = True
         Me.Telefono.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Telefono.Location = New System.Drawing.Point(99, 250)
+        Me.Telefono.Location = New System.Drawing.Point(99, 236)
         Me.Telefono.Name = "Telefono"
         Me.Telefono.Size = New System.Drawing.Size(69, 17)
         Me.Telefono.TabIndex = 102
@@ -88,7 +90,7 @@ Partial Class CrearUsuarios
         '
         Me.TipoUsuario.AutoSize = True
         Me.TipoUsuario.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TipoUsuario.Location = New System.Drawing.Point(99, 299)
+        Me.TipoUsuario.Location = New System.Drawing.Point(99, 285)
         Me.TipoUsuario.Name = "TipoUsuario"
         Me.TipoUsuario.Size = New System.Drawing.Size(90, 17)
         Me.TipoUsuario.TabIndex = 103
@@ -98,7 +100,7 @@ Partial Class CrearUsuarios
         '
         Me.Username.AutoSize = True
         Me.Username.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Username.Location = New System.Drawing.Point(99, 351)
+        Me.Username.Location = New System.Drawing.Point(99, 337)
         Me.Username.Name = "Username"
         Me.Username.Size = New System.Drawing.Size(75, 17)
         Me.Username.TabIndex = 104
@@ -108,7 +110,7 @@ Partial Class CrearUsuarios
         '
         Me.Password.AutoSize = True
         Me.Password.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Password.Location = New System.Drawing.Point(101, 409)
+        Me.Password.Location = New System.Drawing.Point(101, 395)
         Me.Password.Name = "Password"
         Me.Password.Size = New System.Drawing.Size(70, 17)
         Me.Password.TabIndex = 106
@@ -118,7 +120,7 @@ Partial Class CrearUsuarios
         '
         Me.ConfirPassword.AutoSize = True
         Me.ConfirPassword.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConfirPassword.Location = New System.Drawing.Point(99, 467)
+        Me.ConfirPassword.Location = New System.Drawing.Point(99, 453)
         Me.ConfirPassword.Name = "ConfirPassword"
         Me.ConfirPassword.Size = New System.Drawing.Size(126, 17)
         Me.ConfirPassword.TabIndex = 107
@@ -126,7 +128,7 @@ Partial Class CrearUsuarios
         '
         'txtNomUsuario
         '
-        Me.txtNomUsuario.Location = New System.Drawing.Point(232, 196)
+        Me.txtNomUsuario.Location = New System.Drawing.Point(232, 182)
         Me.txtNomUsuario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNomUsuario.Name = "txtNomUsuario"
         Me.txtNomUsuario.Size = New System.Drawing.Size(200, 21)
@@ -134,15 +136,16 @@ Partial Class CrearUsuarios
         '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(232, 250)
+        Me.txtTelefono.Location = New System.Drawing.Point(232, 236)
         Me.txtTelefono.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtTelefono.MaxLength = 10
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(200, 21)
         Me.txtTelefono.TabIndex = 2
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(232, 351)
+        Me.txtUsername.Location = New System.Drawing.Point(232, 337)
         Me.txtUsername.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(200, 21)
@@ -150,8 +153,9 @@ Partial Class CrearUsuarios
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(232, 409)
+        Me.txtPassword.Location = New System.Drawing.Point(232, 395)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtPassword.MaxLength = 30
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtPassword.Size = New System.Drawing.Size(200, 21)
@@ -159,8 +163,9 @@ Partial Class CrearUsuarios
         '
         'txtConfPass
         '
-        Me.txtConfPass.Location = New System.Drawing.Point(232, 467)
+        Me.txtConfPass.Location = New System.Drawing.Point(232, 453)
         Me.txtConfPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtConfPass.MaxLength = 30
         Me.txtConfPass.Name = "txtConfPass"
         Me.txtConfPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtConfPass.Size = New System.Drawing.Size(200, 21)
@@ -192,7 +197,7 @@ Partial Class CrearUsuarios
         Me.cbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbTipoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cbTipoUsuario.FormattingEnabled = True
-        Me.cbTipoUsuario.Location = New System.Drawing.Point(232, 299)
+        Me.cbTipoUsuario.Location = New System.Drawing.Point(232, 285)
         Me.cbTipoUsuario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbTipoUsuario.Name = "cbTipoUsuario"
         Me.cbTipoUsuario.Size = New System.Drawing.Size(200, 23)
@@ -220,12 +225,38 @@ Partial Class CrearUsuarios
         Me.imageUser.TabIndex = 17
         Me.imageUser.TabStop = False
         '
+        'lblNivelPassword
+        '
+        Me.lblNivelPassword.AutoSize = True
+        Me.lblNivelPassword.Font = New System.Drawing.Font("Microsoft New Tai Lue", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNivelPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblNivelPassword.Location = New System.Drawing.Point(232, 424)
+        Me.lblNivelPassword.Name = "lblNivelPassword"
+        Me.lblNivelPassword.Size = New System.Drawing.Size(110, 15)
+        Me.lblNivelPassword.TabIndex = 108
+        Me.lblNivelPassword.Text = "Contraseña Invalida"
+        Me.lblNivelPassword.Visible = False
+        '
+        'lblCoincidenciaPassword
+        '
+        Me.lblCoincidenciaPassword.AutoSize = True
+        Me.lblCoincidenciaPassword.Font = New System.Drawing.Font("Microsoft New Tai Lue", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCoincidenciaPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblCoincidenciaPassword.Location = New System.Drawing.Point(232, 482)
+        Me.lblCoincidenciaPassword.Name = "lblCoincidenciaPassword"
+        Me.lblCoincidenciaPassword.Size = New System.Drawing.Size(71, 15)
+        Me.lblCoincidenciaPassword.TabIndex = 109
+        Me.lblCoincidenciaPassword.Text = "No Coincide"
+        Me.lblCoincidenciaPassword.Visible = False
+        '
         'CrearUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(534, 561)
+        Me.Controls.Add(Me.lblCoincidenciaPassword)
+        Me.Controls.Add(Me.lblNivelPassword)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.imageUser)
         Me.Controls.Add(Me.cbTipoUsuario)
@@ -245,7 +276,7 @@ Partial Class CrearUsuarios
         Me.Controls.Add(Me.NumeroUsuario)
         Me.Controls.Add(Me.txtNumUsuario)
         Me.Font = New System.Drawing.Font("Microsoft New Tai Lue", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "CrearUsuarios"
         Me.RightToLeftLayout = True
@@ -276,4 +307,6 @@ Partial Class CrearUsuarios
     Friend WithEvents cbTipoUsuario As ComboBox
     Friend WithEvents imageUser As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblNivelPassword As Label
+    Friend WithEvents lblCoincidenciaPassword As Label
 End Class

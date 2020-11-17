@@ -31,6 +31,7 @@ Partial Class Usuarios
         '
         'btnAgregar
         '
+        Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAgregar.Location = New System.Drawing.Point(665, 229)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(99, 36)
@@ -40,6 +41,7 @@ Partial Class Usuarios
         '
         'btnEditar
         '
+        Me.btnEditar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEditar.Location = New System.Drawing.Point(665, 305)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(99, 34)
@@ -49,6 +51,7 @@ Partial Class Usuarios
         '
         'btnEliminar
         '
+        Me.btnEliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEliminar.Location = New System.Drawing.Point(665, 383)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(99, 33)
@@ -58,11 +61,21 @@ Partial Class Usuarios
         '
         'DataUsuarios
         '
+        Me.DataUsuarios.AllowUserToAddRows = False
+        Me.DataUsuarios.AllowUserToDeleteRows = False
+        Me.DataUsuarios.AllowUserToOrderColumns = True
+        Me.DataUsuarios.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataUsuarios.Location = New System.Drawing.Point(24, 32)
+        Me.DataUsuarios.MultiSelect = False
         Me.DataUsuarios.Name = "DataUsuarios"
+        Me.DataUsuarios.ReadOnly = True
+        Me.DataUsuarios.RowHeadersVisible = False
+        Me.DataUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataUsuarios.Size = New System.Drawing.Size(609, 384)
-        Me.DataUsuarios.TabIndex = 4
+        Me.DataUsuarios.TabIndex = 500
         '
         'Usuarios
         '
