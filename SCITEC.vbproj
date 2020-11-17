@@ -99,6 +99,18 @@
     <Compile Include="Forms\Compras.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Proveedores.Designer.vb">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Proveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegSalidaP.Designer.vb">
+      <DependentUpon>RegSalidaP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegSalidaP.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Menu.Designer.vb">
       <DependentUpon>Menu.vb</DependentUpon>
     </Compile>
@@ -159,6 +171,9 @@
     <EmbeddedResource Include="Forms\CrearUsuarios.resx">
       <DependentUpon>CrearUsuarios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Proveedores.resx">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EliminarUsuario.resx">
       <DependentUpon>EliminarUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegSalidaP.resx">
+      <DependentUpon>RegSalidaP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Usuarios.resx">
       <DependentUpon>Usuarios.vb</DependentUpon>

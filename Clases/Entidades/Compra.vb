@@ -118,6 +118,21 @@
             Return 0
         End If
     End Function
+
+    Public Function BuscarUltimoIdC() As Integer
+        Dim database As BaseDatos = New BaseDatos()
+        Dim columnas As String() = {"Max(idcompras) AS idcompras"}
+
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, {})
+        If result.Rows.Count = 1 And Not IsDBNull(result.Rows(0)("idcompras")) Then
+            Return CInt(result.Rows(0)("idcompras"))
+        Else
+            Return 0
+        End If
+    End Function
+
     'Public Sub PoblarComboProducto(cbPrducto As ComboBox)
     '   cbPrducto.DisplayMember = "Value"
     '  cbPrducto.ValueMember = "Key"
