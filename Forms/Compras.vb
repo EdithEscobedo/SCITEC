@@ -6,7 +6,7 @@
     End Sub
 
     Private Sub cbProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbProveedor.SelectedIndexChanged
-        Me.producto.PoblarComboProducto(Me.cbProducto, Me.cbProveedor.SelectedValue)
+
     End Sub
 
     Private Sub Compras_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

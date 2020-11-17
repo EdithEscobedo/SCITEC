@@ -54,7 +54,7 @@ Partial Class Compras
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(64, 113)
+        Me.Label3.Location = New System.Drawing.Point(64, 73)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
@@ -63,7 +63,7 @@ Partial Class Compras
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(383, 52)
+        Me.Label4.Location = New System.Drawing.Point(383, 34)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 13)
         Me.Label4.TabIndex = 3
@@ -72,7 +72,7 @@ Partial Class Compras
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(58, 73)
+        Me.Label5.Location = New System.Drawing.Point(383, 73)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 4
@@ -81,7 +81,7 @@ Partial Class Compras
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(424, 99)
+        Me.Label6.Location = New System.Drawing.Point(65, 118)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 5
@@ -90,7 +90,7 @@ Partial Class Compras
         'cbProducto
         '
         Me.cbProducto.FormattingEnabled = True
-        Me.cbProducto.Location = New System.Drawing.Point(144, 110)
+        Me.cbProducto.Location = New System.Drawing.Point(144, 68)
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.Size = New System.Drawing.Size(166, 21)
         Me.cbProducto.TabIndex = 6
@@ -104,9 +104,9 @@ Partial Class Compras
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(500, 96)
+        Me.txtCantidad.Location = New System.Drawing.Point(144, 115)
         Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(198, 20)
+        Me.txtCantidad.Size = New System.Drawing.Size(166, 20)
         Me.txtCantidad.TabIndex = 11
         '
         'Button1
@@ -173,7 +173,7 @@ Partial Class Compras
         '
         'dateFechaCompra
         '
-        Me.dateFechaCompra.Location = New System.Drawing.Point(500, 46)
+        Me.dateFechaCompra.Location = New System.Drawing.Point(478, 30)
         Me.dateFechaCompra.Name = "dateFechaCompra"
         Me.dateFechaCompra.Size = New System.Drawing.Size(198, 20)
         Me.dateFechaCompra.TabIndex = 19
@@ -181,9 +181,9 @@ Partial Class Compras
         'cbProveedor
         '
         Me.cbProveedor.FormattingEnabled = True
-        Me.cbProveedor.Location = New System.Drawing.Point(144, 70)
+        Me.cbProveedor.Location = New System.Drawing.Point(478, 70)
         Me.cbProveedor.Name = "cbProveedor"
-        Me.cbProveedor.Size = New System.Drawing.Size(166, 21)
+        Me.cbProveedor.Size = New System.Drawing.Size(198, 21)
         Me.cbProveedor.TabIndex = 20
         '
         'Compras

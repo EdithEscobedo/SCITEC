@@ -4,22 +4,21 @@ Public Class Productos
     Private producto As Producto = New Producto()
     Private categoria As CategoriaProducto = New CategoriaProducto()
     Private unidadMedida As UnidadMedida = New UnidadMedida()
-    Private proveedor As Proveedor = New Proveedor()
-
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BuscarProductos()
         Me.txtIdProducto.Text = CStr(producto.BuscarUltimoId() + 1)
         Me.categoria.PoblarComboCategoria(Me.cbCategoria)
         Me.unidadMedida.PoblarComboUnidadMedida(Me.cbUnidadM)
-        Me.proveedor.PoblarComboProveedor(Me.cbProveedor)
+        Me.btnEditar.Enabled = False
+        Me.btnEliminar.Enabled = False
+        Me.btnAgregar.Enabled = True
     End Sub
 
     Private Sub BuscarProductos()
         ' Condiciones de consulta para mostrar categoria y unidad de medida de productos
-        Dim columnas As String() = {"cat_producto.nom_catP, unidad_medida.nom_unidadM, proveedores.nomProveedor"}
+        Dim columnas As String() = {"cat_producto.nom_catP, unidad_medida.nom_unidadM"}
         Dim joins As String() = {"INNER JOIN cat_producto ON productos.id_catP = cat_producto.idcat_producto",
-                                 "INNER JOIN unidad_medida ON productos.id_unidM = unidad_medida.idunidadM",
-                                 "INNER JOIN proveedores ON productos.id_Proveedores = proveedores.idProveedores"}
+                                 "INNER JOIN unidad_medida ON productos.id_unidM = unidad_medida.idunidadM"}
         Dim condiciones As String() = {"estadoProducto = 'activo'"}
 
         Me.DataProductos.DataSource = producto.BuscarProductosByConditions(columnas, joins, condiciones)
@@ -35,14 +34,11 @@ Public Class Productos
         Me.DataProductos.Columns("cantidadProducto").HeaderText = "Cantidad"
         Me.DataProductos.Columns("nom_unidadM").DisplayIndex = 4
         Me.DataProductos.Columns("nom_unidadM").HeaderText = "Unidad Medida"
-        Me.DataProductos.Columns("nomProveedor").DisplayIndex = 5
-        Me.DataProductos.Columns("nomProveedor").HeaderText = "Proveedor"
 
         'Remover columnas
         Me.DataProductos.Columns.Remove("id_catP")
         Me.DataProductos.Columns.Remove("id_unidM")
         Me.DataProductos.Columns.Remove("estadoProducto")
-        Me.DataProductos.Columns.Remove("id_Proveedores")
 
         Me.DataProductos.Sort(Me.DataProductos.Columns("idProductos"), ListSortDirection.Ascending)
         'Ajustar tamaño de celdas
@@ -60,7 +56,6 @@ Public Class Productos
         Me.producto.SetIdCategoriaProducto(Me.cbCategoria.SelectedValue)
         Me.producto.SetCantidadProducto(CInt(Me.txtCantidad.Text))
         Me.producto.SetIdUnidadMedida(Me.cbUnidadM.SelectedValue)
-        Me.producto.SetIdProveedores(Me.cbProveedor.SelectedValue)
         Me.producto.SetEstadoProducto("activo")
 
         'Si el nombre no es valido
@@ -86,7 +81,9 @@ Public Class Productos
             cbCategoria.Text = DataProductos.CurrentRow.Cells("nom_catP").Value
             txtCantidad.Text = DataProductos.CurrentRow.Cells("cantidadProducto").Value
             cbUnidadM.Text = DataProductos.CurrentRow.Cells("nom_unidadM").Value
-            cbProveedor.Text = DataProductos.CurrentRow.Cells("nomProveedor").Value
+            Me.btnEditar.Enabled = True
+            Me.btnEliminar.Enabled = True
+            Me.btnAgregar.Enabled = False
         Catch ex As Exception
             MsgBox("Error en la operación: " & ex.Message)
         End Try
@@ -104,6 +101,9 @@ Public Class Productos
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         LimpiarCampos()
+        Me.btnEditar.Enabled = False
+        Me.btnEliminar.Enabled = False
+        Me.btnAgregar.Enabled = True
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
@@ -112,7 +112,6 @@ Public Class Productos
         Me.producto.SetIdCategoriaProducto(Me.cbCategoria.SelectedValue)
         Me.producto.SetCantidadProducto(0)
         Me.producto.SetIdUnidadMedida(Me.cbUnidadM.SelectedValue)
-        Me.producto.SetIdProveedores(Me.cbProveedor.SelectedValue)
         Me.producto.SetEstadoProducto("activo")
 
         'Si el nombre no es valido
@@ -136,7 +135,6 @@ Public Class Productos
         Me.producto.SetIdCategoriaProducto(Me.cbCategoria.SelectedValue)
         Me.producto.SetCantidadProducto(CInt(Me.txtCantidad.Text))
         Me.producto.SetIdUnidadMedida(Me.cbUnidadM.SelectedValue)
-        Me.producto.SetIdProveedores(Me.cbProveedor.SelectedValue)
         Me.producto.SetEstadoProducto("descontinuado")
 
         Dim confirmacion As MsgBoxResult = MsgBox(
@@ -146,7 +144,6 @@ Public Class Productos
             "Categoria: " & Me.cbCategoria.Text & vbNewLine &
             "Cantidad: " & Me.producto.GetCantidadProducto() & vbNewLine &
             "Unidad Medida: " & Me.cbUnidadM.Text & vbNewLine &
-            "Proveedor: " & Me.cbProveedor.Text & vbNewLine &
             "Desea continuar?",
             MsgBoxStyle.OkCancel, "ELIMINAR!")
         If confirmacion = MsgBoxResult.Cancel Then
@@ -184,6 +181,5 @@ Public Class Productos
         Me.cbCategoria.Text = ""
         Me.txtCantidad.Text = ""
         Me.cbUnidadM.Text = ""
-        Me.cbProveedor.Text = ""
     End Sub
 End Class

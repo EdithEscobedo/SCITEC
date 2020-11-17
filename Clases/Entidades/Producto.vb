@@ -6,7 +6,6 @@
     Private cantidadProducto As Integer
     Private id_catP As Integer
     Private id_unidM As Integer
-    Private id_Proveedores As Integer
     Private estadoProducto As String
     Public Sub New()
 
@@ -17,8 +16,7 @@
                      cantidadProducto As Integer,
                      estadoProducto As String,
                      id_catP As Integer,
-                     id_unidM As Integer,
-                     id_Proveedores As Integer)
+                     id_unidM As Integer)
 
         Me.idProductos = idProductos
         Me.nombreProducto = nombreProducto
@@ -26,7 +24,6 @@
         Me.estadoProducto = estadoProducto
         Me.id_catP = id_catP
         Me.id_unidM = id_unidM
-        Me.id_Proveedores = id_Proveedores
     End Sub
     Public Sub SetIdProductos(idProductos As Integer)
         Me.idProductos = idProductos
@@ -47,10 +44,6 @@
     Public Sub SetIdUnidadMedida(id_unidM As Integer)
         Me.id_unidM = id_unidM
     End Sub
-    Public Sub SetIdProveedores(idProveedores As Integer)
-        Me.id_Proveedores = idProveedores
-    End Sub
-
     Public Function GetIdProductos() As Integer
         Return Me.idProductos
     End Function
@@ -69,27 +62,21 @@
     Public Function GetIdUnidadMedida() As String
         Return Me.id_unidM
     End Function
-    Public Function GetIdProveedores() As Integer
-        Return Me.id_Proveedores
-
-    End Function
     Public Function AgregarProducto() As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idProductos", "nombreProducto", "cantidadProducto", "estadoProducto",
-                                    "id_catP", "id_unidM", "id_Proveedores"}
+                                    "id_catP", "id_unidM"}
         Dim valores As String() = {"'" & Me.idProductos & "'", "'" & Me.nombreProducto & "'", "'" & Me.cantidadProducto & "'",
-                                   "'" & Me.estadoProducto & "'", "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'",
-                                   "'" & Me.id_Proveedores & "'"}
+                                   "'" & Me.estadoProducto & "'", "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
     Public Function ActualizarProducto() As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idProductos", "nombreProducto", "cantidadProducto", "estadoProducto",
-                                    "id_catP", "id_unidM", "id_Proveedores"}
+                                    "id_catP", "id_unidM"}
         Dim valores As String() = {"'" & Me.idProductos & "'", "'" & Me.nombreProducto & "'", "'" & Me.cantidadProducto & "'",
-                                   "'" & Me.estadoProducto & "'", "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'",
-                                   "'" & Me.id_Proveedores & "'"}
+                                   "'" & Me.estadoProducto & "'", "'" & Me.id_catP & "'", "'" & Me.id_unidM & "'"}
         Dim condiciones As String() = {"idProductos=" & "'" & Me.idProductos & "'"}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result
@@ -104,7 +91,7 @@
     Public Function BuscarProductoById(idusuario As Integer) As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idProductos", "nombreProducto", "cantidadProducto", "estadoProducto", "id_catP",
-                                    "id_unidM", "id_Proveedores"}
+                                    "id_unidM"}
         Dim condiciones As String() = {"idProductos='" & idProductos & "'"}
         Dim result As DataTable
 
@@ -116,15 +103,13 @@
                Not IsDBNull(result.Rows(0)("cantidadProducto")) And
                Not IsDBNull(result.Rows(0)("estadoProducto")) And
                Not IsDBNull(result.Rows(0)("id_catP")) And
-               Not IsDBNull(result.Rows(0)("id_unidM")) And
-               Not IsDBNull(result.Rows(0)("id_Proveedor")) Then
+               Not IsDBNull(result.Rows(0)("id_unidM")) Then
                 SetIdProductos(CInt(result.Rows(0)("idProductos")))
                 SetNombreProducto(CStr(result.Rows(0)("nombreProducto")))
                 SetCantidadProducto(CInt(result.Rows(0)("cantidadProducto")))
                 SetEstadoProducto(CStr(result.Rows(0)("estadoProducto")))
                 SetIdCategoriaProducto(CInt(result.Rows(0)("id_catP")))
                 SetIdUnidadMedida(CInt(result.Rows(0)("id_unidM")))
-                SetIdProveedores(CInt(result.Rows(0)("id_Proveedores")))
                 Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")
@@ -136,14 +121,14 @@
     Public Function BuscarProducto() As DataTable
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idProductos", "nombreProducto", "cantidadProducto", "estadoProducto", "id_catP",
-                                    "id_unidM", "id_Proveedores"}
+                                    "id_unidM"}
 
         Return database.Buscar({Tabla}, columnas, {})
     End Function
     Public Function BuscarProductosByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {Tabla & ".idProductos", Tabla & ".nombreProducto", Tabla & ".cantidadProducto",
-                                    Tabla & ".estadoProducto", Tabla & ".id_catP", Tabla & ".id_unidM", Tabla & ".id_Proveedores"}
+                                    Tabla & ".estadoProducto", Tabla & ".id_catP", Tabla & ".id_unidM"}
 
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
     End Function
@@ -160,10 +145,10 @@
             Return 0
         End If
     End Function
-    Public Sub PoblarComboProducto(cbPrducto As ComboBox, id_Proveedores As Integer)
+    Public Sub PoblarComboProducto(cbPrducto As ComboBox)
         cbPrducto.DisplayMember = "Value"
         cbPrducto.ValueMember = "Key"
-        Dim producto As DataTable = BuscarProductosByConditions({}, {}, {"id_Proveedores = " & id_Proveedores})
+        Dim producto As DataTable = BuscarProducto()
         producto.DefaultView.Sort = "idProductos ASC"
         producto = producto.DefaultView.ToTable()
 

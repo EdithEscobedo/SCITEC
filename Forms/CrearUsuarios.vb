@@ -98,4 +98,10 @@ Public Class CrearUsuarios
         Me.txtNumUsuario.Text = CStr(usuario.BuscarUltimoId() + 10)
 
     End Sub
+
+    Private Sub txtTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

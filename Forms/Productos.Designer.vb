@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Productos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Productos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -37,8 +37,6 @@ Partial Class Productos
         Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.cbUnidadM = New System.Windows.Forms.ComboBox()
-        Me.cbProveedor = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.DataProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,7 +44,7 @@ Partial Class Productos
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(716, 91)
+        Me.Label1.Location = New System.Drawing.Point(714, 140)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 501
@@ -56,7 +54,7 @@ Partial Class Productos
         '
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(711, 42)
+        Me.Label2.Location = New System.Drawing.Point(709, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 13)
         Me.Label2.TabIndex = 500
@@ -66,7 +64,7 @@ Partial Class Productos
         '
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(711, 137)
+        Me.Label3.Location = New System.Drawing.Point(709, 186)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 502
@@ -76,7 +74,7 @@ Partial Class Productos
         '
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(711, 183)
+        Me.Label4.Location = New System.Drawing.Point(709, 232)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 13)
         Me.Label4.TabIndex = 503
@@ -86,7 +84,7 @@ Partial Class Productos
         '
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(697, 231)
+        Me.Label5.Location = New System.Drawing.Point(695, 280)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(79, 13)
         Me.Label5.TabIndex = 504
@@ -96,7 +94,7 @@ Partial Class Productos
         '
         Me.txtIdProducto.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtIdProducto.Enabled = False
-        Me.txtIdProducto.Location = New System.Drawing.Point(782, 39)
+        Me.txtIdProducto.Location = New System.Drawing.Point(780, 88)
         Me.txtIdProducto.Name = "txtIdProducto"
         Me.txtIdProducto.Size = New System.Drawing.Size(114, 20)
         Me.txtIdProducto.TabIndex = 0
@@ -104,7 +102,7 @@ Partial Class Productos
         'txtNombre
         '
         Me.txtNombre.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.txtNombre.Location = New System.Drawing.Point(782, 88)
+        Me.txtNombre.Location = New System.Drawing.Point(780, 137)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(114, 20)
         Me.txtNombre.TabIndex = 1
@@ -113,7 +111,7 @@ Partial Class Productos
         '
         Me.txtCantidad.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtCantidad.Enabled = False
-        Me.txtCantidad.Location = New System.Drawing.Point(782, 180)
+        Me.txtCantidad.Location = New System.Drawing.Point(780, 229)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(114, 20)
         Me.txtCantidad.TabIndex = 3
@@ -168,7 +166,7 @@ Partial Class Productos
         '
         Me.cbCategoria.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(782, 134)
+        Me.cbCategoria.Location = New System.Drawing.Point(780, 183)
         Me.cbCategoria.Name = "cbCategoria"
         Me.cbCategoria.Size = New System.Drawing.Size(114, 21)
         Me.cbCategoria.TabIndex = 2
@@ -187,37 +185,16 @@ Partial Class Productos
         '
         Me.cbUnidadM.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.cbUnidadM.FormattingEnabled = True
-        Me.cbUnidadM.Location = New System.Drawing.Point(782, 228)
+        Me.cbUnidadM.Location = New System.Drawing.Point(780, 277)
         Me.cbUnidadM.Name = "cbUnidadM"
         Me.cbUnidadM.Size = New System.Drawing.Size(114, 21)
         Me.cbUnidadM.TabIndex = 4
-        '
-        'cbProveedor
-        '
-        Me.cbProveedor.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.cbProveedor.FormattingEnabled = True
-        Me.cbProveedor.Location = New System.Drawing.Point(782, 276)
-        Me.cbProveedor.Name = "cbProveedor"
-        Me.cbProveedor.Size = New System.Drawing.Size(114, 21)
-        Me.cbProveedor.TabIndex = 5
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(711, 279)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(56, 13)
-        Me.Label6.TabIndex = 507
-        Me.Label6.Text = "Proveedor"
         '
         'Productos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(920, 506)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.cbProveedor)
         Me.Controls.Add(Me.cbUnidadM)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.cbCategoria)
@@ -256,6 +233,4 @@ Partial Class Productos
     Friend WithEvents cbCategoria As ComboBox
     Friend WithEvents btnNuevo As Button
     Friend WithEvents cbUnidadM As ComboBox
-    Friend WithEvents cbProveedor As ComboBox
-    Friend WithEvents Label6 As Label
 End Class
