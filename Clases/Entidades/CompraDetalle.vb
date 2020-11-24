@@ -1,7 +1,7 @@
 ﻿Public Class CompraDetalle
     Private Const Tabla As String = "compradetalle"
     Private idcompraDetalle As Integer
-    Private cantCompra As Decimal
+    Private cantCompra As Double
     Private id_compraa As Integer
     Private id_productooo As Integer
     Public Sub New()
@@ -9,9 +9,9 @@
     End Sub
 
     Public Sub New(idcompraDetalle As Integer,
-                     cantCompra As Decimal,
+                     cantCompra As Double,
                      id_compraa As Integer,
-                     id_productoo As Integer)
+                     id_productooo As Integer)
 
         Me.idcompraDetalle = idcompraDetalle
         Me.cantCompra = cantCompra
@@ -21,7 +21,7 @@
     Public Sub SetIdCompraDetalle(idcompraDetalle As Integer)
         Me.idcompraDetalle = idcompraDetalle
     End Sub
-    Public Sub SetCantCompra(cantCompra As Decimal)
+    Public Sub SetCantCompra(cantCompra As Double)
         Me.cantCompra = cantCompra
     End Sub
     Public Sub SetIdCompraa(id_compraa As Integer)
@@ -33,13 +33,13 @@
     Public Function GetIdCompraDetalle() As Integer
         Return Me.idcompraDetalle
     End Function
-    Public Function GetCantCompra() As Decimal
+    Public Function GetCantCompra() As Double
         Return Me.cantCompra
     End Function
     Public Function GetIdCompraa() As Integer
         Return Me.id_compraa
     End Function
-    Public Function GetIdProductooo() As String
+    Public Function GetIdProductooo() As Integer
         Return Me.id_productooo
     End Function
 
@@ -67,11 +67,11 @@
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
-    Public Function BuscarCompraBDyId(idusuario As Integer) As Boolean
+    Public Function BuscarCompraBDyId(idcompraDetalle As Integer) As Boolean
         Dim database As BaseDatos = New BaseDatos()
-        Dim columnas As String() = {"'" & Me.idcompraDetalle & "'", "'" & Me.cantCompra & "'", "'" & Me.id_compraa & "'",
-                                   "'" & Me.id_productooo & "'"}
-        Dim condiciones As String() = {"idcompradetalle=" & "'" & Me.idcompraDetalle & "'"}
+        Dim columnas As String() = {"idcompraDetalle", "cantCompra ", "id_compraa",
+                                   "id_productooo"}
+        Dim condiciones As String() = {"idcompradetalle=" & "'" & idcompraDetalle & "'"}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
@@ -99,7 +99,7 @@
 
         Return database.Buscar({Tabla}, columnas, {})
     End Function
-    Public Function BuscarProductosByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
+    Public Function BuscarCompraDetalleByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {Tabla & ".idcompradetalle", Tabla & ".cantCompra", Tabla & ".id_compraa",
                                     Tabla & ".idproductooo"}

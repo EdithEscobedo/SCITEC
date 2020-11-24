@@ -119,7 +119,7 @@
         End If
     End Function
 
-    Public Function BuscarUltimoIdC() As Integer
+    Public Function BuscarUltimoIdCompra() As Integer
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"Max(idcompras) AS idcompras"}
 

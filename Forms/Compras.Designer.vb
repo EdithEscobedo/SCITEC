@@ -30,16 +30,16 @@ Partial Class Compras
         Me.cbProducto = New System.Windows.Forms.ComboBox()
         Me.txtFolio = New System.Windows.Forms.TextBox()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
+        Me.btnIngresaProducto = New System.Windows.Forms.Button()
+        Me.btnModificarProducto = New System.Windows.Forms.Button()
+        Me.btnQuitarProducto = New System.Windows.Forms.Button()
+        Me.dgvDetalleCompra = New System.Windows.Forms.DataGridView()
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
         Me.dateFechaCompra = New System.Windows.Forms.DateTimePicker()
         Me.cbProveedor = New System.Windows.Forms.ComboBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvDetalleCompra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -54,7 +54,7 @@ Partial Class Compras
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(64, 73)
+        Me.Label3.Location = New System.Drawing.Point(410, 123)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
@@ -63,7 +63,7 @@ Partial Class Compras
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(383, 34)
+        Me.Label4.Location = New System.Drawing.Point(370, 30)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 13)
         Me.Label4.TabIndex = 3
@@ -72,7 +72,7 @@ Partial Class Compras
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(383, 73)
+        Me.Label5.Location = New System.Drawing.Point(58, 78)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 4
@@ -81,7 +81,7 @@ Partial Class Compras
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(65, 118)
+        Me.Label6.Location = New System.Drawing.Point(65, 123)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 5
@@ -90,90 +90,91 @@ Partial Class Compras
         'cbProducto
         '
         Me.cbProducto.FormattingEnabled = True
-        Me.cbProducto.Location = New System.Drawing.Point(144, 68)
+        Me.cbProducto.Location = New System.Drawing.Point(478, 117)
         Me.cbProducto.Name = "cbProducto"
-        Me.cbProducto.Size = New System.Drawing.Size(166, 21)
+        Me.cbProducto.Size = New System.Drawing.Size(198, 21)
         Me.cbProducto.TabIndex = 6
         '
         'txtFolio
         '
+        Me.txtFolio.Enabled = False
         Me.txtFolio.Location = New System.Drawing.Point(144, 27)
         Me.txtFolio.Name = "txtFolio"
-        Me.txtFolio.Size = New System.Drawing.Size(166, 20)
+        Me.txtFolio.Size = New System.Drawing.Size(181, 20)
         Me.txtFolio.TabIndex = 7
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(144, 115)
+        Me.txtCantidad.Location = New System.Drawing.Point(144, 120)
         Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(166, 20)
+        Me.txtCantidad.Size = New System.Drawing.Size(181, 20)
         Me.txtCantidad.TabIndex = 11
         '
-        'Button1
+        'btnIngresaProducto
         '
-        Me.Button1.Location = New System.Drawing.Point(67, 157)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(166, 23)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Ingresar producto"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnIngresaProducto.Location = New System.Drawing.Point(67, 157)
+        Me.btnIngresaProducto.Name = "btnIngresaProducto"
+        Me.btnIngresaProducto.Size = New System.Drawing.Size(166, 23)
+        Me.btnIngresaProducto.TabIndex = 12
+        Me.btnIngresaProducto.Text = "Ingresar producto"
+        Me.btnIngresaProducto.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnModificarProducto
         '
-        Me.Button2.Location = New System.Drawing.Point(270, 157)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(170, 23)
-        Me.Button2.TabIndex = 13
-        Me.Button2.Text = "Modificar producto"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnModificarProducto.Location = New System.Drawing.Point(270, 157)
+        Me.btnModificarProducto.Name = "btnModificarProducto"
+        Me.btnModificarProducto.Size = New System.Drawing.Size(170, 23)
+        Me.btnModificarProducto.TabIndex = 13
+        Me.btnModificarProducto.Text = "Modificar producto"
+        Me.btnModificarProducto.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnQuitarProducto
         '
-        Me.Button3.Location = New System.Drawing.Point(478, 157)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(154, 23)
-        Me.Button3.TabIndex = 14
-        Me.Button3.Text = "Quitar producto"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnQuitarProducto.Location = New System.Drawing.Point(478, 157)
+        Me.btnQuitarProducto.Name = "btnQuitarProducto"
+        Me.btnQuitarProducto.Size = New System.Drawing.Size(154, 23)
+        Me.btnQuitarProducto.TabIndex = 14
+        Me.btnQuitarProducto.Text = "Quitar producto"
+        Me.btnQuitarProducto.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'dgvDetalleCompra
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(67, 202)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(565, 225)
-        Me.DataGridView1.TabIndex = 15
+        Me.dgvDetalleCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDetalleCompra.Location = New System.Drawing.Point(67, 202)
+        Me.dgvDetalleCompra.Name = "dgvDetalleCompra"
+        Me.dgvDetalleCompra.Size = New System.Drawing.Size(565, 225)
+        Me.dgvDetalleCompra.TabIndex = 15
         '
-        'Button4
+        'btnGuardar
         '
-        Me.Button4.Location = New System.Drawing.Point(643, 251)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(92, 23)
-        Me.Button4.TabIndex = 16
-        Me.Button4.Text = "Guardar"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnGuardar.Location = New System.Drawing.Point(643, 251)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(92, 23)
+        Me.btnGuardar.TabIndex = 16
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnModificar
         '
-        Me.Button5.Location = New System.Drawing.Point(643, 302)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(92, 23)
-        Me.Button5.TabIndex = 17
-        Me.Button5.Text = "Modificar"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnModificar.Location = New System.Drawing.Point(643, 302)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(92, 23)
+        Me.btnModificar.TabIndex = 17
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnEliminar
         '
-        Me.Button6.Location = New System.Drawing.Point(643, 349)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(92, 23)
-        Me.Button6.TabIndex = 18
-        Me.Button6.Text = "Eliminar"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnEliminar.Location = New System.Drawing.Point(643, 349)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(92, 23)
+        Me.btnEliminar.TabIndex = 18
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
         '
         'dateFechaCompra
         '
-        Me.dateFechaCompra.Location = New System.Drawing.Point(478, 30)
+        Me.dateFechaCompra.Location = New System.Drawing.Point(478, 27)
         Me.dateFechaCompra.Name = "dateFechaCompra"
         Me.dateFechaCompra.Size = New System.Drawing.Size(198, 20)
         Me.dateFechaCompra.TabIndex = 19
@@ -181,9 +182,9 @@ Partial Class Compras
         'cbProveedor
         '
         Me.cbProveedor.FormattingEnabled = True
-        Me.cbProveedor.Location = New System.Drawing.Point(478, 70)
+        Me.cbProveedor.Location = New System.Drawing.Point(144, 75)
         Me.cbProveedor.Name = "cbProveedor"
-        Me.cbProveedor.Size = New System.Drawing.Size(198, 21)
+        Me.cbProveedor.Size = New System.Drawing.Size(181, 21)
         Me.cbProveedor.TabIndex = 20
         '
         'Compras
@@ -193,13 +194,13 @@ Partial Class Compras
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.cbProveedor)
         Me.Controls.Add(Me.dateFechaCompra)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnEliminar)
+        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnGuardar)
+        Me.Controls.Add(Me.dgvDetalleCompra)
+        Me.Controls.Add(Me.btnQuitarProducto)
+        Me.Controls.Add(Me.btnModificarProducto)
+        Me.Controls.Add(Me.btnIngresaProducto)
         Me.Controls.Add(Me.txtCantidad)
         Me.Controls.Add(Me.txtFolio)
         Me.Controls.Add(Me.cbProducto)
@@ -210,7 +211,7 @@ Partial Class Compras
         Me.Controls.Add(Me.Label1)
         Me.Name = "Compras"
         Me.Text = "Compras"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvDetalleCompra, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -224,13 +225,13 @@ Partial Class Compras
     Friend WithEvents cbProducto As ComboBox
     Friend WithEvents txtFolio As TextBox
     Friend WithEvents txtCantidad As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button6 As Button
+    Friend WithEvents btnIngresaProducto As Button
+    Friend WithEvents btnModificarProducto As Button
+    Friend WithEvents btnQuitarProducto As Button
+    Friend WithEvents dgvDetalleCompra As DataGridView
+    Friend WithEvents btnGuardar As Button
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents btnEliminar As Button
     Friend WithEvents dateFechaCompra As DateTimePicker
     Friend WithEvents cbProveedor As ComboBox
 End Class

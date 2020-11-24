@@ -46,7 +46,7 @@ Partial Class RegSalidaP
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 49)
+        Me.Label1.Location = New System.Drawing.Point(86, 46)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(77, 13)
         Me.Label1.TabIndex = 0
@@ -55,7 +55,7 @@ Partial Class RegSalidaP
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(26, 92)
+        Me.Label2.Location = New System.Drawing.Point(64, 89)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(99, 13)
         Me.Label2.TabIndex = 1
@@ -64,7 +64,7 @@ Partial Class RegSalidaP
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(26, 126)
+        Me.Label3.Location = New System.Drawing.Point(113, 126)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(41, 13)
         Me.Label3.TabIndex = 2
@@ -73,7 +73,7 @@ Partial Class RegSalidaP
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(26, 166)
+        Me.Label4.Location = New System.Drawing.Point(101, 163)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 3
@@ -82,7 +82,7 @@ Partial Class RegSalidaP
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(303, 49)
+        Me.Label5.Location = New System.Drawing.Point(363, 46)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(85, 13)
         Me.Label5.TabIndex = 4
@@ -91,7 +91,7 @@ Partial Class RegSalidaP
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(303, 92)
+        Me.Label6.Location = New System.Drawing.Point(349, 89)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(99, 13)
         Me.Label6.TabIndex = 5
@@ -100,7 +100,7 @@ Partial Class RegSalidaP
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(303, 166)
+        Me.Label7.Location = New System.Drawing.Point(396, 159)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(52, 13)
         Me.Label7.TabIndex = 6
@@ -117,51 +117,51 @@ Partial Class RegSalidaP
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(85, 163)
+        Me.ComboBox1.Location = New System.Drawing.Point(169, 160)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(167, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(143, 21)
         Me.ComboBox1.TabIndex = 8
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(394, 43)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(468, 40)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
         Me.DateTimePicker1.TabIndex = 9
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(73, 126)
+        Me.TextBox1.Location = New System.Drawing.Point(169, 123)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(179, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(143, 20)
         Me.TextBox1.TabIndex = 10
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(131, 89)
+        Me.TextBox2.Location = New System.Drawing.Point(169, 86)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(121, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(143, 20)
         Me.TextBox2.TabIndex = 11
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(109, 43)
+        Me.TextBox3.Location = New System.Drawing.Point(169, 40)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(143, 20)
         Me.TextBox3.TabIndex = 12
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(374, 163)
+        Me.TextBox4.Location = New System.Drawing.Point(468, 156)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(133, 20)
         Me.TextBox4.TabIndex = 13
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(408, 89)
+        Me.TextBox5.Location = New System.Drawing.Point(468, 86)
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(186, 20)
+        Me.TextBox5.Size = New System.Drawing.Size(200, 20)
         Me.TextBox5.TabIndex = 14
         '
         'Button1

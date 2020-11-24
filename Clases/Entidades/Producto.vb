@@ -88,7 +88,7 @@
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
-    Public Function BuscarProductoById(idusuario As Integer) As Boolean
+    Public Function BuscarProductoById(idProductos As Integer) As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idProductos", "nombreProducto", "cantidadProducto", "estadoProducto", "id_catP",
                                     "id_unidM"}
