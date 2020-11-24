@@ -85,7 +85,36 @@
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        Me.compra.SetIdCompras(CInt(Me.txtFolio.Text))
+        Me.compra.SetIdProveedor(Me.cbProveedor.SelectedValue)
+        Me.compra.SetFechaCompra(Me.dateFechaCompra.Value)
+        Me.compra.SetIdUser(240)
 
+        If (Not Me.compra.AgregarCompra()) Then
+            MsgBox("Error al agregar compra", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
+        For Each compD As CompraDetalle In compraDetalle
+            If (Not producto.BuscarProductoById(compD.GetIdProductooo())) Then
+                MsgBox("No se encontró el producto con el ID: " & compD.GetIdProductooo(), MsgBoxStyle.Critical, "ERROR")
+            End If
+
+            producto.SetCantidadProducto(producto.GetCantidadProducto() + compD.GetCantCompra())
+
+            If (Not compD.AgregarCompraD()) Then
+                MsgBox("Error al agregar compra", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+
+            If (Not producto.ActualizarProducto()) Then
+                MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+
+        Next
+        MsgBox("Compra agregada", MsgBoxStyle.Information, "EXITO")
+        Me.Close()
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click

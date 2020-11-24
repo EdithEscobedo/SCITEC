@@ -54,7 +54,7 @@ Partial Class Compras
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(410, 123)
+        Me.Label3.Location = New System.Drawing.Point(64, 125)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 2
@@ -81,7 +81,7 @@ Partial Class Compras
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(65, 123)
+        Me.Label6.Location = New System.Drawing.Point(411, 125)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 5
@@ -90,9 +90,9 @@ Partial Class Compras
         'cbProducto
         '
         Me.cbProducto.FormattingEnabled = True
-        Me.cbProducto.Location = New System.Drawing.Point(478, 117)
+        Me.cbProducto.Location = New System.Drawing.Point(144, 122)
         Me.cbProducto.Name = "cbProducto"
-        Me.cbProducto.Size = New System.Drawing.Size(198, 21)
+        Me.cbProducto.Size = New System.Drawing.Size(181, 21)
         Me.cbProducto.TabIndex = 6
         '
         'txtFolio
@@ -105,9 +105,9 @@ Partial Class Compras
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(144, 120)
+        Me.txtCantidad.Location = New System.Drawing.Point(478, 122)
         Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(181, 20)
+        Me.txtCantidad.Size = New System.Drawing.Size(198, 20)
         Me.txtCantidad.TabIndex = 11
         '
         'btnIngresaProducto
@@ -174,6 +174,7 @@ Partial Class Compras
         '
         'dateFechaCompra
         '
+        Me.dateFechaCompra.CustomFormat = "yyyy-MM-dd"
         Me.dateFechaCompra.Location = New System.Drawing.Point(478, 27)
         Me.dateFechaCompra.Name = "dateFechaCompra"
         Me.dateFechaCompra.Size = New System.Drawing.Size(198, 20)

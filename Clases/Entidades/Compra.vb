@@ -24,7 +24,7 @@
     Public Sub SetFechaCompra(fecha_compra As Date)
         Me.fecha_compra = fecha_compra
     End Sub
-    Public Sub SetIdProducto(id_pro As Integer)
+    Public Sub SetIdProveedor(id_pro As Integer)
         Me.id_pro = id_pro
     End Sub
     Public Sub SetIdUser(id_user As Integer)
@@ -36,7 +36,7 @@
     Public Function GetFechaCompra() As Date
         Return Me.fecha_compra
     End Function
-    Public Function GetIdProducto() As Integer
+    Public Function GetIdProveedor() As Integer
         Return Me.id_pro
     End Function
     Public Function GetIdUser() As String
@@ -46,7 +46,7 @@
     Public Function AgregarCompra() As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idcompras", "fecha_compra", "id_pro", "id_user"}
-        Dim valores As String() = {"'" & Me.idcompras & "'", "'" & Me.fecha_compra & "'", "'" & Me.id_pro & "'",
+        Dim valores As String() = {"'" & Me.idcompras & "'", "'" & Me.fecha_compra.ToString("yyyy-MM-dd") & "'", "'" & Me.id_pro & "'",
                                    "'" & Me.id_user & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
@@ -54,7 +54,7 @@
     Public Function ActualizarCompras() As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idcompras", "fecha_compra", "id_pro", "id_user"}
-        Dim valores As String() = {"'" & Me.idcompras & "'", "'" & Me.fecha_compra & "'", "'" & Me.id_pro & "'",
+        Dim valores As String() = {"'" & Me.idcompras & "'", "'" & Me.fecha_compra.ToString("yyyy-MM-dd") & "'", "'" & Me.id_pro & "'",
                                    "'" & Me.id_user & "'"}
         Dim condiciones As String() = {"idcompras=" & "'" & Me.idcompras & "'"}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
@@ -82,7 +82,7 @@
                Not IsDBNull(result.Rows(0)("id_user")) Then
                 SetIdCompras(CInt(result.Rows(0)("idCompras")))
                 SetFechaCompra(CStr(result.Rows(0)("fecha_compra")))
-                SetIdProducto(CInt(result.Rows(0)("id_pro")))
+                SetIdProveedor(CInt(result.Rows(0)("id_pro")))
                 SetIdUser(CStr(result.Rows(0)("id_user")))
                 Return True
             Else
