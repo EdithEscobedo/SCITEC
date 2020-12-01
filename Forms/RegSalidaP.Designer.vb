@@ -29,24 +29,27 @@ Partial Class RegSalidaP
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgvRegistroSalida = New System.Windows.Forms.DataGridView()
+        Me.cbProducto = New System.Windows.Forms.ComboBox()
+        Me.dateFechaSalida = New System.Windows.Forms.DateTimePicker()
+        Me.txtNumeroUsuario = New System.Windows.Forms.TextBox()
+        Me.txtFolioSalida = New System.Windows.Forms.TextBox()
+        Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.txtNombreUsuario = New System.Windows.Forms.TextBox()
+        Me.btnGuardarSalida = New System.Windows.Forms.Button()
+        Me.btnEditarSalida = New System.Windows.Forms.Button()
+        Me.btnEliminarSalida = New System.Windows.Forms.Button()
+        Me.btnIngresar = New System.Windows.Forms.Button()
+        Me.btnModificar = New System.Windows.Forms.Button()
+        Me.btnQuitar = New System.Windows.Forms.Button()
+        Me.cbRazon = New System.Windows.Forms.ComboBox()
+        CType(Me.dgvRegistroSalida, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(86, 46)
+        Me.Label1.Location = New System.Drawing.Point(85, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(77, 13)
         Me.Label1.TabIndex = 0
@@ -55,7 +58,7 @@ Partial Class RegSalidaP
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(64, 89)
+        Me.Label2.Location = New System.Drawing.Point(63, 63)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(99, 13)
         Me.Label2.TabIndex = 1
@@ -64,7 +67,7 @@ Partial Class RegSalidaP
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(113, 126)
+        Me.Label3.Location = New System.Drawing.Point(112, 100)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(41, 13)
         Me.Label3.TabIndex = 2
@@ -73,7 +76,7 @@ Partial Class RegSalidaP
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(101, 163)
+        Me.Label4.Location = New System.Drawing.Point(100, 137)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 3
@@ -82,7 +85,7 @@ Partial Class RegSalidaP
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(363, 46)
+        Me.Label5.Location = New System.Drawing.Point(362, 20)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(85, 13)
         Me.Label5.TabIndex = 4
@@ -91,7 +94,7 @@ Partial Class RegSalidaP
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(349, 89)
+        Me.Label6.Location = New System.Drawing.Point(348, 63)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(99, 13)
         Me.Label6.TabIndex = 5
@@ -100,113 +103,146 @@ Partial Class RegSalidaP
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(396, 159)
+        Me.Label7.Location = New System.Drawing.Point(395, 133)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(52, 13)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Cantidad:"
         '
-        'DataGridView1
+        'dgvRegistroSalida
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(86, 204)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(508, 234)
-        Me.DataGridView1.TabIndex = 7
+        Me.dgvRegistroSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvRegistroSalida.Location = New System.Drawing.Point(27, 219)
+        Me.dgvRegistroSalida.Name = "dgvRegistroSalida"
+        Me.dgvRegistroSalida.Size = New System.Drawing.Size(622, 219)
+        Me.dgvRegistroSalida.TabIndex = 7
         '
-        'ComboBox1
+        'cbProducto
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(169, 160)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(143, 21)
-        Me.ComboBox1.TabIndex = 8
+        Me.cbProducto.FormattingEnabled = True
+        Me.cbProducto.Location = New System.Drawing.Point(168, 134)
+        Me.cbProducto.Name = "cbProducto"
+        Me.cbProducto.Size = New System.Drawing.Size(143, 21)
+        Me.cbProducto.TabIndex = 8
         '
-        'DateTimePicker1
+        'dateFechaSalida
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(468, 40)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 9
+        Me.dateFechaSalida.Location = New System.Drawing.Point(467, 14)
+        Me.dateFechaSalida.Name = "dateFechaSalida"
+        Me.dateFechaSalida.Size = New System.Drawing.Size(200, 20)
+        Me.dateFechaSalida.TabIndex = 9
         '
-        'TextBox1
+        'txtNumeroUsuario
         '
-        Me.TextBox1.Location = New System.Drawing.Point(169, 123)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(143, 20)
-        Me.TextBox1.TabIndex = 10
+        Me.txtNumeroUsuario.Location = New System.Drawing.Point(168, 60)
+        Me.txtNumeroUsuario.Name = "txtNumeroUsuario"
+        Me.txtNumeroUsuario.Size = New System.Drawing.Size(143, 20)
+        Me.txtNumeroUsuario.TabIndex = 11
         '
-        'TextBox2
+        'txtFolioSalida
         '
-        Me.TextBox2.Location = New System.Drawing.Point(169, 86)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(143, 20)
-        Me.TextBox2.TabIndex = 11
+        Me.txtFolioSalida.Location = New System.Drawing.Point(168, 14)
+        Me.txtFolioSalida.Name = "txtFolioSalida"
+        Me.txtFolioSalida.Size = New System.Drawing.Size(143, 20)
+        Me.txtFolioSalida.TabIndex = 12
         '
-        'TextBox3
+        'txtCantidad
         '
-        Me.TextBox3.Location = New System.Drawing.Point(169, 40)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(143, 20)
-        Me.TextBox3.TabIndex = 12
+        Me.txtCantidad.Location = New System.Drawing.Point(467, 130)
+        Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.Size = New System.Drawing.Size(133, 20)
+        Me.txtCantidad.TabIndex = 13
         '
-        'TextBox4
+        'txtNombreUsuario
         '
-        Me.TextBox4.Location = New System.Drawing.Point(468, 156)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(133, 20)
-        Me.TextBox4.TabIndex = 13
+        Me.txtNombreUsuario.Location = New System.Drawing.Point(467, 60)
+        Me.txtNombreUsuario.Name = "txtNombreUsuario"
+        Me.txtNombreUsuario.Size = New System.Drawing.Size(200, 20)
+        Me.txtNombreUsuario.TabIndex = 14
         '
-        'TextBox5
+        'btnGuardarSalida
         '
-        Me.TextBox5.Location = New System.Drawing.Point(468, 86)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox5.TabIndex = 14
+        Me.btnGuardarSalida.Location = New System.Drawing.Point(667, 251)
+        Me.btnGuardarSalida.Name = "btnGuardarSalida"
+        Me.btnGuardarSalida.Size = New System.Drawing.Size(109, 23)
+        Me.btnGuardarSalida.TabIndex = 15
+        Me.btnGuardarSalida.Text = "Guardar Salida"
+        Me.btnGuardarSalida.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnEditarSalida
         '
-        Me.Button1.Location = New System.Drawing.Point(655, 263)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(109, 23)
-        Me.Button1.TabIndex = 15
-        Me.Button1.Text = "Guardar Salida"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnEditarSalida.Location = New System.Drawing.Point(667, 312)
+        Me.btnEditarSalida.Name = "btnEditarSalida"
+        Me.btnEditarSalida.Size = New System.Drawing.Size(109, 23)
+        Me.btnEditarSalida.TabIndex = 16
+        Me.btnEditarSalida.Text = "Editar Salida"
+        Me.btnEditarSalida.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnEliminarSalida
         '
-        Me.Button2.Location = New System.Drawing.Point(655, 324)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(109, 23)
-        Me.Button2.TabIndex = 16
-        Me.Button2.Text = "Editar Salida"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnEliminarSalida.Location = New System.Drawing.Point(667, 374)
+        Me.btnEliminarSalida.Name = "btnEliminarSalida"
+        Me.btnEliminarSalida.Size = New System.Drawing.Size(109, 23)
+        Me.btnEliminarSalida.TabIndex = 17
+        Me.btnEliminarSalida.Text = "Eliminar Salida"
+        Me.btnEliminarSalida.UseVisualStyleBackColor = True
         '
-        'Button3
+        'btnIngresar
         '
-        Me.Button3.Location = New System.Drawing.Point(655, 386)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(109, 23)
-        Me.Button3.TabIndex = 17
-        Me.Button3.Text = "Eliminar Salida"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnIngresar.Location = New System.Drawing.Point(27, 179)
+        Me.btnIngresar.Name = "btnIngresar"
+        Me.btnIngresar.Size = New System.Drawing.Size(166, 23)
+        Me.btnIngresar.TabIndex = 18
+        Me.btnIngresar.Text = "Ingresar Producto"
+        Me.btnIngresar.UseVisualStyleBackColor = True
+        '
+        'btnModificar
+        '
+        Me.btnModificar.Location = New System.Drawing.Point(256, 179)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(166, 23)
+        Me.btnModificar.TabIndex = 19
+        Me.btnModificar.Text = "Modificar Producto"
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
+        'btnQuitar
+        '
+        Me.btnQuitar.Location = New System.Drawing.Point(483, 179)
+        Me.btnQuitar.Name = "btnQuitar"
+        Me.btnQuitar.Size = New System.Drawing.Size(166, 23)
+        Me.btnQuitar.TabIndex = 20
+        Me.btnQuitar.Text = "Quitar Producto"
+        Me.btnQuitar.UseVisualStyleBackColor = True
+        '
+        'cbRazon
+        '
+        Me.cbRazon.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cbRazon.FormattingEnabled = True
+        Me.cbRazon.Items.AddRange(New Object() {"Salida", "Merma"})
+        Me.cbRazon.Location = New System.Drawing.Point(168, 97)
+        Me.cbRazon.Name = "cbRazon"
+        Me.cbRazon.Size = New System.Drawing.Size(143, 21)
+        Me.cbRazon.TabIndex = 21
         '
         'RegSalidaP
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.cbRazon)
+        Me.Controls.Add(Me.btnQuitar)
+        Me.Controls.Add(Me.btnModificar)
+        Me.Controls.Add(Me.btnIngresar)
+        Me.Controls.Add(Me.btnEliminarSalida)
+        Me.Controls.Add(Me.btnEditarSalida)
+        Me.Controls.Add(Me.btnGuardarSalida)
+        Me.Controls.Add(Me.txtNombreUsuario)
+        Me.Controls.Add(Me.txtCantidad)
+        Me.Controls.Add(Me.txtFolioSalida)
+        Me.Controls.Add(Me.txtNumeroUsuario)
+        Me.Controls.Add(Me.dateFechaSalida)
+        Me.Controls.Add(Me.cbProducto)
+        Me.Controls.Add(Me.dgvRegistroSalida)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -216,7 +252,7 @@ Partial Class RegSalidaP
         Me.Controls.Add(Me.Label1)
         Me.Name = "RegSalidaP"
         Me.Text = "Registro salida del producto"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvRegistroSalida, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -229,15 +265,18 @@ Partial Class RegSalidaP
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents dgvRegistroSalida As DataGridView
+    Friend WithEvents cbProducto As ComboBox
+    Friend WithEvents dateFechaSalida As DateTimePicker
+    Friend WithEvents txtNumeroUsuario As TextBox
+    Friend WithEvents txtFolioSalida As TextBox
+    Friend WithEvents txtCantidad As TextBox
+    Friend WithEvents txtNombreUsuario As TextBox
+    Friend WithEvents btnGuardarSalida As Button
+    Friend WithEvents btnEditarSalida As Button
+    Friend WithEvents btnEliminarSalida As Button
+    Friend WithEvents btnIngresar As Button
+    Friend WithEvents btnModificar As Button
+    Friend WithEvents btnQuitar As Button
+    Friend WithEvents cbRazon As ComboBox
 End Class

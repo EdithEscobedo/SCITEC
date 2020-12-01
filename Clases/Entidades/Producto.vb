@@ -148,14 +148,20 @@
     Public Sub PoblarComboProducto(cbPrducto As ComboBox)
         cbPrducto.DisplayMember = "Value"
         cbPrducto.ValueMember = "Key"
-        Dim producto As DataTable = BuscarProducto()
+
+        Dim columnas As String() = {"unidad_medida.nom_unidadM"}
+        Dim joins As String() = {"INNER JOIN unidad_medida On productos.id_unidM = unidad_medida.idunidadM"}
+        Dim conditions As String() = {"estadoProducto = 'activo'"}
+
+        Dim producto As DataTable = BuscarProductosByConditions(columnas, joins, conditions)
         producto.DefaultView.Sort = "idProductos ASC"
         producto = producto.DefaultView.ToTable()
 
         If producto.Rows.Count > 0 Then
             Dim tipoUDictionary As New Dictionary(Of Integer, String)
             For index = 0 To producto.Rows.Count - 1
-                tipoUDictionary.Add(producto.Rows(index)("idProductos"), producto.Rows(index)("nombreProducto"))
+                tipoUDictionary.Add(producto.Rows(index)("idProductos"),
+                                    producto.Rows(index)("nombreProducto") & " - " & producto.Rows(index)("nom_unidadM"))
             Next
             cbPrducto.DataSource = New BindingSource(tipoUDictionary, Nothing)
         Else

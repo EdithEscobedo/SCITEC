@@ -139,9 +139,13 @@ Partial Class Compras
         '
         'dgvDetalleCompra
         '
+        Me.dgvDetalleCompra.AllowUserToAddRows = False
+        Me.dgvDetalleCompra.AllowUserToDeleteRows = False
         Me.dgvDetalleCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDetalleCompra.Location = New System.Drawing.Point(67, 202)
         Me.dgvDetalleCompra.Name = "dgvDetalleCompra"
+        Me.dgvDetalleCompra.RowHeadersVisible = False
+        Me.dgvDetalleCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvDetalleCompra.Size = New System.Drawing.Size(565, 225)
         Me.dgvDetalleCompra.TabIndex = 15
         '

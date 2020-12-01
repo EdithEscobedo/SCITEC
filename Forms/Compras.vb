@@ -18,7 +18,7 @@
         Me.btnGuardar.Enabled = True
         Me.btnModificar.Enabled = False
     End Sub
-    Public Sub New(idusuario As Integer)
+    Public Sub New(idcompras As Integer)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
@@ -30,6 +30,10 @@
     Private Sub Compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.proveedor.PoblarComboProveedor(Me.cbProveedor)
         Me.producto.PoblarComboProducto(Me.cbProducto)
+    End Sub
+    Private Sub Compras_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim form As Form = New Menu()
+        form.Show()
     End Sub
 
     Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
@@ -43,12 +47,20 @@
         Dim maxId As CompraDetalle = compraDetalle.OrderByDescending(
                              Function(x) x.GetIdCompraDetalle()).FirstOrDefault
 
+        Dim productoExistente As CompraDetalle = compraDetalle.Find(
+            Function(x) x.GetIdProductooo() = Me.cbProducto.SelectedValue)
+        If Not IsNothing(productoExistente) Then
+            MsgBox("Producto existente en la lista", MsgBoxStyle.Information, "INVÁLIDO")
+            Exit Sub
+        End If
+
         cD.SetIdCompraDetalle(If(Not IsNothing(maxId), maxId.GetIdCompraDetalle() + 1, cD.BuscarUltimoId() + 1))
 
         cD.SetCantCompra(CDbl(Me.txtCantidad.Text))
         cD.SetIdCompraa(CInt(Me.txtFolio.Text))
         cD.SetIdProductooo(Me.cbProducto.SelectedValue)
         Me.compraDetalle.Add(cD)
+        Me.cbProveedor.Enabled = False
 
         LimpiarCampos()
         MostrarCompra()
@@ -69,6 +81,7 @@
     Private Sub btnModificarProducto_Click(sender As Object, e As EventArgs) Handles btnModificarProducto.Click
         Dim detalleProducto As CompraDetalle = compraDetalle.Find(
             Function(x) x.GetIdCompraDetalle() = dgvDetalleCompra.CurrentRow.Cells("ID").Value)
+
         detalleProducto.SetCantCompra(CInt(Me.txtCantidad.Text))
         detalleProducto.SetIdProductooo(Me.cbProducto.SelectedValue)
 
@@ -79,6 +92,7 @@
     Private Sub btnQuitarProducto_Click(sender As Object, e As EventArgs) Handles btnQuitarProducto.Click
         Dim index As Integer = compraDetalle.FindIndex(
             Function(x) x.GetIdCompraDetalle() = dgvDetalleCompra.CurrentRow.Cells("ID").Value)
+
         compraDetalle.RemoveAt(index)
         LimpiarCampos()
         MostrarCompra()
@@ -124,23 +138,21 @@
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
 
     End Sub
-
-    Private Sub Compras_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Dim form As Form = New Menu()
-        form.Show()
-    End Sub
     Private Sub MostrarCompra()
         Dim detalleCompra As DataTable = New DataTable()
-        detalleCompra.Columns.Add("ID")
-        detalleCompra.Columns.Add("Cantidad")
         detalleCompra.Columns.Add("Producto")
+        detalleCompra.Columns.Add("Cantidad")
+        detalleCompra.Columns.Add("Unidad Medida")
+
+        Dim unidadM As UnidadMedida = New UnidadMedida()
 
         For Each detalle As CompraDetalle In compraDetalle
             Dim dr As DataRow = detalleCompra.NewRow()
-            dr("ID") = detalle.GetIdCompraDetalle()
             dr("Cantidad") = detalle.GetCantCompra()
             producto.BuscarProductoById(detalle.GetIdProductooo())
             dr("Producto") = producto.GetNombreProducto()
+            unidadM.BuscarUnidadMById(producto.GetIdUnidadMedida())
+            dr("Unidad Medida") = unidadM.GetNombreUnidadMedida()
             detalleCompra.Rows.Add(dr)
         Next
         Me.dgvDetalleCompra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
@@ -151,7 +163,6 @@
     Private Sub LimpiarCampos()
         Me.txtCantidad.Text = "0"
         Me.cbProducto.Text = ""
-        Me.cbProveedor.Text = ""
 
         Me.btnIngresaProducto.Enabled = True
         Me.btnModificarProducto.Enabled = False

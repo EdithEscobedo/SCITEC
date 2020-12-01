@@ -1,7 +1,7 @@
 ﻿Public Class RegSalidaProD
     Private Const Tabla As String = "salidadetalle"
     Private idsalidaDetalle As Integer
-    Private cantidad As Decimal
+    Private cantidad As Integer
     Private id_salidaProd As Integer
     Private id_producto As Integer
     Public Sub New()
@@ -21,7 +21,7 @@
     Public Sub SetIdSalidaProductoDetalle(idcompraDetalle As Integer)
         Me.idsalidaDetalle = idsalidaDetalle
     End Sub
-    Public Sub SetCantidad(cantCompra As Decimal)
+    Public Sub SetCantidad(cantCompra As Integer)
         Me.cantidad = cantidad
     End Sub
     Public Sub SetIdsalidaProd(id_salidaProd As Integer)
@@ -33,7 +33,7 @@
     Public Function GetIdSalidaProductoDetalle() As Integer
         Return Me.idsalidaDetalle
     End Function
-    Public Function GetCantidad() As Decimal
+    Public Function GetCantidad() As Integer
         Return Me.cantidad
     End Function
     Public Function GetIdsalidaProd() As Integer
@@ -82,9 +82,9 @@
                Not IsDBNull(result.Rows(0)("id_salidaProd")) And
                Not IsDBNull(result.Rows(0)("id_producto")) Then
                 SetIdSalidaProductoDetalle(CInt(result.Rows(0)("idsalidaDetalle")))
-                SetCantidad(CStr(result.Rows(0)("cantidad")))
+                SetCantidad(CInt(result.Rows(0)("cantidad")))
                 SetIdsalidaProd(CInt(result.Rows(0)("id_salidaProd")))
-                SetIdProducto(CStr(result.Rows(0)("id_producto")))
+                SetIdProducto(CInt(result.Rows(0)("id_producto")))
                 Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")

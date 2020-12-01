@@ -1,13 +1,159 @@
-﻿Public Class RegSalidaP
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+﻿Imports System.ComponentModel
+
+Public Class RegSalidaP
+    Private producto As Producto = New Producto()
+    Private salida As RegSalidaPro = New RegSalidaPro()
+    'Declaramos un arreglo de compra detalle
+    Private salidaDetalle As List(Of RegSalidaProD) = New List(Of RegSalidaProD)
+    Public Sub New()
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+    Public Sub New(idsalidaProducto As Integer)
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+    Private Sub RegSalidaP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.producto.PoblarComboProducto(Me.cbProducto)
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub RegSalidaP_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim form As Form = New Menu()
+        form.Show()
+    End Sub
+    Private Sub dgvRegistroSalida_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRegistroSalida.CellClick
+        Try
+            txtCantidad.Text = dgvDetalleCompra.CurrentRow.Cells("Cantidad").Value
+            cbProducto.Text = dgvDetalleCompra.CurrentRow.Cells("Producto").Value
+
+            Me.btnIngresaProducto.Enabled = False
+            Me.btnModificarProducto.Enabled = True
+            Me.btnQuitarProducto.Enabled = True
+        Catch ex As Exception
+            MsgBox("Error en la operación: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
+        Dim cD As CompraDetalle = New CompraDetalle()
+        Dim maxId As CompraDetalle = compraDetalle.OrderByDescending(
+                             Function(x) x.GetIdCompraDetalle()).FirstOrDefault
+
+        Dim productoExistente As CompraDetalle = compraDetalle.Find(
+            Function(x) x.GetIdProductooo() = Me.cbProducto.SelectedValue)
+        If Not IsNothing(productoExistente) Then
+            MsgBox("Producto existente en la lista", MsgBoxStyle.Information, "INVÁLIDO")
+            Exit Sub
+        End If
+
+        cD.SetIdCompraDetalle(If(Not IsNothing(maxId), maxId.GetIdCompraDetalle() + 1, cD.BuscarUltimoId() + 1))
+
+        cD.SetCantCompra(CDbl(Me.txtCantidad.Text))
+        cD.SetIdCompraa(CInt(Me.txtFolio.Text))
+        cD.SetIdProductooo(Me.cbProducto.SelectedValue)
+        Me.compraDetalle.Add(cD)
+        Me.cbProveedor.Enabled = False
+
+        LimpiarCampos()
+        MostrarCompra()
+    End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        Dim detalleProducto As CompraDetalle = compraDetalle.Find(
+            Function(x) x.GetIdCompraDetalle() = dgvDetalleCompra.CurrentRow.Cells("ID").Value)
+
+        detalleProducto.SetCantCompra(CInt(Me.txtCantidad.Text))
+        detalleProducto.SetIdProductooo(Me.cbProducto.SelectedValue)
+
+        LimpiarCampos()
+        MostrarCompra()
+    End Sub
+
+    Private Sub btnQuitar_Click(sender As Object, e As EventArgs) Handles btnQuitar.Click
+        Dim index As Integer = compraDetalle.FindIndex(
+            Function(x) x.GetIdCompraDetalle() = dgvDetalleCompra.CurrentRow.Cells("ID").Value)
+
+        compraDetalle.RemoveAt(index)
+        LimpiarCampos()
+        MostrarCompra()
+    End Sub
+
+    Private Sub btnGuardarSalida_Click(sender As Object, e As EventArgs) Handles btnGuardarSalida.Click
+        Me.compra.SetIdCompras(CInt(Me.txtFolio.Text))
+        Me.compra.SetIdProveedor(Me.cbProveedor.SelectedValue)
+        Me.compra.SetFechaCompra(Me.dateFechaCompra.Value)
+        Me.compra.SetIdUser(240)
+
+        If (Not Me.compra.AgregarCompra()) Then
+            MsgBox("Error al agregar compra", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
+        For Each compD As CompraDetalle In compraDetalle
+            If (Not producto.BuscarProductoById(compD.GetIdProductooo())) Then
+                MsgBox("No se encontró el producto con el ID: " & compD.GetIdProductooo(), MsgBoxStyle.Critical, "ERROR")
+            End If
+
+            producto.SetCantidadProducto(producto.GetCantidadProducto() + compD.GetCantCompra())
+
+            If (Not compD.AgregarCompraD()) Then
+                MsgBox("Error al agregar compra", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+
+            If (Not producto.ActualizarProducto()) Then
+                MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+
+        Next
+        MsgBox("Compra agregada", MsgBoxStyle.Information, "EXITO")
+        Me.Close()
+    End Sub
+
+    Private Sub btnEditarSalida_Click(sender As Object, e As EventArgs) Handles btnEditarSalida.Click
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub btnEliminarSalida_Click(sender As Object, e As EventArgs) Handles btnEliminarSalida.Click
 
+    End Sub
+    Private Sub MostrarCompra()
+        Dim detalleCompra As DataTable = New DataTable()
+        detalleCompra.Columns.Add("Producto")
+        detalleCompra.Columns.Add("Cantidad")
+        detalleCompra.Columns.Add("Unidad Medida")
+
+        Dim unidadM As UnidadMedida = New UnidadMedida()
+
+        For Each detalle As CompraDetalle In compraDetalle
+            Dim dr As DataRow = detalleCompra.NewRow()
+            dr("Cantidad") = detalle.GetCantCompra()
+            producto.BuscarProductoById(detalle.GetIdProductooo())
+            dr("Producto") = producto.GetNombreProducto()
+            unidadM.BuscarUnidadMById(producto.GetIdUnidadMedida())
+            dr("Unidad Medida") = unidadM.GetNombreUnidadMedida()
+            detalleCompra.Rows.Add(dr)
+        Next
+        Me.dgvDetalleCompra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+
+        Me.dgvDetalleCompra.DataSource = detalleCompra
+    End Sub
+    Private Sub LimpiarCampos()
+        Me.txtCantidad.Text = "0"
+        Me.cbProducto.Text = ""
+
+        Me.btnIngresaProducto.Enabled = True
+        Me.btnModificarProducto.Enabled = False
+        Me.btnQuitarProducto.Enabled = False
     End Sub
 End Class

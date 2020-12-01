@@ -49,6 +49,27 @@
 
         Return result
     End Function
+    Public Function BuscarUnidadMById(idunidadM As Integer) As Boolean
+        Dim database As BaseDatos = New BaseDatos()
+        Dim columnas As String() = {"idunidadM", "nom_unidadM"}
+        Dim condiciones As String() = {"idunidadM='" & idunidadM & "'"}
+        Dim result As DataTable
+
+        result = database.Buscar({tabla}, columnas, condiciones)
+
+        If result.Rows.Count = 1 Then
+            If Not IsDBNull(result.Rows(0)("idunidadM")) And
+               Not IsDBNull(result.Rows(0)("nom_unidadM")) Then
+                SetIdUnidadMedida(CInt(result.Rows(0)("idunidadM")))
+                SetNombreUnidadMedida(CStr(result.Rows(0)("nom_unidadM")))
+                Return True
+            Else
+                Throw New Exception("Error: Columna con valores vacios.")
+            End If
+        Else
+            Return False
+        End If
+    End Function
     Public Sub PoblarComboUnidadMedida(cbUnidadM As ComboBox)
         cbUnidadM.DisplayMember = "Value"
         cbUnidadM.ValueMember = "Key"
