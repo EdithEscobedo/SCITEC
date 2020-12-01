@@ -56,7 +56,7 @@
 
         cD.SetIdCompraDetalle(If(Not IsNothing(maxId), maxId.GetIdCompraDetalle() + 1, cD.BuscarUltimoId() + 1))
 
-        cD.SetCantCompra(CDbl(Me.txtCantidad.Text))
+        cD.SetCantCompra(CInt(Me.txtCantidad.Text))
         cD.SetIdCompraa(CInt(Me.txtFolio.Text))
         cD.SetIdProductooo(Me.cbProducto.SelectedValue)
         Me.compraDetalle.Add(cD)
@@ -140,6 +140,7 @@
     End Sub
     Private Sub MostrarCompra()
         Dim detalleCompra As DataTable = New DataTable()
+        detalleCompra.Columns.Add("ID")
         detalleCompra.Columns.Add("Producto")
         detalleCompra.Columns.Add("Cantidad")
         detalleCompra.Columns.Add("Unidad Medida")
@@ -148,6 +149,7 @@
 
         For Each detalle As CompraDetalle In compraDetalle
             Dim dr As DataRow = detalleCompra.NewRow()
+            dr("ID") = detalle.GetIdCompraDetalle()
             dr("Cantidad") = detalle.GetCantCompra()
             producto.BuscarProductoById(detalle.GetIdProductooo())
             dr("Producto") = producto.GetNombreProducto()
@@ -158,6 +160,8 @@
         Me.dgvDetalleCompra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
         Me.dgvDetalleCompra.DataSource = detalleCompra
+
+        Me.dgvDetalleCompra.Columns("ID").Visible = False
     End Sub
 
     Private Sub LimpiarCampos()

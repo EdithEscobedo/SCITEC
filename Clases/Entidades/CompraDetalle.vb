@@ -1,7 +1,7 @@
 ﻿Public Class CompraDetalle
     Private Const Tabla As String = "compradetalle"
     Private idcompraDetalle As Integer
-    Private cantCompra As Double
+    Private cantCompra As Integer
     Private id_compraa As Integer
     Private id_productooo As Integer
     Public Sub New()
@@ -9,7 +9,7 @@
     End Sub
 
     Public Sub New(idcompraDetalle As Integer,
-                     cantCompra As Double,
+                     cantCompra As Integer,
                      id_compraa As Integer,
                      id_productooo As Integer)
 
@@ -21,7 +21,7 @@
     Public Sub SetIdCompraDetalle(idcompraDetalle As Integer)
         Me.idcompraDetalle = idcompraDetalle
     End Sub
-    Public Sub SetCantCompra(cantCompra As Double)
+    Public Sub SetCantCompra(cantCompra As Integer)
         Me.cantCompra = cantCompra
     End Sub
     Public Sub SetIdCompraa(id_compraa As Integer)
@@ -33,7 +33,7 @@
     Public Function GetIdCompraDetalle() As Integer
         Return Me.idcompraDetalle
     End Function
-    Public Function GetCantCompra() As Double
+    Public Function GetCantCompra() As Integer
         Return Me.cantCompra
     End Function
     Public Function GetIdCompraa() As Integer
@@ -82,9 +82,9 @@
                Not IsDBNull(result.Rows(0)("id_compraa")) And
                Not IsDBNull(result.Rows(0)("id_productooo")) Then
                 SetIdCompraDetalle(CInt(result.Rows(0)("idCompras")))
-                SetCantCompra(CStr(result.Rows(0)("cantCompra")))
+                SetCantCompra(CInt(result.Rows(0)("cantCompra")))
                 SetIdCompraa(CInt(result.Rows(0)("id_compraa")))
-                SetIdProductooo(CStr(result.Rows(0)("id_productooo")))
+                SetIdProductooo(CInt(result.Rows(0)("id_productooo")))
                 Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")

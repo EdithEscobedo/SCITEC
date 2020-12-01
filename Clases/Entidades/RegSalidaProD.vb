@@ -18,10 +18,10 @@
         Me.id_salidaProd = id_salidaProd
         Me.id_producto = id_producto
     End Sub
-    Public Sub SetIdSalidaProductoDetalle(idcompraDetalle As Integer)
+    Public Sub SetIdSalidaProductoDetalle(idsalidaDetalle As Integer)
         Me.idsalidaDetalle = idsalidaDetalle
     End Sub
-    Public Sub SetCantidad(cantCompra As Integer)
+    Public Sub SetCantidad(cantidad As Integer)
         Me.cantidad = cantidad
     End Sub
     Public Sub SetIdsalidaProd(id_salidaProd As Integer)
@@ -45,7 +45,7 @@
 
     Public Function AgregarRegistroSalidaD() As Boolean
         Dim database As BaseDatos = New BaseDatos()
-        Dim columnas As String() = {"idsalidaDetalle", "cantidad", "id_salidasProd", "id_producto"}
+        Dim columnas As String() = {"idsalidaDetalle", "cantidad", "id_salidaProd", "id_producto"}
         Dim valores As String() = {"'" & Me.idsalidaDetalle & "'", "'" & Me.cantidad & "'", "'" & Me.id_salidaProd & "'",
                                    "'" & Me.id_producto & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
@@ -53,7 +53,7 @@
     End Function
     Public Function ActualizarSalidaProductoD() As Boolean
         Dim database As BaseDatos = New BaseDatos()
-        Dim columnas As String() = {"idsalidaDetalle", "cantidad", "id_salidasProd", "id_producto"}
+        Dim columnas As String() = {"idsalidaDetalle", "cantidad", "id_salidaProd", "id_producto"}
         Dim valores As String() = {"'" & Me.idsalidaDetalle & "'", "'" & Me.cantidad & "'", "'" & Me.id_salidaProd & "'",
                                    "'" & Me.id_producto & "'"}
         Dim condiciones As String() = {"idsalidaDetalle=" & "'" & Me.idsalidaDetalle & "'"}

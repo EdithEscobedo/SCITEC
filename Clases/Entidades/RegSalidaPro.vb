@@ -46,14 +46,14 @@
     Public Function AgregarSalidaProducto() As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idsalidaProducto", "fecha_salida", "id_user", "razon"}
-        Dim valores As String() = {"'" & Me.idsalidaProducto & "'", "'" & Me.fecha_salida & "'", "'" & Me.id_user & "'", "'" & Me.razon & "'"}
+        Dim valores As String() = {"'" & Me.idsalidaProducto & "'", "'" & Me.fecha_salida.ToString("yyyy-MM-dd") & "'", "'" & Me.id_user & "'", "'" & Me.razon & "'"}
         Dim result = database.Insertar(Tabla, columnas, valores)
         Return result
     End Function
     Public Function ActualizarSalidaProducto() As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idsalidaProducto", "fecha_salida", "id_user", "razon"}
-        Dim valores As String() = {"'" & Me.idsalidaProducto & "'", "'" & Me.fecha_salida & "'", "'" & Me.id_user & "'", "'" & Me.razon & "'"}
+        Dim valores As String() = {"'" & Me.idsalidaProducto & "'", "'" & Me.fecha_salida.ToString("yyyy-MM-dd") & "'", "'" & Me.id_user & "'", "'" & Me.razon & "'"}
         Dim condiciones As String() = {"idsalidaProducto=" & "'" & Me.idsalidaProducto & "'"}
         Dim result = database.Actualizar(Tabla, columnas, valores, condiciones)
         Return result

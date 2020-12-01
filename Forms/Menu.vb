@@ -20,4 +20,10 @@
         form.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnRegistroSalida_Click(sender As Object, e As EventArgs) Handles btnRegistroSalida.Click
+        Dim form As Form = New RegSalidaP()
+        form.Show()
+        Me.Close()
+    End Sub
 End Class

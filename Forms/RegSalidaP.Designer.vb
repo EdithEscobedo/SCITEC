@@ -134,6 +134,7 @@ Partial Class RegSalidaP
         '
         'txtNumeroUsuario
         '
+        Me.txtNumeroUsuario.Enabled = False
         Me.txtNumeroUsuario.Location = New System.Drawing.Point(168, 60)
         Me.txtNumeroUsuario.Name = "txtNumeroUsuario"
         Me.txtNumeroUsuario.Size = New System.Drawing.Size(143, 20)
@@ -141,6 +142,7 @@ Partial Class RegSalidaP
         '
         'txtFolioSalida
         '
+        Me.txtFolioSalida.Enabled = False
         Me.txtFolioSalida.Location = New System.Drawing.Point(168, 14)
         Me.txtFolioSalida.Name = "txtFolioSalida"
         Me.txtFolioSalida.Size = New System.Drawing.Size(143, 20)
@@ -155,6 +157,7 @@ Partial Class RegSalidaP
         '
         'txtNombreUsuario
         '
+        Me.txtNombreUsuario.Enabled = False
         Me.txtNombreUsuario.Location = New System.Drawing.Point(467, 60)
         Me.txtNombreUsuario.Name = "txtNombreUsuario"
         Me.txtNombreUsuario.Size = New System.Drawing.Size(200, 20)
@@ -216,7 +219,6 @@ Partial Class RegSalidaP
         '
         'cbRazon
         '
-        Me.cbRazon.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.cbRazon.FormattingEnabled = True
         Me.cbRazon.Items.AddRange(New Object() {"Salida", "Merma"})
         Me.cbRazon.Location = New System.Drawing.Point(168, 97)
