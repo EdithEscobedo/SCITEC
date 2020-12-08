@@ -26,4 +26,10 @@
         form.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnProveedores_Click(sender As Object, e As EventArgs) Handles btnProveedores.Click
+        Dim form As Form = New Proveedores()
+        form.Show()
+        Me.Close()
+    End Sub
 End Class

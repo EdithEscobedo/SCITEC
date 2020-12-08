@@ -128,7 +128,7 @@
 
         Next
         MsgBox("Compra agregada", MsgBoxStyle.Information, "EXITO")
-        Me.Close()
+        Limpiar()
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -171,5 +171,20 @@
         Me.btnIngresaProducto.Enabled = True
         Me.btnModificarProducto.Enabled = False
         Me.btnQuitarProducto.Enabled = False
+    End Sub
+    Private Sub Limpiar()
+        Me.txtFolio.Text = CStr(compra.BuscarUltimoIdCompra() + 1)
+        Me.txtCantidad.Text = "0"
+        Me.cbProducto.Text = ""
+        Me.cbProveedor.Text = ""
+        Me.cbProveedor.Enabled = True
+        Me.compraDetalle = New List(Of CompraDetalle)
+        Me.dgvDetalleCompra.DataSource = Nothing
+
+        Me.btnModificarProducto.Enabled = False
+        Me.btnQuitarProducto.Enabled = False
+        Me.btnEliminar.Enabled = False
+        Me.btnGuardar.Enabled = True
+        Me.btnModificar.Enabled = False
     End Sub
 End Class

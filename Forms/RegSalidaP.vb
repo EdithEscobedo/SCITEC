@@ -93,7 +93,7 @@ Public Class RegSalidaP
 
     Private Sub btnGuardarSalida_Click(sender As Object, e As EventArgs) Handles btnGuardarSalida.Click
         Me.salida.SetIdSalidaProducto(CInt(Me.txtFolioSalida.Text))
-        Me.salida.SetRazon(Me.cbRazon.Text)
+        Me.salida.SetRazon(Me.txtRazon.Text)
         Me.salida.SetFechaSalida(Me.dateFechaSalida.Value)
         Me.salida.SetIdUser(240)
 
@@ -121,7 +121,7 @@ Public Class RegSalidaP
 
         Next
         MsgBox("Salida registrada", MsgBoxStyle.Information, "EXITO")
-        Me.Close()
+        Limpiar()
     End Sub
 
     Private Sub btnEditarSalida_Click(sender As Object, e As EventArgs) Handles btnEditarSalida.Click
@@ -164,5 +164,19 @@ Public Class RegSalidaP
         Me.btnIngresar.Enabled = True
         Me.btnModificar.Enabled = False
         Me.btnQuitar.Enabled = False
+    End Sub
+    Private Sub Limpiar()
+        Me.txtFolioSalida.Text = CStr(salida.BuscarUltimoId() + 1)
+        Me.txtCantidad.Text = "0"
+        Me.cbProducto.Text = ""
+        Me.txtRazon.Text = ""
+        Me.salidaDetalle = New List(Of RegSalidaProD)
+        Me.dgvRegistroSalida.DataSource = Nothing
+
+        Me.btnModificar.Enabled = False
+        Me.btnQuitar.Enabled = False
+        Me.btnEliminarSalida.Enabled = False
+        Me.btnGuardarSalida.Enabled = True
+        Me.btnEditarSalida.Enabled = False
     End Sub
 End Class

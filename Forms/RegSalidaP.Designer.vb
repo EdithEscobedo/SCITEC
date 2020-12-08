@@ -42,7 +42,7 @@ Partial Class RegSalidaP
         Me.btnIngresar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnQuitar = New System.Windows.Forms.Button()
-        Me.cbRazon = New System.Windows.Forms.ComboBox()
+        Me.txtRazon = New System.Windows.Forms.TextBox()
         CType(Me.dgvRegistroSalida, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -111,9 +111,13 @@ Partial Class RegSalidaP
         '
         'dgvRegistroSalida
         '
+        Me.dgvRegistroSalida.AllowUserToAddRows = False
+        Me.dgvRegistroSalida.AllowUserToDeleteRows = False
         Me.dgvRegistroSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvRegistroSalida.Location = New System.Drawing.Point(27, 219)
         Me.dgvRegistroSalida.Name = "dgvRegistroSalida"
+        Me.dgvRegistroSalida.RowHeadersVisible = False
+        Me.dgvRegistroSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvRegistroSalida.Size = New System.Drawing.Size(622, 219)
         Me.dgvRegistroSalida.TabIndex = 7
         '
@@ -217,21 +221,19 @@ Partial Class RegSalidaP
         Me.btnQuitar.Text = "Quitar Producto"
         Me.btnQuitar.UseVisualStyleBackColor = True
         '
-        'cbRazon
+        'txtRazon
         '
-        Me.cbRazon.FormattingEnabled = True
-        Me.cbRazon.Items.AddRange(New Object() {"Salida", "Merma"})
-        Me.cbRazon.Location = New System.Drawing.Point(168, 97)
-        Me.cbRazon.Name = "cbRazon"
-        Me.cbRazon.Size = New System.Drawing.Size(143, 21)
-        Me.cbRazon.TabIndex = 21
+        Me.txtRazon.Location = New System.Drawing.Point(168, 97)
+        Me.txtRazon.Name = "txtRazon"
+        Me.txtRazon.Size = New System.Drawing.Size(143, 20)
+        Me.txtRazon.TabIndex = 21
         '
         'RegSalidaP
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.cbRazon)
+        Me.Controls.Add(Me.txtRazon)
         Me.Controls.Add(Me.btnQuitar)
         Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.btnIngresar)
@@ -280,5 +282,5 @@ Partial Class RegSalidaP
     Friend WithEvents btnIngresar As Button
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnQuitar As Button
-    Friend WithEvents cbRazon As ComboBox
+    Friend WithEvents txtRazon As TextBox
 End Class
