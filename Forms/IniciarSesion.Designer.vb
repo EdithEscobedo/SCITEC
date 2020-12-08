@@ -56,11 +56,12 @@ Partial Class IniciarSesion
         '
         'txtUser
         '
-        Me.txtUser.Location = New System.Drawing.Point(172, 139)
+        Me.txtUser.Location = New System.Drawing.Point(172, 146)
         Me.txtUser.Multiline = True
         Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(252, 34)
+        Me.txtUser.Size = New System.Drawing.Size(252, 30)
         Me.txtUser.TabIndex = 1
+        Me.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
@@ -74,11 +75,13 @@ Partial Class IniciarSesion
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(172, 250)
+        Me.txtPassword.Location = New System.Drawing.Point(172, 256)
         Me.txtPassword.Multiline = True
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(252, 34)
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.txtPassword.Size = New System.Drawing.Size(252, 30)
         Me.txtPassword.TabIndex = 2
+        Me.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnIngresar
         '

@@ -160,5 +160,35 @@
 
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
     End Function
+    Public Function BuscarUsuarioByUsername(username As String) As Boolean
+        Dim database As BaseDatos = New BaseDatos()
+        Dim columnas As String() = {"idusuario", "nom_usuario", "tel_usuario", "username", "password", "idTipoU"}
+        Dim condiciones As String() = {"username='" & username & "'"}
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, condiciones)
+
+        If result.Rows.Count = 1 Then
+            If Not IsDBNull(result.Rows(0)("idusuario")) And
+               Not IsDBNull(result.Rows(0)("nom_usuario")) And
+               Not IsDBNull(result.Rows(0)("tel_usuario")) And
+               Not IsDBNull(result.Rows(0)("username")) And
+               Not IsDBNull(result.Rows(0)("password")) And
+               Not IsDBNull(result.Rows(0)("idTipoU")) Then
+                SetIdUsuario(CInt(result.Rows(0)("idusuario")))
+                SetNombreUsuario(CStr(result.Rows(0)("nom_usuario")))
+                SetTelefonoUsuario(CStr(result.Rows(0)("tel_usuario")))
+                SetUsername(CStr(result.Rows(0)("username")))
+                SetPasswordDB(CStr(result.Rows(0)("password")))
+                SetIdTipoUsuario(CInt(result.Rows(0)("idTipoU")))
+                Return True
+            Else
+                Throw New Exception("Error: Columna con valores vacios.")
+            End If
+        Else
+            Return False
+        End If
+    End Function
+
 
 End Class
