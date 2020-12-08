@@ -28,7 +28,8 @@ Public Class RegSalidaP
     End Sub
     Private Sub RegSalidaP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.producto.PoblarComboProducto(Me.cbProducto)
-
+        Me.txtNumeroUsuario.Text = My.Settings.iduser
+        Me.txtNombreUsuario.Text = My.Settings.username
     End Sub
 
     Private Sub RegSalidaP_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -95,7 +96,7 @@ Public Class RegSalidaP
         Me.salida.SetIdSalidaProducto(CInt(Me.txtFolioSalida.Text))
         Me.salida.SetRazon(Me.txtRazon.Text)
         Me.salida.SetFechaSalida(Me.dateFechaSalida.Value)
-        Me.salida.SetIdUser(240)
+        Me.salida.SetIdUser(My.Settings.iduser)
 
         If (Not Me.salida.AgregarSalidaProducto()) Then
             MsgBox("Error al agregar salida", MsgBoxStyle.Critical, "ERROR")

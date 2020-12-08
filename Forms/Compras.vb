@@ -102,7 +102,7 @@
         Me.compra.SetIdCompras(CInt(Me.txtFolio.Text))
         Me.compra.SetIdProveedor(Me.cbProveedor.SelectedValue)
         Me.compra.SetFechaCompra(Me.dateFechaCompra.Value)
-        Me.compra.SetIdUser(240)
+        Me.compra.SetIdUser(My.Settings.iduser)
 
         If (Not Me.compra.AgregarCompra()) Then
             MsgBox("Error al agregar compra", MsgBoxStyle.Critical, "ERROR")
