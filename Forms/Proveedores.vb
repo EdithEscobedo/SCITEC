@@ -37,6 +37,11 @@ Public Class Proveedores
         Me.proveedor.SetDireccionProveedor(Me.txtDireccion.Text)
         Me.proveedor.SetCorreoProveedor(Me.txtCorreo.Text)
 
+        If (Me.txtTelefono.Text.Length <> 10) Then
+            MsgBox("EL número de teléfono tiene menos de 10 dígitos", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
         If (Not Me.proveedor.AgregarProveedor()) Then
             MsgBox("Error al agregar proveedor", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
@@ -48,7 +53,21 @@ Public Class Proveedores
     End Sub
 
     Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        Me.proveedor.SetIdProveedores(CInt(Me.txtNumProveedor.Text))
+        Me.proveedor.SetNombreProveedor(Me.txtNomProveedor.Text)
+        Me.proveedor.SetTelofonoProveedor(Me.txtTelefono.Text)
+        Me.proveedor.SetDireccionProveedor(Me.txtDireccion.Text)
+        Me.proveedor.SetCorreoProveedor(Me.txtCorreo.Text)
 
+
+        If (Not Me.proveedor.ActualizarProveedor()) Then
+            MsgBox("Error al actualizar proveedor", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+        MsgBox("Datos del proveedor actualizados", MsgBoxStyle.Information, "EXITO")
+
+        BuscarProveedor()
+        LimpiarCampos()
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
@@ -59,7 +78,33 @@ Public Class Proveedores
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Me.proveedor.SetIdProveedores(CInt(Me.txtNumProveedor.Text))
+        Me.proveedor.SetNombreProveedor(Me.txtNomProveedor.Text)
+        Me.proveedor.SetTelofonoProveedor(Me.txtTelefono.Text)
+        Me.proveedor.SetDireccionProveedor(Me.txtDireccion.Text)
+        Me.proveedor.SetCorreoProveedor(Me.txtCorreo.Text)
 
+        Dim confirmacion As MsgBoxResult = MsgBox(
+            "El siguiente producto se va a eliminar: " & vbNewLine &
+            "ID: " & Me.proveedor.GetIdProveedores() & vbNewLine &
+            "Nombre: " & Me.proveedor.GetNombreProveedor() & vbNewLine &
+            "Telefono: " & Me.proveedor.GetTelefonoProveedor() & vbNewLine &
+            "Dirección: " & Me.proveedor.GetDireccionProveedor() & vbNewLine &
+            "Correo: " & Me.proveedor.GetCorreoProveedor() & vbNewLine &
+            "Desea continuar?",
+            MsgBoxStyle.OkCancel, "ELIMINAR!")
+        If confirmacion = MsgBoxResult.Cancel Then
+            Exit Sub
+        End If
+
+        If (Not Me.proveedor.EliminarProveedor()) Then
+            MsgBox("Error al Eliminar proveedor", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+        MsgBox("Proveedor Eliminado", MsgBoxStyle.Information, "EXITO")
+
+        BuscarProveedor()
+        LimpiarCampos()
     End Sub
     Private Sub BuscarProveedor()
         Me.dgvProveedores.DataSource = Me.proveedor.BuscarProveedor()
@@ -87,5 +132,11 @@ Public Class Proveedores
         Me.txtDireccion.Text = ""
         Me.txtCorreo.Text = ""
 
+    End Sub
+
+    Private Sub txtTelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtTelefono.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = True
+        End If
     End Sub
 End Class

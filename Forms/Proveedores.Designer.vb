@@ -159,6 +159,7 @@ Partial Class Proveedores
         '
         Me.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtTelefono.Location = New System.Drawing.Point(616, 150)
+        Me.txtTelefono.MaxLength = 10
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(172, 20)
         Me.txtTelefono.TabIndex = 11

@@ -36,7 +36,7 @@
     Public Sub SetDireccionProveedor(dirProveedor As String)
         Me.dirProveedor = dirProveedor
     End Sub
-    Public Sub SetCorreoProveedor(correProveedor As String)
+    Public Sub SetCorreoProveedor(correoProveedor As String)
         Me.correoProveedor = correoProveedor
     End Sub
     Public Function GetIdProveedores() As Integer
