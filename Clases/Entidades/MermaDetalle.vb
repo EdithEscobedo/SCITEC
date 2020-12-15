@@ -119,21 +119,4 @@
             Return 0
         End If
     End Function
-    'Public Sub PoblarComboProducto(cbPrducto As ComboBox)
-    '   cbPrducto.DisplayMember = "Value"
-    '  cbPrducto.ValueMember = "Key"
-    'Dim producto As DataTable = BuscarProducto()
-    '   producto.DefaultView.Sort = "idProductos ASC"
-    '  producto = producto.DefaultView.ToTable()
-
-    'If producto.Rows.Count > 0 Then
-    'Dim tipoUDictionary As New Dictionary(Of Integer, String)
-    'For index = 0 To producto.Rows.Count - 1
-    '           tipoUDictionary.Add(producto.Rows(index)("idProductos"), producto.Rows(index)("nombreProducto"))
-    'Next
-    '       cbPrducto.DataSource = New BindingSource(tipoUDictionary, Nothing)
-    'Else
-    '       cbPrducto.DataSource = Nothing
-    'End If
-    'End Sub
 End Class

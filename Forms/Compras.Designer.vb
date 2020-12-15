@@ -215,6 +215,7 @@ Partial Class Compras
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Compras"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Compras"
         CType(Me.dgvDetalleCompra, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

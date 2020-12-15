@@ -115,22 +115,4 @@
             Return 0
         End If
     End Function
-
-    Public Sub PoblarComboDescripcion(cbDescripcion As ComboBox)
-        cbDescripcion.DisplayMember = "Value"
-        cbDescripcion.ValueMember = "Key"
-        Dim rMerma As DataTable = BuscarRegistroMerma()
-        rMerma.DefaultView.Sort = "idregMerma ASC"
-        rMerma = rMerma.DefaultView.ToTable()
-
-        If rMerma.Rows.Count > 0 Then
-            Dim tipoUDictionary As New Dictionary(Of Integer, String)
-            For index = 0 To rMerma.Rows.Count - 1
-                tipoUDictionary.Add(rMerma.Rows(index)("idregMerma"), rMerma.Rows(index)("descripcion"))
-            Next
-            cbDescripcion.DataSource = New BindingSource(tipoUDictionary, Nothing)
-        Else
-            cbDescripcion.DataSource = Nothing
-        End If
-    End Sub
 End Class

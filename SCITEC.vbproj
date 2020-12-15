@@ -127,10 +127,10 @@
     <Compile Include="Forms\reporteInventario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Registro Merma.Designer.vb">
-      <DependentUpon>Registro Merma.vb</DependentUpon>
+    <Compile Include="Forms\RegistroMerma.Designer.vb">
+      <DependentUpon>RegistroMerma.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Registro Merma.vb">
+    <Compile Include="Forms\RegistroMerma.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Proveedores.Designer.vb">
@@ -217,8 +217,8 @@
     <EmbeddedResource Include="Forms\reporteInventario.resx">
       <DependentUpon>reporteInventario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Registro Merma.resx">
-      <DependentUpon>Registro Merma.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\RegistroMerma.resx">
+      <DependentUpon>RegistroMerma.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Proveedores.resx">
       <DependentUpon>Proveedores.vb</DependentUpon>

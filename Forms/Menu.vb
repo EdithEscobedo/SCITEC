@@ -32,4 +32,10 @@
         form.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnMerma_Click(sender As Object, e As EventArgs) Handles btnMerma.Click
+        Dim form As Form = New RegistroMerma()
+        form.Show()
+        Me.Close()
+    End Sub
 End Class
