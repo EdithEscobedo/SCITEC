@@ -98,7 +98,7 @@
     End Function
     Public Function BuscarSalidaProductoByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
         Dim database As BaseDatos = New BaseDatos()
-        Dim columnas As String() = {Tabla & ".idsalidaProducto", Tabla & ".fecha_salida", Tabla & ".iduser", Tabla & ".razon"}
+        Dim columnas As String() = {Tabla & ".idsalidaProducto", Tabla & ".fecha_salida", Tabla & ".id_user", Tabla & ".razon"}
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
     End Function
     Public Function BuscarUltimoId() As Integer

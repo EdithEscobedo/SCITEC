@@ -100,8 +100,8 @@
     End Function
     Public Function BuscarCompraByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
         Dim database As BaseDatos = New BaseDatos()
-        Dim columnas As String() = {Tabla & ".idcompras", Tabla & ".fecha_compras", Tabla & ".id_pro",
-                                    Tabla & ".iduser"}
+        Dim columnas As String() = {Tabla & ".idcompras", Tabla & ".fecha_compra", Tabla & ".id_pro",
+                                    Tabla & ".id_user"}
 
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
     End Function

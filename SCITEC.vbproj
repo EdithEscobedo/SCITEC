@@ -103,28 +103,10 @@
     <Compile Include="Forms\Compras.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\reporteSalida.Designer.vb">
-      <DependentUpon>reporteSalida.vb</DependentUpon>
+    <Compile Include="Forms\Reportes.Designer.vb">
+      <DependentUpon>Reportes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\reporteSalida.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\reporteMerma.Designer.vb">
-      <DependentUpon>reporteMerma.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\reporteMerma.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\reporteProveedor.Designer.vb">
-      <DependentUpon>reporteProveedor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\reporteProveedor.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\reporteInventario.Designer.vb">
-      <DependentUpon>reporteInventario.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\reporteInventario.vb">
+    <Compile Include="Forms\Reportes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Registro Merma.Designer.vb">
@@ -205,17 +187,8 @@
     <EmbeddedResource Include="Forms\CrearUsuarios.resx">
       <DependentUpon>CrearUsuarios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\reporteSalida.resx">
-      <DependentUpon>reporteSalida.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\reporteMerma.resx">
-      <DependentUpon>reporteMerma.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\reporteProveedor.resx">
-      <DependentUpon>reporteProveedor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\reporteInventario.resx">
-      <DependentUpon>reporteInventario.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Reportes.resx">
+      <DependentUpon>Reportes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registro Merma.resx">
       <DependentUpon>Registro Merma.vb</DependentUpon>
