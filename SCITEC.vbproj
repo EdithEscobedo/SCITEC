@@ -79,6 +79,8 @@
   <ItemGroup>
     <Compile Include="Clases\BaseDatos.vb" />
     <Compile Include="Clases\Entidades\CategoriaProducto.vb" />
+    <Compile Include="Clases\Entidades\RegMerma.vb" />
+    <Compile Include="Clases\Entidades\MermaDetalle.vb" />
     <Compile Include="Clases\Entidades\RegSalidaProD.vb" />
     <Compile Include="Clases\Entidades\RegSalidaPro.vb" />
     <Compile Include="Clases\Entidades\CompraDetalle.vb" />
