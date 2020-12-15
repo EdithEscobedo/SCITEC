@@ -37,6 +37,12 @@ Public Class Proveedores
         Me.proveedor.SetDireccionProveedor(Me.txtDireccion.Text)
         Me.proveedor.SetCorreoProveedor(Me.txtCorreo.Text)
 
+        'Si el nombre no es valido
+        If Not ValidarProveedor() Then
+            MsgBox("Proveedor existente", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
         If (Me.txtTelefono.Text.Length <> 10) Then
             MsgBox("EL número de teléfono tiene menos de 10 dígitos", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
@@ -59,6 +65,11 @@ Public Class Proveedores
         Me.proveedor.SetDireccionProveedor(Me.txtDireccion.Text)
         Me.proveedor.SetCorreoProveedor(Me.txtCorreo.Text)
 
+        'Si el nombre no es valido
+        If Not ValidarProveedor() Then
+            MsgBox("Proveedor existente", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
 
         If (Not Me.proveedor.ActualizarProveedor()) Then
             MsgBox("Error al actualizar proveedor", MsgBoxStyle.Critical, "ERROR")
@@ -125,6 +136,18 @@ Public Class Proveedores
         'Ajustar tamaño de celdas
         Me.dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
     End Sub
+    Private Function ValidarProveedor() As Boolean
+        Dim columnas As String() = {}
+        Dim joins As String() = {}
+        Dim condiciones As String() = {"nomProveedor LIKE '" & Me.txtNomProveedor.Text & "%'",
+                                       "idProveedores <> '" & Me.txtNumProveedor.Text & "'"}
+
+        Dim resultado As DataTable = proveedor.BuscarProveedorByConditions(columnas, joins, condiciones)
+        If resultado.Rows.Count > 0 Then
+            Return False
+        End If
+        Return True
+    End Function
     Private Sub LimpiarCampos()
         Me.txtNumProveedor.Text = CStr(proveedor.BuscarUltimoId() + 10)
         Me.txtNomProveedor.Text = ""

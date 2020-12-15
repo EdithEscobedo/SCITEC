@@ -211,6 +211,7 @@ Partial Class Proveedores
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvProveedores)
         Me.Name = "Proveedores"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Proveedores"
         CType(Me.dgvProveedores, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
