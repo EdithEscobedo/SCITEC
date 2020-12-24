@@ -2,6 +2,8 @@
 
     Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.rbSemanal.Checked = True
+        Me.dtIncial.Enabled = False
+        Me.dtFinal.Enabled = False
         generarReporteSalidas()
         generarReporteMerma()
         generarReporteCompras()
@@ -29,15 +31,15 @@
         Dim condiciones As String() = {}
 
         If rbSemanal.Checked Then
-            condiciones = {"fecha_salida BETWEEN " & fecha.AddDays(fecha.DayOfWeek * -1).ToString("yyyy-MM-dd") &
-                            " AND " & fecha.AddDays(6 - fecha.DayOfWeek).ToString("yyyy-MM-dd")}
+            condiciones = {"fecha_salida BETWEEN '" & fecha.AddDays(fecha.DayOfWeek * -1).ToString("yyyy-MM-dd") &
+                            "' AND '" & fecha.AddDays(6 - fecha.DayOfWeek).ToString("yyyy-MM-dd") & "'"}
         ElseIf rbMensual.Checked Then
             Dim daysMonth As Integer = DateTime.DaysInMonth(fecha.Year, fecha.Month)
-            condiciones = {"fecha_salida BETWEEN " & fecha.AddDays(fecha.Day * -1).ToString("yyyy-MM-dd") &
-                            " AND " & fecha.AddDays(daysMonth - fecha.Day).ToString("yyyy-MM-dd")}
+            condiciones = {"fecha_salida BETWEEN '" & fecha.AddDays(fecha.Day * -1).ToString("yyyy-MM-dd") &
+                            "' AND '" & fecha.AddDays(daysMonth - fecha.Day).ToString("yyyy-MM-dd") & "'"}
         ElseIf rbEspecifico.Checked Then
-            condiciones = {"fecha_salida BETWEEN " & dtIncial.Value.ToString("yyyy-MM-dd") &
-                            " AND " & dtFinal.Value.ToString("yyyy-MM-dd")}
+            condiciones = {"fecha_salida BETWEEN '" & dtIncial.Value.ToString("yyyy-MM-dd") &
+                            "' AND '" & dtFinal.Value.ToString("yyyy-MM-dd") & "'"}
         End If
 
         Me.dgSalidas.DataSource = salidas.BuscarSalidaProductoByConditions(columnas, joins, condiciones)
@@ -71,15 +73,15 @@
         Dim condiciones As String() = {}
 
         If rbSemanal.Checked Then
-            condiciones = {" fechaReg BETWEEN " & fecha.AddDays(fecha.DayOfWeek * -1).ToString("yyyy-MM-dd") &
-                            " AND " & fecha.AddDays(6 - fecha.DayOfWeek).ToString("yyyy-MM-dd")}
+            condiciones = {" fechaReg BETWEEN '" & fecha.AddDays(fecha.DayOfWeek * -1).ToString("yyyy-MM-dd") &
+                            "' AND '" & fecha.AddDays(6 - fecha.DayOfWeek).ToString("yyyy-MM-dd") & "'"}
         ElseIf rbMensual.Checked Then
             Dim daysMonth As Integer = DateTime.DaysInMonth(fecha.Year, fecha.Month)
-            condiciones = {"fechaReg BETWEEN " & fecha.AddDays(fecha.Day * -1).ToString("yyyy-MM-dd") &
-                            " AND " & fecha.AddDays(daysMonth - fecha.Day).ToString("yyyy-MM-dd")}
+            condiciones = {"fechaReg BETWEEN '" & fecha.AddDays(fecha.Day * -1).ToString("yyyy-MM-dd") &
+                            "' AND '" & fecha.AddDays(daysMonth - fecha.Day).ToString("yyyy-MM-dd") & "'"}
         ElseIf rbEspecifico.Checked Then
-            condiciones = {"fechaReg BETWEEN " & dtIncial.Value.ToString("yyyy-MM-dd") &
-                            " AND " & dtFinal.Value.ToString("yyyy-MM-dd")}
+            condiciones = {"fechaReg BETWEEN '" & dtIncial.Value.ToString("yyyy-MM-dd") &
+                            "' AND '" & dtFinal.Value.ToString("yyyy-MM-dd") & "'"}
         End If
 
         Me.dgMerma.DataSource = merma.BuscarRegistroMermaByConditions(columnas, joins, condiciones)
@@ -110,6 +112,7 @@
         Dim condiciones As String() = {}
 
         Me.dgInventario.DataSource = producto.BuscarProductosByConditions(columnas, joins, condiciones)
+        Me.dgInventario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
         'Mostrar columnas en el DataGridView de manera ordenada
         Me.dgInventario.Columns("nombreProducto").DisplayIndex = 0
@@ -140,16 +143,15 @@
         Dim condiciones As String() = {}
 
         If rbSemanal.Checked Then
-            condiciones = {" fecha_compra BETWEEN " & fecha.AddDays(fecha.DayOfWeek * -1).ToString("yyyy-MM-dd") &
-                            " AND " & fecha.AddDays(6 - fecha.DayOfWeek).ToString("yyyy-MM-dd")}
-            MsgBox(condiciones(0))
+            condiciones = {" fecha_compra BETWEEN '" & fecha.AddDays(fecha.DayOfWeek * -1).ToString("yyyy-MM-dd") &
+                            "' AND '" & fecha.AddDays(6 - fecha.DayOfWeek).ToString("yyyy-MM-dd") & "'"}
         ElseIf rbMensual.Checked Then
             Dim daysMonth As Integer = DateTime.DaysInMonth(fecha.Year, fecha.Month)
-            condiciones = {"fecha_compra BETWEEN " & fecha.AddDays(fecha.Day * -1).ToString("yyyy-MM-dd") &
-                            " AND " & fecha.AddDays(daysMonth - fecha.Day).ToString("yyyy-MM-dd")}
+            condiciones = {"fecha_compra BETWEEN '" & fecha.AddDays(fecha.Day * -1).ToString("yyyy-MM-dd") &
+                            "' AND '" & fecha.AddDays(daysMonth - fecha.Day).ToString("yyyy-MM-dd") & "'"}
         ElseIf rbEspecifico.Checked Then
-            condiciones = {"fecha_compra BETWEEN " & dtIncial.Value.ToString("yyyy-MM-dd") &
-                            " AND " & dtFinal.Value.ToString("yyyy-MM-dd")}
+            condiciones = {"fecha_compra BETWEEN '" & dtIncial.Value.ToString("yyyy-MM-dd") &
+                            "' AND '" & dtFinal.Value.ToString("yyyy-MM-dd") & "'"}
         End If
 
         Me.dgCompras.DataSource = compra.BuscarCompraByConditions(columnas, joins, condiciones)
@@ -171,7 +173,47 @@
         Me.dgCompras.Columns("id_pro").Visible = False
     End Sub
 
-    Private Sub rb_CheckedChanged(sender As Object, e As EventArgs) Handles rbEspecifico.CheckedChanged, rbMensual.CheckedChanged, rbSemanal.CheckedChanged
+    Private Sub rbSemanal_CheckedChanged(sender As Object, e As EventArgs) Handles rbSemanal.CheckedChanged
+        If rbSemanal.Checked Then
+            generarReporteSalidas()
+            generarReporteMerma()
+            generarReporteCompras()
+            generarReporteInventario()
+        End If
+    End Sub
+
+    Private Sub rbMensual_CheckedChanged(sender As Object, e As EventArgs) Handles rbMensual.CheckedChanged
+        If rbMensual.Checked Then
+            generarReporteSalidas()
+            generarReporteMerma()
+            generarReporteCompras()
+            generarReporteInventario()
+        End If
+    End Sub
+
+    Private Sub rbEspecifico_CheckedChanged(sender As Object, e As EventArgs) Handles rbEspecifico.CheckedChanged
+        If rbEspecifico.Checked Then
+            generarReporteSalidas()
+            generarReporteMerma()
+            generarReporteCompras()
+            generarReporteInventario()
+            dtIncial.Enabled = True
+            dtFinal.Enabled = True
+        Else
+            dtIncial.Enabled = False
+            dtFinal.Enabled = False
+        End If
+
+    End Sub
+
+    Private Sub dtIncial_ValueChanged(sender As Object, e As EventArgs) Handles dtIncial.ValueChanged
+        generarReporteSalidas()
+        generarReporteMerma()
+        generarReporteCompras()
+        generarReporteInventario()
+    End Sub
+
+    Private Sub dtFinal_ValueChanged(sender As Object, e As EventArgs) Handles dtFinal.ValueChanged
         generarReporteSalidas()
         generarReporteMerma()
         generarReporteCompras()

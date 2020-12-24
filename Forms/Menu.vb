@@ -38,4 +38,10 @@
         form.Show()
         Me.Close()
     End Sub
+
+    Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
+        Dim form As Form = New Reportes()
+        form.Show()
+        Me.Close()
+    End Sub
 End Class

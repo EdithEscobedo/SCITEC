@@ -54,6 +54,9 @@ Partial Class Reportes
         '
         'TabInventario
         '
+        Me.TabInventario.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabInventario.Controls.Add(Me.TabPage1)
         Me.TabInventario.Controls.Add(Me.TabPage2)
         Me.TabInventario.Controls.Add(Me.TabPage3)
@@ -77,9 +80,17 @@ Partial Class Reportes
         '
         'dgInventario
         '
+        Me.dgInventario.AllowUserToAddRows = False
+        Me.dgInventario.AllowUserToDeleteRows = False
+        Me.dgInventario.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgInventario.Location = New System.Drawing.Point(3, 3)
         Me.dgInventario.Name = "dgInventario"
+        Me.dgInventario.ReadOnly = True
+        Me.dgInventario.RowHeadersVisible = False
+        Me.dgInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgInventario.Size = New System.Drawing.Size(619, 394)
         Me.dgInventario.TabIndex = 0
         '
@@ -96,9 +107,17 @@ Partial Class Reportes
         '
         'dgMerma
         '
+        Me.dgMerma.AllowUserToAddRows = False
+        Me.dgMerma.AllowUserToDeleteRows = False
+        Me.dgMerma.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgMerma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgMerma.Location = New System.Drawing.Point(0, 0)
         Me.dgMerma.Name = "dgMerma"
+        Me.dgMerma.ReadOnly = True
+        Me.dgMerma.RowHeadersVisible = False
+        Me.dgMerma.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgMerma.Size = New System.Drawing.Size(629, 404)
         Me.dgMerma.TabIndex = 0
         '
@@ -117,6 +136,9 @@ Partial Class Reportes
         '
         Me.dgSalidas.AllowUserToAddRows = False
         Me.dgSalidas.AllowUserToDeleteRows = False
+        Me.dgSalidas.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgSalidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgSalidas.Location = New System.Drawing.Point(-4, 0)
         Me.dgSalidas.Name = "dgSalidas"
@@ -139,14 +161,23 @@ Partial Class Reportes
         '
         'dgCompras
         '
+        Me.dgCompras.AllowUserToAddRows = False
+        Me.dgCompras.AllowUserToDeleteRows = False
+        Me.dgCompras.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgCompras.Location = New System.Drawing.Point(0, 0)
         Me.dgCompras.Name = "dgCompras"
+        Me.dgCompras.ReadOnly = True
+        Me.dgCompras.RowHeadersVisible = False
+        Me.dgCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgCompras.Size = New System.Drawing.Size(629, 400)
         Me.dgCompras.TabIndex = 0
         '
         'btnGenerar
         '
+        Me.btnGenerar.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnGenerar.Location = New System.Drawing.Point(668, 34)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(109, 32)
@@ -178,6 +209,7 @@ Partial Class Reportes
         '
         'gpPeriodo
         '
+        Me.gpPeriodo.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.gpPeriodo.Controls.Add(Me.Label1)
         Me.gpPeriodo.Controls.Add(Me.dtFinal)
         Me.gpPeriodo.Controls.Add(Me.Label2)
@@ -246,6 +278,7 @@ Partial Class Reportes
         Me.Controls.Add(Me.btnGenerar)
         Me.Controls.Add(Me.TabInventario)
         Me.Name = "Reportes"
+        Me.Text = "Reportes"
         Me.TabInventario.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.dgInventario, System.ComponentModel.ISupportInitialize).EndInit()
