@@ -69,6 +69,27 @@
 
         Return result
     End Function
+    Public Function BuscarTipoUsuarioById(idTipo As Integer) As Boolean
+        Dim database As BaseDatos = New BaseDatos()
+        Dim columnas As String() = {"idtipousuario", "nom_tipoU"}
+        Dim condiciones As String() = {"idtipousuario='" & idTipo & "'"}
+        Dim result As DataTable
+
+        result = database.Buscar({Tabla}, columnas, condiciones)
+
+        If result.Rows.Count = 1 Then
+            If Not IsDBNull(result.Rows(0)("idtipousuario")) And
+               Not IsDBNull(result.Rows(0)("nom_tipoU")) Then
+                SetIdTipoUsuario(CInt(result.Rows(0)("idtipousuario")))
+                SetNomTipoU(CStr(result.Rows(0)("nom_tipoU")))
+                Return True
+            Else
+                Throw New Exception("Error: Columna con valores vacios.")
+            End If
+        Else
+            Return False
+        End If
+    End Function
     Public Sub PoblarComboTipoUsuario(cbTipoUsuario As ComboBox)
         cbTipoUsuario.DisplayMember = "Value"
         cbTipoUsuario.ValueMember = "Key"

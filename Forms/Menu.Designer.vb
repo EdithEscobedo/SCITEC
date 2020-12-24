@@ -97,6 +97,7 @@ Partial Class Menu
         'btnUsuarios
         '
         Me.btnUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnUsuarios.Enabled = False
         Me.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnUsuarios.Image = CType(resources.GetObject("btnUsuarios.Image"), System.Drawing.Image)
         Me.btnUsuarios.Location = New System.Drawing.Point(691, 290)
@@ -120,6 +121,7 @@ Partial Class Menu
         '
         Me.btnProveedores.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnProveedores.BackColor = System.Drawing.SystemColors.Control
+        Me.btnProveedores.Enabled = False
         Me.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnProveedores.Image = Global.SCITEC.My.Resources.Resources.Proveedores
         Me.btnProveedores.Location = New System.Drawing.Point(417, 290)
@@ -131,6 +133,7 @@ Partial Class Menu
         'btnReportes
         '
         Me.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnReportes.Enabled = False
         Me.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnReportes.Image = Global.SCITEC.My.Resources.Resources.Reportes
         Me.btnReportes.Location = New System.Drawing.Point(161, 290)

@@ -1,6 +1,16 @@
 ﻿Public Class Menu
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim user As Usuario = New Usuario()
+        Dim type_user As TipoUsuario = New TipoUsuario()
 
+        user.BuscarUsuarioById(My.Settings.iduser)
+        type_user.BuscarTipoUsuarioById(user.GetIdTipoUsuario)
+
+        If type_user.GetNomTipoU().Equals("Gerente") Then
+            Me.btnReportes.Enabled = True
+            Me.btnProveedores.Enabled = True
+            Me.btnUsuarios.Enabled = True
+        End If
     End Sub
 
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click

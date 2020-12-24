@@ -40,6 +40,7 @@ Partial Class Reportes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dtIncial = New System.Windows.Forms.DateTimePicker()
         Me.rbEspecifico = New System.Windows.Forms.RadioButton()
+        Me.btnModificar = New System.Windows.Forms.Button()
         Me.TabInventario.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.dgInventario, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +55,9 @@ Partial Class Reportes
         '
         'TabInventario
         '
+        Me.TabInventario.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabInventario.Controls.Add(Me.TabPage1)
         Me.TabInventario.Controls.Add(Me.TabPage2)
         Me.TabInventario.Controls.Add(Me.TabPage3)
@@ -77,6 +81,9 @@ Partial Class Reportes
         '
         'dgInventario
         '
+        Me.dgInventario.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgInventario.Location = New System.Drawing.Point(3, 3)
         Me.dgInventario.Name = "dgInventario"
@@ -96,6 +103,9 @@ Partial Class Reportes
         '
         'dgMerma
         '
+        Me.dgMerma.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgMerma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgMerma.Location = New System.Drawing.Point(0, 0)
         Me.dgMerma.Name = "dgMerma"
@@ -147,6 +157,7 @@ Partial Class Reportes
         '
         'btnGenerar
         '
+        Me.btnGenerar.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnGenerar.Location = New System.Drawing.Point(668, 34)
         Me.btnGenerar.Name = "btnGenerar"
         Me.btnGenerar.Size = New System.Drawing.Size(109, 32)
@@ -178,6 +189,7 @@ Partial Class Reportes
         '
         'gpPeriodo
         '
+        Me.gpPeriodo.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.gpPeriodo.Controls.Add(Me.Label1)
         Me.gpPeriodo.Controls.Add(Me.dtFinal)
         Me.gpPeriodo.Controls.Add(Me.Label2)
@@ -203,6 +215,7 @@ Partial Class Reportes
         '
         'dtFinal
         '
+        Me.dtFinal.Enabled = False
         Me.dtFinal.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtFinal.Location = New System.Drawing.Point(11, 162)
         Me.dtFinal.Name = "dtFinal"
@@ -220,6 +233,7 @@ Partial Class Reportes
         '
         'dtIncial
         '
+        Me.dtIncial.Enabled = False
         Me.dtIncial.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtIncial.Location = New System.Drawing.Point(11, 123)
         Me.dtIncial.Name = "dtIncial"
@@ -237,15 +251,28 @@ Partial Class Reportes
         Me.rbEspecifico.Text = "Especifico"
         Me.rbEspecifico.UseVisualStyleBackColor = True
         '
+        'btnModificar
+        '
+        Me.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.btnModificar.Enabled = False
+        Me.btnModificar.Location = New System.Drawing.Point(668, 72)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(109, 32)
+        Me.btnModificar.TabIndex = 5
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = True
+        '
         'Reportes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnModificar)
         Me.Controls.Add(Me.gpPeriodo)
         Me.Controls.Add(Me.btnGenerar)
         Me.Controls.Add(Me.TabInventario)
         Me.Name = "Reportes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.TabInventario.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.dgInventario, System.ComponentModel.ISupportInitialize).EndInit()
@@ -279,4 +306,5 @@ Partial Class Reportes
     Friend WithEvents Label2 As Label
     Friend WithEvents dtIncial As DateTimePicker
     Friend WithEvents rbEspecifico As RadioButton
+    Friend WithEvents btnModificar As Button
 End Class
