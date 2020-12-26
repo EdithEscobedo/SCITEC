@@ -4,6 +4,8 @@
     Private compra As Compra = New Compra()
     'Declaramos un arreglo de compra detalle
     Private compraDetalle As List(Of CompraDetalle) = New List(Of CompraDetalle)
+    Private compraDetalleOriginal As List(Of CompraDetalle) = New List(Of CompraDetalle)
+    Private editable As Boolean = False
 
     Public Sub New()
 
@@ -24,7 +26,21 @@
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        compra.BuscarCompraById(idcompras)
 
+        Me.txtFolio.Text = compra.GetIdCompras()
+        Me.dateFechaCompra.Value = compra.GetFechaCompra()
+        Me.cbProveedor.SelectedItem = compra.GetIdProveedor()
+        Me.cbProveedor.Enabled = False
+
+        Me.btnEliminar.Enabled = True
+        Me.btnGuardar.Enabled = False
+        Me.btnModificar.Enabled = True
+
+        Me.editable = True
+
+        BuscarCompras()
+        MostrarCompra()
     End Sub
 
     Private Sub Compras_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,8 +48,10 @@
         Me.producto.PoblarComboProducto(Me.cbProducto)
     End Sub
     Private Sub Compras_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Dim form As Form = New Menu()
-        form.Show()
+        If Not Me.editable Then
+            Dim form As Form = New Menu()
+            form.Show()
+        End If
     End Sub
 
     Private Sub txtCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCantidad.KeyPress
@@ -125,18 +143,81 @@
                 MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
                 Exit Sub
             End If
-
         Next
+
         MsgBox("Compra agregada", MsgBoxStyle.Information, "EXITO")
         Limpiar()
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        Me.compra.SetIdCompras(CInt(Me.txtFolio.Text))
+        Me.compra.SetIdProveedor(Me.cbProveedor.SelectedValue)
+        Me.compra.SetFechaCompra(Me.dateFechaCompra.Value)
+        Me.compra.SetIdUser(My.Settings.iduser)
 
+        If (Not Me.compra.ActualizarCompras()) Then
+            MsgBox("Error al actualizar compra", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
+        For Each compD As CompraDetalle In compraDetalle
+            If (Not producto.BuscarProductoById(compD.GetIdProductooo())) Then
+                MsgBox("No se encontró el producto con el ID: " & compD.GetIdProductooo(), MsgBoxStyle.Critical, "ERROR")
+            End If
+
+            Dim compraDetallePrevia As CompraDetalle = compraDetalleOriginal.Find(
+                Function(x) x.GetIdCompraDetalle() = compD.GetIdCompraDetalle())
+
+            producto.SetCantidadProducto(producto.GetCantidadProducto() + (compD.GetCantCompra() - compraDetallePrevia.GetCantCompra()))
+
+            If (Not compD.ActualizarComprasD()) Then
+                MsgBox("Error al actualizar compra", MsgBoxStyle.Critical, "ERROR")
+
+                Exit Sub
+            End If
+
+            If (Not producto.ActualizarProducto()) Then
+                MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+        Next
+
+        compraDetalleOriginal = compraDetalle
+
+        MsgBox("Compra actualizada", MsgBoxStyle.Information, "EXITO")
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        Me.compra.SetIdCompras(CInt(Me.txtFolio.Text))
+        Me.compra.SetIdProveedor(Me.cbProveedor.SelectedValue)
+        Me.compra.SetFechaCompra(Me.dateFechaCompra.Value)
+        Me.compra.SetIdUser(My.Settings.iduser)
 
+        For Each compD As CompraDetalle In compraDetalle
+            If (Not producto.BuscarProductoById(compD.GetIdProductooo())) Then
+                MsgBox("No se encontró el producto con el ID: " & compD.GetIdProductooo(), MsgBoxStyle.Critical, "ERROR")
+            End If
+
+            producto.SetCantidadProducto(producto.GetCantidadProducto() - compD.GetCantCompra())
+
+            If (Not compD.EliminarCompraD()) Then
+                MsgBox("Error al eliminar compra", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+
+            If (Not producto.ActualizarProducto()) Then
+                MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+        Next
+
+        If (Not Me.compra.EliminarCompra()) Then
+            MsgBox("Error al eliminar compra", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
+        MsgBox("Compra eliminada", MsgBoxStyle.Information, "EXITO")
+        Me.Close()
     End Sub
     Private Sub MostrarCompra()
         Dim detalleCompra As DataTable = New DataTable()
@@ -162,6 +243,27 @@
         Me.dgvDetalleCompra.DataSource = detalleCompra
 
         Me.dgvDetalleCompra.Columns("ID").Visible = False
+    End Sub
+
+    Private Sub BuscarCompras()
+        Dim detalleCompra As DataTable
+
+        Dim columnas As String() = {}
+        Dim joins As String() = {}
+        Dim condiciones As String() = {"id_compraa = '" & Me.txtFolio.Text & "'"}
+
+        detalleCompra = New CompraDetalle().BuscarCompraDetalleByConditions(columnas, joins, condiciones)
+
+        For Each rowCompra As DataRow In detalleCompra.Rows
+            Dim cd As CompraDetalle = New CompraDetalle()
+            cd.SetIdCompraDetalle(CInt(rowCompra("idcompraDetalle").ToString()))
+            cd.SetCantCompra(CInt(rowCompra("cantCompra").ToString()))
+            cd.SetIdProductooo(CInt(rowCompra("id_productooo").ToString()))
+            cd.SetIdCompraa(CInt(rowCompra("id_compraa").ToString()))
+
+            compraDetalle.Add(cd)
+            compraDetalleOriginal.Add(cd)
+        Next
     End Sub
 
     Private Sub LimpiarCampos()

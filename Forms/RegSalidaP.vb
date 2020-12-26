@@ -5,6 +5,8 @@ Public Class RegSalidaP
     Private salida As RegSalidaPro = New RegSalidaPro()
     'Declaramos un arreglo de compra detalle
     Private salidaDetalle As List(Of RegSalidaProD) = New List(Of RegSalidaProD)
+    Private salidaDetallePrevia As List(Of RegSalidaProD) = New List(Of RegSalidaProD)
+    Private editable As Boolean = False
     Public Sub New()
 
         ' Esta llamada es exigida por el diseñador.
@@ -24,7 +26,20 @@ Public Class RegSalidaP
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        salida.BuscarSalidaProdutoById(idsalidaProducto)
 
+        Me.txtFolioSalida.Text = salida.GetIdSalidaProdcuto()
+        Me.txtRazon.Text = salida.GetRazon()
+        Me.dateFechaSalida.Value = salida.GetFechaSalida()
+
+        Me.btnGuardarSalida.Enabled = False
+        Me.btnEliminarSalida.Enabled = True
+        Me.btnEditarSalida.Enabled = True
+
+        Me.editable = True
+
+        BuscarSalida()
+        MostrarSalida()
     End Sub
     Private Sub RegSalidaP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.producto.PoblarComboProducto(Me.cbProducto)
@@ -33,8 +48,10 @@ Public Class RegSalidaP
     End Sub
 
     Private Sub RegSalidaP_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Dim form As Form = New Menu()
-        form.Show()
+        If Not Me.editable Then
+            Dim form As Form = New Menu()
+            form.Show()
+        End If
     End Sub
     Private Sub dgvRegistroSalida_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRegistroSalida.CellClick
         Try
@@ -126,11 +143,73 @@ Public Class RegSalidaP
     End Sub
 
     Private Sub btnEditarSalida_Click(sender As Object, e As EventArgs) Handles btnEditarSalida.Click
+        Me.salida.SetIdSalidaProducto(CInt(Me.txtFolioSalida.Text))
+        Me.salida.SetRazon(Me.txtRazon.Text)
+        Me.salida.SetFechaSalida(Me.dateFechaSalida.Value)
+        Me.salida.SetIdUser(My.Settings.iduser)
 
+        If (Not Me.salida.ActualizarSalidaProducto()) Then
+            MsgBox("Error al agregar salida", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
+        For Each salidaD As RegSalidaProD In salidaDetalle
+            If (Not producto.BuscarProductoById(salidaD.GetIdProducto())) Then
+                MsgBox("No se encontró el producto con el ID: " & salidaD.GetIdProducto(), MsgBoxStyle.Critical, "ERROR")
+            End If
+
+            Dim detallePrevia As RegSalidaProD = salidaDetallePrevia.Find(
+                Function(x) x.GetIdSalidaProductoDetalle() = salidaD.GetIdSalidaProductoDetalle())
+
+            producto.SetCantidadProducto(producto.GetCantidadProducto() - (salidaD.GetCantidad() - detallePrevia.GetCantidad()))
+
+            If (Not salidaD.ActualizarSalidaProductoD()) Then
+                MsgBox("Error al registrar salida", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+
+            If (Not producto.ActualizarProducto()) Then
+                MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+        Next
+
+        salidaDetallePrevia = salidaDetalle
+
+        MsgBox("Salida registrada", MsgBoxStyle.Information, "EXITO")
     End Sub
 
     Private Sub btnEliminarSalida_Click(sender As Object, e As EventArgs) Handles btnEliminarSalida.Click
+        Me.salida.SetIdSalidaProducto(CInt(Me.txtFolioSalida.Text))
+        Me.salida.SetRazon(Me.txtRazon.Text)
+        Me.salida.SetFechaSalida(Me.dateFechaSalida.Value)
+        Me.salida.SetIdUser(My.Settings.iduser)
 
+        For Each salidaD As RegSalidaProD In salidaDetalle
+            If (Not producto.BuscarProductoById(salidaD.GetIdProducto())) Then
+                MsgBox("No se encontró el producto con el ID: " & salidaD.GetIdProducto(), MsgBoxStyle.Critical, "ERROR")
+            End If
+
+            producto.SetCantidadProducto(producto.GetCantidadProducto() + salidaD.GetCantidad())
+
+            If (Not salidaD.EliminarSalidaProductoD()) Then
+                MsgBox("Error al registrar salida", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+
+            If (Not producto.ActualizarProducto()) Then
+                MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
+                Exit Sub
+            End If
+        Next
+
+        If (Not Me.salida.EliminarSalidaProducto()) Then
+            MsgBox("Error al agregar salida", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
+
+        MsgBox("Salida eliminada", MsgBoxStyle.Information, "EXITO")
+        Me.Close()
     End Sub
     Private Sub MostrarSalida()
         Dim detalleSalida As DataTable = New DataTable()
@@ -157,6 +236,26 @@ Public Class RegSalidaP
         Me.dgvRegistroSalida.DataSource = detalleSalida
 
         Me.dgvRegistroSalida.Columns("ID").Visible = False
+    End Sub
+    Private Sub BuscarSalida()
+        Dim detalleSalida As DataTable
+
+        Dim columnas As String() = {}
+        Dim joins As String() = {}
+        Dim condiciones As String() = {"idsalidaDetalle = '" & Me.txtFolioSalida.Text & "'"}
+
+        detalleSalida = New RegSalidaProD().BuscarRegistroSalidaDByConditions(columnas, joins, condiciones)
+
+        For Each rowSalida As DataRow In detalleSalida.Rows
+            Dim sd As RegSalidaProD = New RegSalidaProD()
+            sd.SetIdSalidaProductoDetalle(CInt(rowSalida("idsalidaDetalle").ToString()))
+            sd.SetIdsalidaProd(CInt(rowSalida("id_salidaProd").ToString))
+            sd.SetIdProducto(CInt(rowSalida("id_producto").ToString))
+            sd.SetCantidad(CInt(rowSalida("cantidad").ToString))
+
+            salidaDetalle.Add(sd)
+            salidaDetallePrevia.Add(sd)
+        Next
     End Sub
     Private Sub LimpiarCampos()
         Me.txtCantidad.Text = "0"

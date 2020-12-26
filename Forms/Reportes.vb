@@ -1,4 +1,5 @@
 ﻿Public Class Reportes
+    Private selected_report As String
 
     Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.rbSemanal.Checked = True
@@ -17,6 +18,21 @@
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
 
+    End Sub
+
+    Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        Dim form As Form
+        Select Case Me.selected_report
+            Case "Merma"
+                form = New RegistroMerma(CInt(Me.dgMerma.CurrentRow.Cells("idregMerma").Value))
+                form.Show()
+            Case "Salidas"
+                form = New RegSalidaP(CInt(Me.dgSalidas.CurrentRow.Cells("idsalidaProducto").Value))
+                form.Show()
+            Case "Compras"
+                form = New Compras(CInt(Me.dgCompras.CurrentRow.Cells("idcompras").Value))
+                form.Show()
+        End Select
     End Sub
 
     Private Sub generarReporteSalidas()
@@ -174,7 +190,7 @@
     End Sub
 
     Private Sub rbSemanal_CheckedChanged(sender As Object, e As EventArgs) Handles rbSemanal.CheckedChanged
-        If rbSemanal.Checked Then
+        If Me.rbSemanal.Checked Then
             generarReporteSalidas()
             generarReporteMerma()
             generarReporteCompras()
@@ -182,28 +198,27 @@
         End If
     End Sub
 
-    Private Sub rbMensual_CheckedChanged(sender As Object, e As EventArgs) Handles rbMensual.CheckedChanged
-        If rbMensual.Checked Then
+    Private Sub rb_Mensual_CheckedChanged(sender As Object, e As EventArgs) Handles rbMensual.CheckedChanged
+        If Me.rbMensual.Checked Then
             generarReporteSalidas()
             generarReporteMerma()
             generarReporteCompras()
             generarReporteInventario()
         End If
     End Sub
-
     Private Sub rbEspecifico_CheckedChanged(sender As Object, e As EventArgs) Handles rbEspecifico.CheckedChanged
-        If rbEspecifico.Checked Then
+        If Me.rbEspecifico.Checked Then
             generarReporteSalidas()
             generarReporteMerma()
             generarReporteCompras()
             generarReporteInventario()
+
             dtIncial.Enabled = True
             dtFinal.Enabled = True
         Else
             dtIncial.Enabled = False
             dtFinal.Enabled = False
         End If
-
     End Sub
 
     Private Sub dtIncial_ValueChanged(sender As Object, e As EventArgs) Handles dtIncial.ValueChanged
@@ -218,5 +233,24 @@
         generarReporteMerma()
         generarReporteCompras()
         generarReporteInventario()
+    End Sub
+
+    Private Sub dgInventario_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgInventario.CellClick
+        Me.btnModificar.Enabled = False
+    End Sub
+
+    Private Sub dgMerma_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgMerma.CellClick
+        Me.selected_report = "Merma"
+        Me.btnModificar.Enabled = True
+    End Sub
+
+    Private Sub dgSalidas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgSalidas.CellClick
+        Me.selected_report = "Salidas"
+        Me.btnModificar.Enabled = True
+    End Sub
+
+    Private Sub dgCompras_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgCompras.CellClick
+        Me.selected_report = "Compras"
+        Me.btnModificar.Enabled = True
     End Sub
 End Class
