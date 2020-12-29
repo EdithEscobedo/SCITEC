@@ -1,4 +1,11 @@
 ﻿Imports System.ComponentModel
+Imports System.Data
+Imports Syncfusion.Pdf
+Imports Syncfusion.Pdf.Grid
+Imports Syncfusion.Pdf.Graphics
+Imports System.Drawing
+Imports System
+Imports System.IO
 
 Public Class Reportes
     Private selected_report As String
@@ -22,6 +29,105 @@ Public Class Reportes
     End Sub
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
+        Dim doc As PdfDocument = New PdfDocument()
+
+        Dim gridStyle As PdfGridStyle = New PdfGridStyle()
+        gridStyle.CellPadding = New PdfPaddings(5, 5, 5, 5)
+
+        ' Inventario
+        Dim pageInventario As PdfPage = doc.Pages.Add()
+        Dim tInventario As DataTable = dgInventario.DataSource
+        Dim graphicsInventario As PdfGraphics = pageInventario.Graphics
+
+        graphicsInventario.DrawString("Inventario", New PdfStandardFont(PdfFontFamily.Courier, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
+
+        tInventario.Columns("nombreProducto").SetOrdinal(0)
+        tInventario.Columns("nombreProducto").ColumnName = "Producto"
+        tInventario.Columns("nom_catP").SetOrdinal(1)
+        tInventario.Columns("nom_catP").ColumnName = "Categoria"
+        tInventario.Columns("cantidadProducto").SetOrdinal(2)
+        tInventario.Columns("cantidadProducto").ColumnName = "Cantidad"
+        tInventario.Columns("nom_unidadM").SetOrdinal(3)
+        tInventario.Columns("nom_unidadM").ColumnName = "Unidad Medida"
+        tInventario.Columns("estadoproducto").SetOrdinal(4)
+        tInventario.Columns("estadoproducto").ColumnName = "Estado"
+
+        tInventario.Columns.Remove("id_catP")
+        tInventario.Columns.Remove("id_unidM")
+        tInventario.Columns.Remove("idProductos")
+
+        Dim gridInvetario As PdfGrid = New PdfGrid()
+
+        gridInvetario.Style = gridStyle
+        gridInvetario.DataSource = tInventario
+
+        For Each cell As PdfGridCell In gridInvetario.Headers(0).Cells
+            cell.Style.BackgroundBrush = New PdfSolidBrush(New PdfColor(128, 0, 64))
+            cell.Style.TextPen = New PdfPen(New PdfColor(255, 255, 255))
+            cell.Style.StringFormat = New PdfStringFormat()
+            cell.Style.StringFormat.Alignment = PdfTextAlignment.Center
+            cell.Style.Font = New PdfStandardFont(PdfFontFamily.Courier, 12, PdfFontStyle.Regular)
+        Next
+
+        gridInvetario.Draw(pageInventario, 10, 50)
+
+        ' Compras
+        Dim pageCompras As PdfPage = doc.Pages.Add()
+        Dim tCompras As DataTable = dgCompras.DataSource
+        Dim graphicsCompras As PdfGraphics = pageCompras.Graphics
+
+        graphicsCompras.DrawString("Compras", New PdfStandardFont(PdfFontFamily.Courier, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
+
+        tCompras.Columns("nombreproducto").SetOrdinal(0)
+        tCompras.Columns("nombreproducto").ColumnName = "Producto"
+        tCompras.Columns("cantCompra").SetOrdinal(1)
+        tCompras.Columns("cantCompra").ColumnName = "Cantidad"
+        tCompras.Columns("nom_unidadM").SetOrdinal(2)
+        tCompras.Columns("nom_unidadM").ColumnName = "Unidad"
+        tCompras.Columns("fecha_compra").SetOrdinal(3)
+        tCompras.Columns("fecha_compra").ColumnName = "Fecha"
+        tCompras.Columns("nom_usuario").SetOrdinal(4)
+        tCompras.Columns("nom_usuario").ColumnName = "Usuario"
+
+        tCompras.Columns.Remove("idcompras")
+        tCompras.Columns.Remove("id_user")
+        tCompras.Columns.Remove("id_pro")
+
+        Dim gridCompras As PdfGrid = New PdfGrid()
+
+        gridCompras.Style = gridStyle
+        gridCompras.DataSource = tCompras
+
+        For Each cell As PdfGridCell In gridCompras.Headers(0).Cells
+            cell.Style.BackgroundBrush = New PdfSolidBrush(New PdfColor(128, 0, 64))
+            cell.Style.TextPen = New PdfPen(New PdfColor(255, 255, 255))
+            cell.Style.StringFormat = New PdfStringFormat()
+            cell.Style.StringFormat.Alignment = PdfTextAlignment.Center
+            cell.Style.Font = New PdfStandardFont(PdfFontFamily.Courier, 12, PdfFontStyle.Regular)
+        Next
+
+        gridCompras.Draw(pageCompras, 10, 50)
+
+        ' Dialog
+        Dim dialog As SaveFileDialog = New SaveFileDialog()
+
+        dialog.Filter = "Pdf Files|*.pdf"
+        dialog.Title = "Generar Reporte"
+        dialog.FileName = "SCITEC-" & DateTime.Now.ToString("dd-MM-yyyy") & ".pdf"
+        dialog.AddExtension = True
+
+        Dim archivo As FileStream
+
+        If dialog.ShowDialog() = DialogResult.OK Then
+            If File.Exists(dialog.FileName) Then
+                File.Delete(dialog.FileName)
+            End If
+            archivo = New FileStream(dialog.FileName, FileMode.CreateNew, FileAccess.ReadWrite)
+            doc.Save(archivo)
+            doc.Close(True)
+            archivo.Close()
+            MsgBox("Reporte generado exitosamente", MsgBoxStyle.Information)
+        End If
 
     End Sub
 
@@ -155,7 +261,7 @@ Public Class Reportes
         Me.dgInventario.Columns("id_unidM").Visible = False
         Me.dgInventario.Columns("idProductos").Visible = False
 
-        Me.dgInventario.Sort(Me.dgInventario.Columns("idProductos"), ListSortDirection.Ascending)
+        Me.dgInventario.Sort(Me.dgInventario.Columns("nombreProducto"), ListSortDirection.Ascending)
     End Sub
 
     Private Sub generarReporteCompras()
