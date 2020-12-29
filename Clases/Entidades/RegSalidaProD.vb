@@ -102,7 +102,7 @@
     Public Function BuscarRegistroSalidaDByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {Tabla & ".idsalidaDetalle", Tabla & ".cantidad", Tabla & ".id_salidaProd",
-                                    Tabla & ".idproducto"}
+                                    Tabla & ".id_producto"}
 
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
     End Function

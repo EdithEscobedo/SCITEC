@@ -65,7 +65,7 @@
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
-    Public Function BuscarSalidaProdutoById(idusuario As Integer) As Boolean
+    Public Function BuscarSalidaProdutoById(idsalidaProducto As Integer) As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idsalidaProducto", "fecha_salida", "id_user", "razon"}
         Dim condiciones As String() = {"idsalidaProducto='" & idsalidaProducto & "'"}
@@ -79,7 +79,7 @@
                Not IsDBNull(result.Rows(0)("id_user")) And
                Not IsDBNull(result.Rows(0)("razon")) Then
                 SetIdSalidaProducto(CInt(result.Rows(0)("idsalidaProducto")))
-                SetFechaSalida(CStr(result.Rows(0)("fecha_salida")))
+                SetFechaSalida(CDate(result.Rows(0)("fecha_salida")))
                 SetIdUser(CInt(result.Rows(0)("id_user")))
                 SetRazon(CStr(result.Rows(0)("razon")))
                 Return True

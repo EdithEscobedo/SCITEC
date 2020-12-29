@@ -67,11 +67,10 @@
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
-    Public Function BuscarMermaDetalleById(idusuario As Integer) As Boolean
+    Public Function BuscarMermaDetalleById(idmermadetalle As Integer) As Boolean
         Dim database As BaseDatos = New BaseDatos()
-        Dim columnas As String() = {"'" & Me.idmermadetalle & "'", "'" & Me.cantidadMerma & "'", "'" & Me.idreg_m & "'",
-                                   "'" & Me.id_producti & "'"}
-        Dim condiciones As String() = {"idmermadetalle=" & "'" & Me.idmermadetalle & "'"}
+        Dim columnas As String() = {"idmermadetalle", "cantidadMerma", "idreg_m", "id_producti"}
+        Dim condiciones As String() = {"idmermadetalle=" & "'" & idmermadetalle & "'"}
         Dim result As DataTable
 
         result = database.Buscar({Tabla}, columnas, condiciones)
@@ -102,7 +101,7 @@
     Public Function BuscarMermaDetalleDByConditions(columnasExtra As String(), joins As String(), condiciones As String()) As DataTable
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {Tabla & ".idmermadetalle", Tabla & ".cantidadMerma", Tabla & ".idreg_m",
-                                    Tabla & ".idproducti"}
+                                    Tabla & ".id_producti"}
 
         Return database.Buscar({Tabla}, columnasExtra.Union(columnas).ToArray, joins, condiciones)
     End Function

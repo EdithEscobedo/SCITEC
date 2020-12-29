@@ -56,10 +56,10 @@ Partial Class IniciarSesion
         '
         'txtUser
         '
-        Me.txtUser.Location = New System.Drawing.Point(172, 146)
-        Me.txtUser.Multiline = True
+        Me.txtUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUser.Location = New System.Drawing.Point(172, 144)
         Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(252, 30)
+        Me.txtUser.Size = New System.Drawing.Size(252, 29)
         Me.txtUser.TabIndex = 1
         Me.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -75,11 +75,11 @@ Partial Class IniciarSesion
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(172, 256)
-        Me.txtPassword.Multiline = True
+        Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.Location = New System.Drawing.Point(172, 246)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtPassword.Size = New System.Drawing.Size(252, 30)
+        Me.txtPassword.Size = New System.Drawing.Size(252, 29)
         Me.txtPassword.TabIndex = 2
         Me.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '

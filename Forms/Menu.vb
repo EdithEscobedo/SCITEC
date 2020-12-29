@@ -6,7 +6,7 @@
         user.BuscarUsuarioById(My.Settings.iduser)
         type_user.BuscarTipoUsuarioById(user.GetIdTipoUsuario)
 
-        If type_user.GetNomTipoU().Equals("Gerente") Then
+        If type_user.GetNomTipoU().ToLower.Equals("gerente") Then
             Me.btnReportes.Enabled = True
             Me.btnProveedores.Enabled = True
             Me.btnUsuarios.Enabled = True

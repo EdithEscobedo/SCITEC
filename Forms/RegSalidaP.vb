@@ -26,7 +26,11 @@ Public Class RegSalidaP
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-        salida.BuscarSalidaProdutoById(idsalidaProducto)
+        If Not salida.BuscarSalidaProdutoById(idsalidaProducto) Then
+            MsgBox("Salida no encontrada", MsgBoxStyle.Critical)
+            Me.Close()
+            Exit Sub
+        End If
 
         Me.txtFolioSalida.Text = salida.GetIdSalidaProdcuto()
         Me.txtRazon.Text = salida.GetRazon()
@@ -50,6 +54,9 @@ Public Class RegSalidaP
     Private Sub RegSalidaP_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If Not Me.editable Then
             Dim form As Form = New Menu()
+            form.Show()
+        Else
+            Dim form As Form = New Reportes()
             form.Show()
         End If
     End Sub
@@ -98,6 +105,8 @@ Public Class RegSalidaP
 
         LimpiarCampos()
         MostrarSalida()
+
+        Me.btnEliminarSalida.Enabled = False
     End Sub
 
     Private Sub btnQuitar_Click(sender As Object, e As EventArgs) Handles btnQuitar.Click
@@ -107,6 +116,8 @@ Public Class RegSalidaP
         salidaDetalle.RemoveAt(index)
         LimpiarCampos()
         MostrarSalida()
+
+        Me.btnEliminarSalida.Enabled = False
     End Sub
 
     Private Sub btnGuardarSalida_Click(sender As Object, e As EventArgs) Handles btnGuardarSalida.Click
@@ -177,6 +188,7 @@ Public Class RegSalidaP
         salidaDetallePrevia = salidaDetalle
 
         MsgBox("Salida registrada", MsgBoxStyle.Information, "EXITO")
+        Me.Close()
     End Sub
 
     Private Sub btnEliminarSalida_Click(sender As Object, e As EventArgs) Handles btnEliminarSalida.Click
@@ -242,7 +254,7 @@ Public Class RegSalidaP
 
         Dim columnas As String() = {}
         Dim joins As String() = {}
-        Dim condiciones As String() = {"idsalidaDetalle = '" & Me.txtFolioSalida.Text & "'"}
+        Dim condiciones As String() = {"id_salidaProd = '" & Me.txtFolioSalida.Text & "'"}
 
         detalleSalida = New RegSalidaProD().BuscarRegistroSalidaDByConditions(columnas, joins, condiciones)
 
@@ -253,8 +265,14 @@ Public Class RegSalidaP
             sd.SetIdProducto(CInt(rowSalida("id_producto").ToString))
             sd.SetCantidad(CInt(rowSalida("cantidad").ToString))
 
+            Dim sdO As RegSalidaProD = New RegSalidaProD()
+            sdO.SetIdSalidaProductoDetalle(CInt(rowSalida("idsalidaDetalle").ToString()))
+            sdO.SetIdsalidaProd(CInt(rowSalida("id_salidaProd").ToString))
+            sdO.SetIdProducto(CInt(rowSalida("id_producto").ToString))
+            sdO.SetCantidad(CInt(rowSalida("cantidad").ToString))
+
             salidaDetalle.Add(sd)
-            salidaDetallePrevia.Add(sd)
+            salidaDetallePrevia.Add(sdO)
         Next
     End Sub
     Private Sub LimpiarCampos()

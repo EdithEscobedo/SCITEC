@@ -1,5 +1,8 @@
-﻿Public Class Reportes
+﻿Imports System.ComponentModel
+
+Public Class Reportes
     Private selected_report As String
+    Private selected_modify As Boolean = False
 
     Private Sub Reportes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.rbSemanal.Checked = True
@@ -12,8 +15,10 @@
     End Sub
 
     Private Sub Reportes_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Dim form As Form = New Menu()
-        form.Show()
+        If Not Me.selected_modify Then
+            Dim form As Form = New Menu()
+            form.Show()
+        End If
     End Sub
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btnGenerar.Click
@@ -22,16 +27,20 @@
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Dim form As Form
+        Me.selected_modify = True
         Select Case Me.selected_report
             Case "Merma"
                 form = New RegistroMerma(CInt(Me.dgMerma.CurrentRow.Cells("idregMerma").Value))
                 form.Show()
+                Me.Close()
             Case "Salidas"
                 form = New RegSalidaP(CInt(Me.dgSalidas.CurrentRow.Cells("idsalidaProducto").Value))
                 form.Show()
+                Me.Close()
             Case "Compras"
                 form = New Compras(CInt(Me.dgCompras.CurrentRow.Cells("idcompras").Value))
                 form.Show()
+                Me.Close()
         End Select
     End Sub
 
@@ -144,7 +153,9 @@
 
         Me.dgInventario.Columns("id_catP").Visible = False
         Me.dgInventario.Columns("id_unidM").Visible = False
+        Me.dgInventario.Columns("idProductos").Visible = False
 
+        Me.dgInventario.Sort(Me.dgInventario.Columns("idProductos"), ListSortDirection.Ascending)
     End Sub
 
     Private Sub generarReporteCompras()
@@ -237,20 +248,24 @@
 
     Private Sub dgInventario_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgInventario.CellClick
         Me.btnModificar.Enabled = False
+        Me.btnModificar.Text = "Modificar"
     End Sub
 
     Private Sub dgMerma_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgMerma.CellClick
         Me.selected_report = "Merma"
+        Me.btnModificar.Text = "Modificar Registro Merma"
         Me.btnModificar.Enabled = True
     End Sub
 
     Private Sub dgSalidas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgSalidas.CellClick
         Me.selected_report = "Salidas"
+        Me.btnModificar.Text = "Modificar Registro Salidas"
         Me.btnModificar.Enabled = True
     End Sub
 
     Private Sub dgCompras_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgCompras.CellClick
         Me.selected_report = "Compras"
+        Me.btnModificar.Text = "Modificar Registro Compras"
         Me.btnModificar.Enabled = True
     End Sub
 End Class

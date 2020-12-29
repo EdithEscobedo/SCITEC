@@ -67,7 +67,7 @@
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
-    Public Function BuscarCompraById(idusuario As Integer) As Boolean
+    Public Function BuscarCompraById(idcompras As Integer) As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idcompras", "fecha_compra", "id_pro", "id_user"}
         Dim condiciones As String() = {"idcompras='" & idcompras & "'"}
@@ -81,9 +81,9 @@
                Not IsDBNull(result.Rows(0)("id_pro")) And
                Not IsDBNull(result.Rows(0)("id_user")) Then
                 SetIdCompras(CInt(result.Rows(0)("idCompras")))
-                SetFechaCompra(CStr(result.Rows(0)("fecha_compra")))
+                SetFechaCompra(CDate(result.Rows(0)("fecha_compra")))
                 SetIdProveedor(CInt(result.Rows(0)("id_pro")))
-                SetIdUser(CStr(result.Rows(0)("id_user")))
+                SetIdUser(CInt(result.Rows(0)("id_user")))
                 Return True
             Else
                 Throw New Exception("Error: Columna con valores vacios.")

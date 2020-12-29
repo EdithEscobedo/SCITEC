@@ -26,7 +26,11 @@
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-        compra.BuscarCompraById(idcompras)
+        If Not compra.BuscarCompraById(idcompras) Then
+            MsgBox("Compra no encontrada", MsgBoxStyle.Critical)
+            Me.Close()
+            Exit Sub
+        End If
 
         Me.txtFolio.Text = compra.GetIdCompras()
         Me.dateFechaCompra.Value = compra.GetFechaCompra()
@@ -50,6 +54,9 @@
     Private Sub Compras_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If Not Me.editable Then
             Dim form As Form = New Menu()
+            form.Show()
+        Else
+            Dim form As Form = New Reportes()
             form.Show()
         End If
     End Sub
@@ -105,6 +112,8 @@
 
         LimpiarCampos()
         MostrarCompra()
+
+        Me.btnEliminar.Enabled = False
     End Sub
 
     Private Sub btnQuitarProducto_Click(sender As Object, e As EventArgs) Handles btnQuitarProducto.Click
@@ -114,6 +123,8 @@
         compraDetalle.RemoveAt(index)
         LimpiarCampos()
         MostrarCompra()
+
+        Me.btnEliminar.Enabled = False
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
@@ -172,7 +183,6 @@
 
             If (Not compD.ActualizarComprasD()) Then
                 MsgBox("Error al actualizar compra", MsgBoxStyle.Critical, "ERROR")
-
                 Exit Sub
             End If
 
@@ -180,11 +190,11 @@
                 MsgBox("Error al actualizar producto", MsgBoxStyle.Critical, "ERROR")
                 Exit Sub
             End If
+
+            Me.Close()
         Next
-
-        compraDetalleOriginal = compraDetalle
-
         MsgBox("Compra actualizada", MsgBoxStyle.Information, "EXITO")
+        Me.Close()
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -261,8 +271,14 @@
             cd.SetIdProductooo(CInt(rowCompra("id_productooo").ToString()))
             cd.SetIdCompraa(CInt(rowCompra("id_compraa").ToString()))
 
+            Dim cdO As CompraDetalle = New CompraDetalle()
+            cdO.SetIdCompraDetalle(CInt(rowCompra("idcompraDetalle").ToString()))
+            cdO.SetCantCompra(CInt(rowCompra("cantCompra").ToString()))
+            cdO.SetIdProductooo(CInt(rowCompra("id_productooo").ToString()))
+            cdO.SetIdCompraa(CInt(rowCompra("id_compraa").ToString()))
+
             compraDetalle.Add(cd)
-            compraDetalleOriginal.Add(cd)
+            compraDetalleOriginal.Add(cdO)
         Next
     End Sub
 

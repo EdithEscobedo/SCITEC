@@ -66,7 +66,7 @@
         Dim result = database.Eliminar(Tabla, condiciones)
         Return result
     End Function
-    Public Function BuscarRegistroMermaById(idusuario As Integer) As Boolean
+    Public Function BuscarRegistroMermaById(idregMerma As Integer) As Boolean
         Dim database As BaseDatos = New BaseDatos()
         Dim columnas As String() = {"idregMerma", "fechaReg", "descripcion", "iduseer"}
         Dim condiciones As String() = {"idregMerma='" & idregMerma & "'"}

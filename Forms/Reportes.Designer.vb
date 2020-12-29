@@ -278,7 +278,7 @@ Partial Class Reportes
         Me.btnModificar.Enabled = False
         Me.btnModificar.Location = New System.Drawing.Point(668, 72)
         Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(109, 32)
+        Me.btnModificar.Size = New System.Drawing.Size(109, 35)
         Me.btnModificar.TabIndex = 5
         Me.btnModificar.Text = "Modificar"
         Me.btnModificar.UseVisualStyleBackColor = True
@@ -293,8 +293,8 @@ Partial Class Reportes
         Me.Controls.Add(Me.btnGenerar)
         Me.Controls.Add(Me.TabInventario)
         Me.Name = "Reportes"
-        Me.Text = "Reportes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Reportes"
         Me.TabInventario.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.dgInventario, System.ComponentModel.ISupportInitialize).EndInit()

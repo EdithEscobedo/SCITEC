@@ -255,6 +255,7 @@ Partial Class RegSalidaP
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "RegSalidaP"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registro salida del producto"
         CType(Me.dgvRegistroSalida, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
