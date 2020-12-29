@@ -31,16 +31,26 @@ Public Class CrearUsuarios
     End Sub
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
 
-        If Me.usuario.BuscarUsuariosByConditions(
-                                                 {}, {}, {"nom_usuario LIKE '%" &
-                                                 Me.txtNomUsuario.Text.Replace(" ", "%") & "%'"}
-                                                 ).Rows.Count > 0 Then
+        If Me.usuario.BuscarUsuariosByConditions({}, {}, {"nom_usuario LIKE '%" & Me.txtNomUsuario.Text.Replace(" ", "%") & "%'"}).Rows.Count > 0 And
+           Me.nuevoUsuario Then
+            MsgBox("EL nombre de usuario ya existe.", MsgBoxStyle.Critical, "ERROR")
+            Me.txtNomUsuario.Text = ""
+            Me.txtNomUsuario.Select()
+            Exit Sub
+        ElseIf Me.usuario.BuscarUsuariosByConditions({}, {}, {"nom_usuario LIKE '%" & Me.txtNomUsuario.Text.Replace(" ", "%") & "%'",
+                                                              "NOT nom_usuario = '" & Me.usuario.GetNombreUsuario() & "'"}).Rows.Count > 0 Then
             MsgBox("EL nombre de usuario ya existe.", MsgBoxStyle.Critical, "ERROR")
             Me.txtNomUsuario.Text = ""
             Me.txtNomUsuario.Select()
             Exit Sub
         End If
-        If Me.usuario.BuscarUsuariosByConditions({}, {}, {"username = '" & Me.txtUsername.Text & "'"}).Rows.Count > 0 Then
+        If Me.usuario.BuscarUsuariosByConditions({}, {}, {"username = '" & Me.txtUsername.Text & "'"}).Rows.Count > 0 And Me.nuevoUsuario Then
+            MsgBox("EL username ya existe.", MsgBoxStyle.Critical, "ERROR")
+            Me.txtUsername.Text = ""
+            Me.txtUsername.Select()
+            Exit Sub
+        ElseIf Me.usuario.BuscarUsuariosByConditions({}, {}, {"username = '" & Me.txtUsername.Text & "'",
+                                                              "NOT username = '" & Me.usuario.GetUsername() & "'"}).Rows.Count > 0 And Me.nuevoUsuario Then
             MsgBox("EL username ya existe.", MsgBoxStyle.Critical, "ERROR")
             Me.txtUsername.Text = ""
             Me.txtUsername.Select()
