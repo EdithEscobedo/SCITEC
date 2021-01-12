@@ -32,14 +32,48 @@ Public Class Reportes
         Dim doc As PdfDocument = New PdfDocument()
 
         Dim gridStyle As PdfGridStyle = New PdfGridStyle()
+        'gridStyle.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12, PdfFontStyle.Regular)
         gridStyle.CellPadding = New PdfPaddings(5, 5, 5, 5)
+
+        'Titulo
+        Dim pageTitulo As PdfPage = doc.Pages.Add()
+        Dim graphicsTitulo As PdfGraphics = pageTitulo.Graphics
+        Dim titulo As String
+        Dim fechaReporte As String
+        Dim fecha As DateTime = DateTime.Today
+        Dim daysMonth As Integer = DateTime.DaysInMonth(fecha.Year, fecha.Month)
+
+        If rbSemanal.Checked Then
+
+            titulo = "Reporte Semanal"
+            fechaReporte = fecha.AddDays(fecha.DayOfWeek * -1).ToString("yyyy/MM/dd") & "  -  " &
+                           fecha.AddDays(6 - fecha.DayOfWeek).ToString("yyyy/MM/dd")
+
+        ElseIf rbMensual.Checked Then
+
+            titulo = "Reporte Mensual"
+            fechaReporte = fecha.AddDays(fecha.Day * -1).ToString("yyyy/MM/dd") & "  -  " &
+                           fecha.AddDays(daysMonth - fecha.Day).ToString("yyyy/MM/dd")
+
+        ElseIf rbEspecifico.Checked Then
+
+            titulo = "Reporte Específico"
+            fechaReporte = dtIncial.Value.ToString("yyyy/MM/dd") & "  -  " &
+                           dtFinal.Value.ToString("yyyy/MM/dd")
+        Else
+            titulo = "Reporte"
+            fechaReporte = fecha.ToString("yyyy-MM-dd")
+        End If
+
+        graphicsTitulo.DrawString(titulo, New PdfStandardFont(PdfFontFamily.TimesRoman, 50, PdfFontStyle.Bold), PdfBrushes.DarkRed, 70, 250)
+        graphicsTitulo.DrawString(fechaReporte, New PdfStandardFont(PdfFontFamily.TimesRoman, 22, PdfFontStyle.Bold), PdfBrushes.DarkOrange, 150, 350)
 
         ' Inventario
         Dim pageInventario As PdfPage = doc.Pages.Add()
         Dim tInventario As DataTable = dgInventario.DataSource
         Dim graphicsInventario As PdfGraphics = pageInventario.Graphics
 
-        graphicsInventario.DrawString("Inventario", New PdfStandardFont(PdfFontFamily.Courier, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
+        graphicsInventario.DrawString("Inventario", New PdfStandardFont(PdfFontFamily.TimesRoman, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
 
         tInventario.Columns("nombreProducto").SetOrdinal(0)
         tInventario.Columns("nombreProducto").ColumnName = "Producto"
@@ -66,17 +100,95 @@ Public Class Reportes
             cell.Style.TextPen = New PdfPen(New PdfColor(255, 255, 255))
             cell.Style.StringFormat = New PdfStringFormat()
             cell.Style.StringFormat.Alignment = PdfTextAlignment.Center
-            cell.Style.Font = New PdfStandardFont(PdfFontFamily.Courier, 12, PdfFontStyle.Regular)
+            cell.Style.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12, PdfFontStyle.Regular)
         Next
 
         gridInvetario.Draw(pageInventario, 10, 50)
+
+        'Mermas
+        Dim pageMermas As PdfPage = doc.Pages.Add()
+        Dim tMermas As DataTable = dgMerma.DataSource
+        Dim graphicsMermas As PdfGraphics = pageMermas.Graphics
+
+        graphicsMermas.DrawString("Mermas", New PdfStandardFont(PdfFontFamily.TimesRoman, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
+
+        tMermas.Columns("nombreproducto").SetOrdinal(0)
+        tMermas.Columns("nombreproducto").ColumnName = "Producto"
+        tMermas.Columns("cantidadMerma").SetOrdinal(1)
+        tMermas.Columns("cantidadMerma").ColumnName = "Cantidad"
+        tMermas.Columns("nom_unidadM").SetOrdinal(2)
+        tMermas.Columns("nom_unidadM").ColumnName = "Unidad"
+        tMermas.Columns("descripcion").SetOrdinal(3)
+        tMermas.Columns("descripcion").ColumnName = "Descripción"
+        tMermas.Columns("fechaReg").SetOrdinal(4)
+        tMermas.Columns("fechaReg").ColumnName = "Fecha"
+        tMermas.Columns("nom_usuario").SetOrdinal(5)
+        tMermas.Columns("nom_usuario").ColumnName = "Usuario"
+
+        tMermas.Columns.Remove("idregMerma")
+        tMermas.Columns.Remove("iduseer")
+        'tMermas.Columns.Remove("id_producti")
+
+        Dim gridMermas As PdfGrid = New PdfGrid()
+
+        gridMermas.Style = gridStyle
+        gridMermas.DataSource = tMermas
+
+        For Each cell As PdfGridCell In gridMermas.Headers(0).Cells
+            cell.Style.BackgroundBrush = New PdfSolidBrush(New PdfColor(128, 0, 64))
+            cell.Style.TextPen = New PdfPen(New PdfColor(255, 255, 255))
+            cell.Style.StringFormat = New PdfStringFormat()
+            cell.Style.StringFormat.Alignment = PdfTextAlignment.Center
+            cell.Style.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12, PdfFontStyle.Regular)
+        Next
+
+        gridMermas.Draw(pageMermas, 10, 50)
+
+        ' Salidas
+        Dim pageSalidas As PdfPage = doc.Pages.Add()
+        Dim tSalidas As DataTable = dgSalidas.DataSource
+        Dim graphicsSalidas As PdfGraphics = pageSalidas.Graphics
+
+        graphicsSalidas.DrawString("Salidas", New PdfStandardFont(PdfFontFamily.TimesRoman, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
+
+        tSalidas.Columns("nombreproducto").SetOrdinal(0)
+        tSalidas.Columns("nombreproducto").ColumnName = "Producto"
+        tSalidas.Columns("cantidad").SetOrdinal(1)
+        tSalidas.Columns("cantidad").ColumnName = "Cantidad"
+        tSalidas.Columns("nom_unidadM").SetOrdinal(2)
+        tSalidas.Columns("nom_unidadM").ColumnName = "Unidad"
+        tSalidas.Columns("razon").SetOrdinal(3)
+        tSalidas.Columns("razon").ColumnName = "Razón"
+        tSalidas.Columns("fecha_salida").SetOrdinal(4)
+        tSalidas.Columns("fecha_salida").ColumnName = "Fecha"
+        tSalidas.Columns("nom_usuario").SetOrdinal(5)
+        tSalidas.Columns("nom_usuario").ColumnName = "Usuario"
+
+        tSalidas.Columns.Remove("idsalidaProducto")
+        tSalidas.Columns.Remove("id_user")
+        'tSalidas.Columns.Remove("id_producto")
+
+        Dim gridSalidas As PdfGrid = New PdfGrid()
+
+        gridSalidas.Style = gridStyle
+        gridSalidas.DataSource = tSalidas
+
+        For Each cell As PdfGridCell In gridSalidas.Headers(0).Cells
+            cell.Style.BackgroundBrush = New PdfSolidBrush(New PdfColor(128, 0, 64))
+            cell.Style.TextPen = New PdfPen(New PdfColor(255, 255, 255))
+            cell.Style.StringFormat = New PdfStringFormat()
+            cell.Style.StringFormat.Alignment = PdfTextAlignment.Center
+            cell.Style.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12, PdfFontStyle.Regular)
+        Next
+
+        gridSalidas.Draw(pageSalidas, 10, 50)
 
         ' Compras
         Dim pageCompras As PdfPage = doc.Pages.Add()
         Dim tCompras As DataTable = dgCompras.DataSource
         Dim graphicsCompras As PdfGraphics = pageCompras.Graphics
 
-        graphicsCompras.DrawString("Compras", New PdfStandardFont(PdfFontFamily.Courier, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
+        graphicsCompras.DrawString("Compras", New PdfStandardFont(PdfFontFamily.TimesRoman, 20, PdfFontStyle.Bold), PdfBrushes.Black, 10, 10)
 
         tCompras.Columns("nombreproducto").SetOrdinal(0)
         tCompras.Columns("nombreproducto").ColumnName = "Producto"
@@ -98,12 +210,13 @@ Public Class Reportes
         gridCompras.Style = gridStyle
         gridCompras.DataSource = tCompras
 
+
         For Each cell As PdfGridCell In gridCompras.Headers(0).Cells
             cell.Style.BackgroundBrush = New PdfSolidBrush(New PdfColor(128, 0, 64))
             cell.Style.TextPen = New PdfPen(New PdfColor(255, 255, 255))
             cell.Style.StringFormat = New PdfStringFormat()
             cell.Style.StringFormat.Alignment = PdfTextAlignment.Center
-            cell.Style.Font = New PdfStandardFont(PdfFontFamily.Courier, 12, PdfFontStyle.Regular)
+            cell.Style.Font = New PdfStandardFont(PdfFontFamily.TimesRoman, 12, PdfFontStyle.Regular)
         Next
 
         gridCompras.Draw(pageCompras, 10, 50)
