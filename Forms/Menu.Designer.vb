@@ -28,15 +28,15 @@ Partial Class Menu
         Me.compras = New System.Windows.Forms.Label()
         Me.proveedores = New System.Windows.Forms.Label()
         Me.usuarios = New System.Windows.Forms.Label()
+        Me.Registros = New System.Windows.Forms.Label()
+        Me.merma = New System.Windows.Forms.Label()
+        Me.btnMerma = New System.Windows.Forms.Button()
+        Me.btnRegistroSalida = New System.Windows.Forms.Button()
         Me.btnUsuarios = New System.Windows.Forms.Button()
         Me.btnCompras = New System.Windows.Forms.Button()
         Me.btnProveedores = New System.Windows.Forms.Button()
         Me.btnReportes = New System.Windows.Forms.Button()
         Me.btnProductos = New System.Windows.Forms.Button()
-        Me.Registros = New System.Windows.Forms.Label()
-        Me.btnRegistroSalida = New System.Windows.Forms.Button()
-        Me.merma = New System.Windows.Forms.Label()
-        Me.btnMerma = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'productos
@@ -94,70 +94,6 @@ Partial Class Menu
         Me.usuarios.Text = "Usuarios"
         Me.usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'btnUsuarios
-        '
-        Me.btnUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnUsuarios.Enabled = False
-        Me.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnUsuarios.Image = CType(resources.GetObject("btnUsuarios.Image"), System.Drawing.Image)
-        Me.btnUsuarios.Location = New System.Drawing.Point(691, 290)
-        Me.btnUsuarios.Name = "btnUsuarios"
-        Me.btnUsuarios.Size = New System.Drawing.Size(120, 120)
-        Me.btnUsuarios.TabIndex = 4
-        Me.btnUsuarios.UseVisualStyleBackColor = True
-        '
-        'btnCompras
-        '
-        Me.btnCompras.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCompras.Image = Global.SCITEC.My.Resources.Resources.Compras
-        Me.btnCompras.Location = New System.Drawing.Point(560, 65)
-        Me.btnCompras.Name = "btnCompras"
-        Me.btnCompras.Size = New System.Drawing.Size(120, 120)
-        Me.btnCompras.TabIndex = 2
-        Me.btnCompras.UseVisualStyleBackColor = True
-        '
-        'btnProveedores
-        '
-        Me.btnProveedores.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnProveedores.BackColor = System.Drawing.SystemColors.Control
-        Me.btnProveedores.Enabled = False
-        Me.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnProveedores.Image = Global.SCITEC.My.Resources.Resources.Proveedores
-        Me.btnProveedores.Location = New System.Drawing.Point(417, 290)
-        Me.btnProveedores.Name = "btnProveedores"
-        Me.btnProveedores.Size = New System.Drawing.Size(120, 120)
-        Me.btnProveedores.TabIndex = 3
-        Me.btnProveedores.UseVisualStyleBackColor = False
-        '
-        'btnReportes
-        '
-        Me.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnReportes.Enabled = False
-        Me.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnReportes.Image = Global.SCITEC.My.Resources.Resources.Reportes
-        Me.btnReportes.Location = New System.Drawing.Point(161, 290)
-        Me.btnReportes.Name = "btnReportes"
-        Me.btnReportes.Size = New System.Drawing.Size(120, 120)
-        Me.btnReportes.TabIndex = 1
-        Me.btnReportes.UseVisualStyleBackColor = True
-        '
-        'btnProductos
-        '
-        Me.btnProductos.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnProductos.BackgroundImage = Global.SCITEC.My.Resources.Resources.Producto
-        Me.btnProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.btnProductos.FlatAppearance.BorderSize = 5
-        Me.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnProductos.Location = New System.Drawing.Point(62, 65)
-        Me.btnProductos.Name = "btnProductos"
-        Me.btnProductos.Size = New System.Drawing.Size(120, 120)
-        Me.btnProductos.TabIndex = 0
-        Me.btnProductos.UseVisualStyleBackColor = True
-        '
         'Registros
         '
         Me.Registros.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -168,17 +104,6 @@ Partial Class Menu
         Me.Registros.TabIndex = 506
         Me.Registros.Text = "Salidas"
         Me.Registros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnRegistroSalida
-        '
-        Me.btnRegistroSalida.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.btnRegistroSalida.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnRegistroSalida.Image = Global.SCITEC.My.Resources.Resources.Compras
-        Me.btnRegistroSalida.Location = New System.Drawing.Point(299, 65)
-        Me.btnRegistroSalida.Name = "btnRegistroSalida"
-        Me.btnRegistroSalida.Size = New System.Drawing.Size(120, 120)
-        Me.btnRegistroSalida.TabIndex = 505
-        Me.btnRegistroSalida.UseVisualStyleBackColor = True
         '
         'merma
         '
@@ -195,12 +120,81 @@ Partial Class Menu
         '
         Me.btnMerma.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnMerma.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnMerma.Image = Global.SCITEC.My.Resources.Resources.Reportes
         Me.btnMerma.Location = New System.Drawing.Point(805, 65)
         Me.btnMerma.Name = "btnMerma"
         Me.btnMerma.Size = New System.Drawing.Size(120, 120)
         Me.btnMerma.TabIndex = 507
         Me.btnMerma.UseVisualStyleBackColor = True
+        '
+        'btnRegistroSalida
+        '
+        Me.btnRegistroSalida.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnRegistroSalida.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRegistroSalida.Location = New System.Drawing.Point(299, 65)
+        Me.btnRegistroSalida.Name = "btnRegistroSalida"
+        Me.btnRegistroSalida.Size = New System.Drawing.Size(120, 120)
+        Me.btnRegistroSalida.TabIndex = 505
+        Me.btnRegistroSalida.UseVisualStyleBackColor = True
+        '
+        'btnUsuarios
+        '
+        Me.btnUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnUsuarios.Enabled = False
+        Me.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnUsuarios.Image = CType(resources.GetObject("btnUsuarios.Image"), System.Drawing.Image)
+        Me.btnUsuarios.Location = New System.Drawing.Point(691, 290)
+        Me.btnUsuarios.Name = "btnUsuarios"
+        Me.btnUsuarios.Size = New System.Drawing.Size(120, 120)
+        Me.btnUsuarios.TabIndex = 4
+        Me.btnUsuarios.UseVisualStyleBackColor = True
+        '
+        'btnCompras
+        '
+        Me.btnCompras.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCompras.Location = New System.Drawing.Point(560, 65)
+        Me.btnCompras.Name = "btnCompras"
+        Me.btnCompras.Size = New System.Drawing.Size(120, 120)
+        Me.btnCompras.TabIndex = 2
+        Me.btnCompras.UseVisualStyleBackColor = True
+        '
+        'btnProveedores
+        '
+        Me.btnProveedores.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnProveedores.BackColor = System.Drawing.SystemColors.Control
+        Me.btnProveedores.Enabled = False
+        Me.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnProveedores.Location = New System.Drawing.Point(417, 290)
+        Me.btnProveedores.Name = "btnProveedores"
+        Me.btnProveedores.Size = New System.Drawing.Size(120, 120)
+        Me.btnProveedores.TabIndex = 3
+        Me.btnProveedores.UseVisualStyleBackColor = False
+        '
+        'btnReportes
+        '
+        Me.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnReportes.Enabled = False
+        Me.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnReportes.Location = New System.Drawing.Point(161, 290)
+        Me.btnReportes.Name = "btnReportes"
+        Me.btnReportes.Size = New System.Drawing.Size(120, 120)
+        Me.btnReportes.TabIndex = 1
+        Me.btnReportes.UseVisualStyleBackColor = True
+        '
+        'btnProductos
+        '
+        Me.btnProductos.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnProductos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnProductos.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.btnProductos.FlatAppearance.BorderSize = 5
+        Me.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnProductos.Location = New System.Drawing.Point(62, 65)
+        Me.btnProductos.Name = "btnProductos"
+        Me.btnProductos.Size = New System.Drawing.Size(120, 120)
+        Me.btnProductos.TabIndex = 0
+        Me.btnProductos.UseVisualStyleBackColor = True
         '
         'Menu
         '
