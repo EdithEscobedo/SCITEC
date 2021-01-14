@@ -301,13 +301,16 @@
     <None Include="Resources\agregar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Password.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\User.png" />
+    <None Include="Resources\merma1.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salidas.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salidas1.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Producto.png" />
@@ -322,10 +325,10 @@
     <None Include="Resources\Usuario.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\salidas1.jpeg" />
+    <None Include="Resources\User.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\merma11.jpeg" />
+    <None Include="Resources\Password.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />

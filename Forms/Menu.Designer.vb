@@ -120,6 +120,7 @@ Partial Class Menu
         '
         Me.btnMerma.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnMerma.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnMerma.Image = CType(resources.GetObject("btnMerma.Image"), System.Drawing.Image)
         Me.btnMerma.Location = New System.Drawing.Point(805, 65)
         Me.btnMerma.Name = "btnMerma"
         Me.btnMerma.Size = New System.Drawing.Size(120, 120)
@@ -130,6 +131,7 @@ Partial Class Menu
         '
         Me.btnRegistroSalida.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnRegistroSalida.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnRegistroSalida.Image = CType(resources.GetObject("btnRegistroSalida.Image"), System.Drawing.Image)
         Me.btnRegistroSalida.Location = New System.Drawing.Point(299, 65)
         Me.btnRegistroSalida.Name = "btnRegistroSalida"
         Me.btnRegistroSalida.Size = New System.Drawing.Size(120, 120)
@@ -141,7 +143,7 @@ Partial Class Menu
         Me.btnUsuarios.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnUsuarios.Enabled = False
         Me.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnUsuarios.Image = CType(resources.GetObject("btnUsuarios.Image"), System.Drawing.Image)
+        Me.btnUsuarios.Image = Global.SCITEC.My.Resources.Resources.Usuario
         Me.btnUsuarios.Location = New System.Drawing.Point(691, 290)
         Me.btnUsuarios.Name = "btnUsuarios"
         Me.btnUsuarios.Size = New System.Drawing.Size(120, 120)
@@ -152,6 +154,7 @@ Partial Class Menu
         '
         Me.btnCompras.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnCompras.Image = CType(resources.GetObject("btnCompras.Image"), System.Drawing.Image)
         Me.btnCompras.Location = New System.Drawing.Point(560, 65)
         Me.btnCompras.Name = "btnCompras"
         Me.btnCompras.Size = New System.Drawing.Size(120, 120)
@@ -164,6 +167,7 @@ Partial Class Menu
         Me.btnProveedores.BackColor = System.Drawing.SystemColors.Control
         Me.btnProveedores.Enabled = False
         Me.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnProveedores.Image = CType(resources.GetObject("btnProveedores.Image"), System.Drawing.Image)
         Me.btnProveedores.Location = New System.Drawing.Point(417, 290)
         Me.btnProveedores.Name = "btnProveedores"
         Me.btnProveedores.Size = New System.Drawing.Size(120, 120)
@@ -175,6 +179,7 @@ Partial Class Menu
         Me.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnReportes.Enabled = False
         Me.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnReportes.Image = CType(resources.GetObject("btnReportes.Image"), System.Drawing.Image)
         Me.btnReportes.Location = New System.Drawing.Point(161, 290)
         Me.btnReportes.Name = "btnReportes"
         Me.btnReportes.Size = New System.Drawing.Size(120, 120)
@@ -190,6 +195,7 @@ Partial Class Menu
         Me.btnProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.btnProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnProductos.Image = CType(resources.GetObject("btnProductos.Image"), System.Drawing.Image)
         Me.btnProductos.Location = New System.Drawing.Point(62, 65)
         Me.btnProductos.Name = "btnProductos"
         Me.btnProductos.Size = New System.Drawing.Size(120, 120)

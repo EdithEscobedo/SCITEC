@@ -22,6 +22,7 @@ Partial Class IniciarSesion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(IniciarSesion))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtUser = New System.Windows.Forms.TextBox()
@@ -105,7 +106,7 @@ Partial Class IniciarSesion
         '
         'imgUser
         '
-        Me.imgUser.Image = Global.SCITEC.My.Resources.Resources.User
+        Me.imgUser.Image = CType(resources.GetObject("imgUser.Image"), System.Drawing.Image)
         Me.imgUser.Location = New System.Drawing.Point(93, 120)
         Me.imgUser.Name = "imgUser"
         Me.imgUser.Size = New System.Drawing.Size(64, 68)
